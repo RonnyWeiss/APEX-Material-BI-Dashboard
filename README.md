@@ -1,2 +1,25 @@
-# APEX-Material-BI-Dashboard
-This plug-in allows to integrate a freely configurable user defined dashboards into Oracle APEX. 
+ # APEX-Material-BI-Dashboard
+
+![Screenshot](https://raw.githubusercontent.com/RonnyWeiss/APEX-Material-BI-Dashboard/main/screenshot.gif)
+
+This plug-in allows to integrate a freely configurable user defined dashboards into Oracle APEX.
+
+It offers many display options, e.g. charts, lists, KPI cards, world map, tables, HTML, analog clock, calendar and much more. Each dashboard item can also be customized and that too at runtime!
+
+The main advantage of the dashboard is that end-users of your APEX app can configure one or more dashboards at runtime without having to touch the display by a developer! This was not possible in APEX so far! Of course, the dashboard can also be used as a fixed region.
+
+The plug-in requires an APEX 5.1.3 or newer and an Oracle 12c or newer. The Sample App requires an APEX 20.2 or newer. However, you can quickly install it in a free workspace on apex.oracle.com and then get started right away with the help of the Sample App!
+
+The item dialog in the Sample App is just a very simplified example, of course in your application the respective data source (table, view, function...) and many setting options for the respective dashboard item can be offered there.
+
+The Plug-in is published under CC BY-ND 4.0, so you can use it everywhere even in commercial projects but it's not allowed to modify the code and to publish the modified plug-in! 
+
+You can find a tutorial at https://www.youtube.com/watch?v=amzzRHLT5KY&list=PL9daxiSwWyTbIm8fTa0ypeC6dFfMgXALq
+
+Examples can be found in the Sample App:
+
+https://apex.oracle.com/pls/apex/f?p=103428
+
+If you like my stuff, donate me a coffee
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/RonnyW1)
