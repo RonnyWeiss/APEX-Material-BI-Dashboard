@@ -659,6 +659,8 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                'legendShow' VALUE DECODE(P_IN_CHART_TYPE,'gauge',0,1),
                /* optional - Change the position of legend. avail values are: bottom, right and inset are supported */
                'legendPosition' VALUE DECODE(P_IN_CHART_TYPE,'pie','right','bottom'),
+			   /* optional - Set step type for step and area step charts available options are: step, step-after, step-before */
+			   'lineStep' VALUE 'step',
                /* optional - Padding on the bottom of chart [number] */
                'paddingBottom' VALUE NULL,
                /* optional - Padding on the left of chart [number] */
