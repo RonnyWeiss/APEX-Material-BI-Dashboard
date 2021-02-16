@@ -20,7 +20,7 @@ Examples can be found in the Sample App:
 
 https://apex.oracle.com/pls/apex/f?p=103428
 
-[![Linktr.ee](https://img.shields.io/badge/Linktr.ee-ronny.weiss-%2339e09b)](https://linktr.ee/ronny.weiss) ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fronny_weiss_) [![YouTube](https://img.shields.io/badge/-YouTube-%23ff0000)](https://www.youtube.com/channel/UCsqbWnOolAitsbIz517styA)
+[![Linktr.ee](https://img.shields.io/badge/Linktr.ee-ronny.weiss-%2339e09b)](https://linktr.ee/ronny.weiss) [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fronny_weiss_)](https://twitter.com/ronny_weiss_) [![YouTube](https://img.shields.io/badge/-YouTube-%23ff0000)](https://www.youtube.com/channel/UCsqbWnOolAitsbIz517styA)
 
 If you like my stuff, donate me a coffee
 
