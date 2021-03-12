@@ -633,6 +633,8 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
     BEGIN
         SELECT
             JSON_OBJECT(
+               /* set position of axis labels avail. values are inner1, inner2, inner3, outer1, outer2, outer2 */
+               'axisLabelPosition' VALUE NULL,
                /* optional - Set min value for gauge chart [number] */
                'gaugeMin' VALUE NULL,
                /* optional - Set max value for gauge chart [number] */
@@ -657,7 +659,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                'xAxisHeight' VALUE 0,
                /* optional - Add legend to chart [sqlbool (1,0)] */
                'legendShow' VALUE DECODE(P_IN_CHART_TYPE,'gauge',0,1),
-               /* optional - Change the position of legend. avail values are: bottom, right and inset are supported */
+               /* optional - Change the position of legend. avail. values are: bottom, right and inset are supported */
                'legendPosition' VALUE DECODE(P_IN_CHART_TYPE,'pie','right','bottom'),
 			   /* optional - Set step type for step and area step charts available options are: step, step-after, step-before */
 			   'lineStep' VALUE 'step',
