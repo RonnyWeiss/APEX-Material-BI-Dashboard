@@ -401,7 +401,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
     END;
     
     --------------------------------------------------------------------------------------------------------------------
-    -- Clock
+    -- Map
     --------------------------------------------------------------------------------------------------------------------
     FUNCTION GET_MAP_ITEM_CONFIG(P_IN_TOUR_ENABLED NUMBER := NULL) RETURN BLOB AS
         VR_BLOB BLOB := EMPTY_BLOB();
