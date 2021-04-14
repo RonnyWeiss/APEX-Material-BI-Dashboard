@@ -12,7 +12,7 @@ The plug-in requires an APEX 5.1.3 or newer and an Oracle 12c or newer. The Samp
 
 The item dialog in the Sample App is just a very simplified example, of course in your application the respective data source (table, view, function...) and many setting options for the respective dashboard item can be offered there.
 
-The Plug-in is published under CC BY-ND 4.0, so you can use it everywhere even in commercial projects but it's not allowed to modify the code and to publish the modified plug-in! This refers only to the plug-in code itself, the sample app, the data source code for loading the dashboard data and the dashboard configuration (any packages and tables) you can of course change, customize and publish as you like.
+The Plug-in is published under CC BY-ND 4.0, so you can use it everywhere even in commercial projects. The only restriction is that the code inside the plug-in must not be changed! This refers only to the plug-in code itself, the sample app and everything that belongs to it (tables, packages, sample data) are licensed under MIT and can be used, adapted and published as you like!
 
 You can find a tutorial at https://www.youtube.com/watch?v=amzzRHLT5KY&list=PL9daxiSwWyTbIm8fTa0ypeC6dFfMgXALq
 

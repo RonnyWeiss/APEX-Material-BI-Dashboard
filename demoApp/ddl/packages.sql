@@ -633,7 +633,9 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
     BEGIN
         SELECT
             JSON_OBJECT(
-               /* set position of axis labels avail. values are inner1, inner2, inner3, outer1, outer2, outer2 */
+               /* optional - set chart title */
+               'chartTitle' VALUE NULL,
+               /* optional - set position of axis labels avail. values are inner1, inner2, inner3, outer1, outer2, outer2 */
                'axisLabelPosition' VALUE NULL,
                /* optional - Set min value for gauge chart [number] */
                'gaugeMin' VALUE NULL,
@@ -647,6 +649,8 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                'gaugeArcMinWidth' VALUE NULL,
                /* optional - Set if gauge is full circled [sqlbool (1,0)] */
                'gaugeFullCircle' VALUE 0,
+               /* optional - Set title in the center of the gauge */
+               'gaugeTitle' VALUE NULL,
                /* optional - Set length of transitions [number] */
                'transitionDuration' VALUE NULL,
                /* optional - Set Charts should show absolute values e.g. pie, gauge and donut [sqlbool (1,0)] */
