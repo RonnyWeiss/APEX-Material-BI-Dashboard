@@ -987,6 +987,17 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                 INTO VR_BLOB
                 FROM
                     DUAL CONNECT BY ROWNUM <= 6;
+            WHEN P_IN_SAMPLE_TYPE like 'ac%' THEN
+                SELECT
+                    JSON_ARRAYAGG(
+                        JSON_OBJECT(
+                            /* required - html for the frame [string] */
+                            'html' VALUE '<iframe style="width:100%;border:none;height:100%" src="' || APEX_PAGE.GET_URL(P_PAGE => 6, P_ITEMS  => 'P6_TYPE', P_VALUES => SUBSTR(P_IN_SAMPLE_TYPE,3)) || '"></iframe>'
+                        RETURNING BLOB)
+                    RETURNING BLOB)
+                INTO VR_BLOB
+                FROM
+                    DUAL;
             ELSE
                 SELECT
                     JSON_ARRAY(
