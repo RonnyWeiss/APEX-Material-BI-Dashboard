@@ -344,7 +344,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                  /* optional - set how many events are shown without submenu per day [number] */
                 'eventLimitPerDay' VALUE 2,
                 /* optional -  set type of the calendar view. Possible Types are dayGridMonth: Month view displays 
-                the current month’s days, and usually a few days of the previous and next months, in a table-like format, 
+                the current monthï¿½s days, and usually a few days of the previous and next months, in a table-like format, 
                 dayGridWeek: A DayGrid view is a view with one or more columns, each representing a day, 
                 timeGridWeek: A TimeGrid view displays one-or-more horizontal days as well as an axis of time and listWeek,
                 listMonth, listDay: A list view displays events in a simple vertical list for a specific interval of time [string] */
@@ -633,10 +633,12 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
     BEGIN
         SELECT
             JSON_OBJECT(
-               /* optional - set chart title */
-               'chartTitle' VALUE NULL,
                /* optional - set position of axis labels avail. values are inner1, inner2, inner3, outer1, outer2, outer2 */
                'axisLabelPosition' VALUE NULL,
+               /* optional - set background of chart grid */
+               'background' VALUE NULL,
+               /* optional - set chart title */
+               'chartTitle' VALUE NULL,
                /* optional - Set min value for gauge chart [number] */
                'gaugeMin' VALUE NULL,
                /* optional - Set max value for gauge chart [number] */
@@ -832,7 +834,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                    /* optional - icon color of the badge [string] */
                    'iconColor' VALUE NULL,
                    /* optional - value that is shown [string] */
-                   'value' VALUE ROUND(DBMS_RANDOM.VALUE(-10,30))||' °C',
+                   'value' VALUE ROUND(DBMS_RANDOM.VALUE(-10,30))||' ï¿½C',
                    /* optional - value color of the badge [string] */
                    'valueColor' VALUE NULL,
                    /* optional - link on click [string] */
