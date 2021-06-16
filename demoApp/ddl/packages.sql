@@ -685,8 +685,6 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                'showDataPoints' VALUE 1,
                /* optional - Cut tick text after num of characters [number] */
                'tickCutAfter' VALUE 30,
-               /* optional - Set maximum num of tick texts on a axis [number] */
-               'tickMaxnum' VALUE 15,
                /* optional - Show or hide tooltip [sqlbool (1,0)] */
                'tooltipShow' VALUE 1,
                /* optional - Set if tooltip is grouped or not for the data points [sqlbool (1,0)] */
