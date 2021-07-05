@@ -1,0 +1,85 @@
+.bida-item-title {
+    padding-left: 8px;
+    width: 100%;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding-right: 30px;
+    height: 34px;
+    background-size: cover;
+    background-position: center;
+}
+
+.bida-item-title-text {
+    line-height: 34px;
+    font-size: 17px;
+}
+
+.bida-item-title-icon {
+    font-size: inherit !important;
+    line-height: inherit;
+    margin-right: 3px;
+}
+
+.bida-item-subtext-text {
+    color: #707070;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px;
+    padding-right: 32px;
+    display: block;
+    width: 100%;
+}
+
+.bida-item-html {
+    width: 100%;
+    display: block;
+    padding: 8px;
+    overflow: auto;
+}
+
+.bida-item-options-link,
+.bida-item-options-link-top {
+    position: absolute;
+    right: 4px;
+    z-index: 100;
+    border-radius: 50%;
+    padding: 3px;
+    opacity: 0.6;
+}
+
+.bida-item-options-link {
+    bottom: 4px;
+}
+
+.bida-item-options-link-top {
+    top: 4px;
+}
+
+.bida-item-options-link-icon {
+    font-size: 15px;
+    text-align: center;
+    line-height: 17px;
+}
+
+.bida-item-options-link-icon {
+    color: black;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+}
+
+.bida-a {
+    color: inherit;
+    display: block;
+    overflow: auto;
+}

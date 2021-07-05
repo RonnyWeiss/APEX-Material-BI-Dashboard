@@ -1,0 +1,4 @@
+node_modules/*
+*.mp4
+package-lock.json
+.vscode/*

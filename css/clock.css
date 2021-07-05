@@ -1,0 +1,66 @@
+.bida-clock-svg {
+    display: block;
+}
+
+.bida-clock-second-hand {
+    stroke-width: 2px;
+    stroke: #303030;
+}
+
+.bida-clock-minute-hand {
+    stroke-width: 4px;
+    stroke: #303030;
+    stroke-linecap: round;
+}
+
+.bida-clock-hour-hand {
+    stroke-width: 6px;
+    stroke: #303030;
+    stroke-linecap: round;
+}
+
+.bida-clock-hands-center {
+    stroke-width: 3px;
+    stroke: #303030;
+    fill: #303030;
+}
+
+.bida-clock-second-tick {
+    stroke-width: 1px;
+    stroke: #ccc;
+}
+
+.bida-clock-circle {
+    stroke-width: 5px;
+    stroke: #ccc;
+    fill-opacity: 0.3;
+}
+
+.bida-clock-hour-tick {
+    stroke-width: 3px;
+    stroke: #999;
+}
+
+.bida-clock-hour-label {
+    font-size: inherit;
+    fill: #303030;
+    font-weight: 600;
+}
+
+.bida-clock-second-label {
+    font-size: inherit;
+    fill: #707070;
+}
+
+.bida-clock-label,
+.bida-clock-label2 {
+    font-size: inherit;
+    fill: #303030;
+    font-weight: 600;
+}
+
+.bida-clock-hands-cover {
+    stroke-width: 2;
+    fill: white;
+    stroke: #999;
+}

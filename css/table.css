@@ -1,0 +1,51 @@
+.bida-item-table-div {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+.bida-item-table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+}
+
+.bida-item-table-header {
+    font-weight: bold;
+    padding: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.bida-item-table-cell {
+    padding: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.bida-item-table-row {
+    transition: all .1s ease-out;
+}
+
+.bida-item-table-row:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-filter: invert(20%);
+    filter: invert(20%);
+}
+
+.bida-item-table-row-even {}
+
+.bida-item-table-row-odd {}

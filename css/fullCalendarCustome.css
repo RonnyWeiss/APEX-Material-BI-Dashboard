@@ -1,0 +1,120 @@
+.fc-h-event {
+    border: none;
+    background: #707070;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 5px;
+    padding-right: 8px;
+    padding-top: 4px;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 18px;
+    padding-left: 8px;
+}
+
+.fc .fc-button {
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: inherit;
+    background: none;
+    border: 1px solid #707070
+}
+
+.fc .fc-button .fc-icon {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+}
+
+
+.fc .fc-scroller {
+    overflow: hidden auto !important;
+}
+
+.fc .fc-button-primary:hover .fc-button-primary {
+    color: inherit;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 4px;
+    border-radius: 1px;
+}
+
+.fc .fc-button-primary:disabled {
+    color: inherit;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 0.4;
+}
+
+.fc .fc-button-primary:hover {
+    color: white;
+    background: rgba(120, 120, 120, .6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.fc .fc-col-header-cell-cushion {
+    padding: 0px 4px;
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number,
+.fc-direction-ltr .fc-list-day-text,
+.fc-direction-ltr .fc-list-day-side-text {
+    color: inherit;
+    font-weight: 400;
+    line-height: 14px;
+    font-size: 13px;
+}
+
+.fc .fc-button-primary:not(:disabled):active {
+    color: white;
+    background: rgba(70, 70, 70, .6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.fc .fc-button-primary:not(:disabled):active:focus {
+    box-shadow: none;
+}
+
+.fc table,
+.bida-calendar-event-tt-content,
+.bida-calendar-event-tt-date,
+.bida-calendar-event-tt-icon {
+    font-size: 13px;
+}
+
+.bida-calendar-event-tt-title,
+.bida-calendar-event-tt-date,
+.bida-calendar-event-tt-icon {
+    line-height: 20px;
+}
+
+.bida-calendar-event-tt-title,
+.bida-calendar-event-tt-title * {
+    font-weight: 600;
+}
+
+.fc .fc-daygrid-day.fc-day-today,
+.fc .fc-timegrid-col.fc-day-today {
+    background: rgba(200, 200, 200, 0.3);
+}
+
+.fc .fc-daygrid-day-number {
+    padding: 0px;
+    padding-right: 4px;
+}
+
+.fc .fc-daygrid-day-events {
+    margin-top: 0px;
+}
+
+.fc .fc-list-sticky .fc-list-day > * {
+    background: transparent;
+}

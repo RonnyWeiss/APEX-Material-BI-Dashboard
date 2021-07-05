@@ -1,0 +1,78 @@
+.bida-item-card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    transition: all .7s ease-out;
+    overflow: auto;
+}
+
+.bida-item-card:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.bida-item-card .card-title {
+    margin: 0px;
+    line-height: 36px;
+    font-size: 28px;
+    text-align: right;
+    width: 100%;
+    font-weight: 500;
+}
+
+.bida-item-card .card-sub-title {
+    margin: 0px;
+    text-align: right;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.bida-item-card .card-content {
+    display: flex;
+    margin: 10px 15px;
+}
+
+.bida-item-card .bida-card-footer {
+    margin: 0 15px 8px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    line-height: 14px;
+
+}
+
+.bida-item-card .card-content-icon-div {
+    display: block;
+}
+
+.bida-item-card .card-content-icon {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    line-height: 55px;
+    text-align: center;
+    font-size: 29px;
+    background: #999999;
+    display: block;
+    margin-right: 5px;
+    box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.26);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-title-div {
+    display: block;
+    width: 100%;
+}
+
+.card-content-icon-text {
+    font-size: 24px;
+    display: block;
+}

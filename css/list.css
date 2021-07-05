@@ -1,0 +1,108 @@
+.bida-item-list-div {
+    overflow: auto;
+}
+
+.bida-item-list,
+.bida-item-list-grouped {
+    display: block;
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+}
+
+.bida-item-list-grouped {
+    padding-left: 0px;
+}
+
+.bida-item-list .list-item-title {
+    line-height: 20px;
+    font-size: 15px;
+    width: 100%;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.list-item-content-text {
+    width: 100%;
+    display: block;
+}
+
+.list-item-text {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.bida-item-list .list-item-content {
+    display: flex;
+    padding: 4px;
+    width: 100%;
+    transition: all .7s ease-out;
+}
+
+.bida-item-list .bida-item-list-item {
+    border-left: 3px solid transparent;
+}
+
+.bida-item-list-grouped .bida-item-list-item {
+    border-left: 0px;
+}
+
+.bida-item-list-item-group .list-group-content-title {
+    line-height: 30px;
+    font-size: 15px;
+    width: 100%;
+    display: inline-block;
+    font-weight: 500;
+    padding-left: 8px;
+    word-break: break-all;
+    padding-right: 8px;
+}
+
+.bida-item-list-item-group .list-group-content {
+    box-shadow: 0px 0px 3px 0.32px rgba(0, 0, 0, .26);
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.bida-item-list .bida-item-list-item-grouped {}
+
+.bida-item-list .list-item-content:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.bida-item-list .list-item-content-icon-div {
+    display: block;
+}
+
+.bida-item-list .list-item-content-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 23px;
+    background: #999999;
+    display: block;
+    margin-right: 10px;
+    box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.26);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bida-item-list .list-item-content-icon-text {
+    font-size: 17px;
+    display: block;
+}

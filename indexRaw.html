@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material BI Dashboard</title>
+    <link rel="stylesheet" href="https://oracle.github.io/font-apex/css/font-apex.min.css?v=2.1" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/badges.css" rel="stylesheet">
+    <link href="css/billboard.css" rel="stylesheet">
+    <link href="css/cards.css" rel="stylesheet">
+    <link href="css/charts.css" rel="stylesheet">
+    <link href="css/clock.css" rel="stylesheet">
+    <link href="css/fullCalendar.css" rel="stylesheet">
+    <link href="css/fullCalendarCustome.css" rel="stylesheet">
+    <link href="css/html.css" rel="stylesheet">
+    <link href="css/list.css" rel="stylesheet">
+    <link href="css/map.css" rel="stylesheet">
+    <link href="css/masonry.css" rel="stylesheet">
+    <link href="css/pell-custome.css" rel="stylesheet">
+    <link href="css/pell.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+        integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+    <script src="js/lib/d3.js"></script>
+    <script src="js/lib/fullCalendar.js"></script>
+    <script src="js/lib/fullCalendarLocales.js"></script>
+    <script src="js/lib/maptopojson.js"></script>
+    <script src="js/lib/masonry.pkgd.js"></script>
+    <script src="js/lib/nbillboard.js"></script>
+    <script src="js/lib/pell.js"></script>
+    <script src="js/lib/purify.js"></script>
+    <script src="data/data.js"></script>
+    <script src="data/dataAsync.js"></script>
+    <script src="js/bridge.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<script>
+    var mainConf = {
+        "isSortable": false,
+        "colSpan": 12,
+        "height": 400,
+        "refresh": 0,
+        "backColor": "transparent",
+        "color": "inherit",
+        "optionsLink": {
+            "backColor": "transparent",
+            "color": "inherit",
+            "icon": "fa-link"
+        },
+        "optionsLinkTop": {
+            "backColor": "transparent",
+            "color": "inherit",
+            "icon": "fa-link"
+        },
+        "title": {
+            "backColor": "transparent",
+            "color": "inherit",
+            "icon": null
+        }
+    };
+
+    var sanitizerConf = {
+        "ALLOWED_ATTR": ["accesskey", "align", "alt", "always", "autocomplete", "autoplay", "border", "cellpadding", "cellspacing", "charset", "class", "dir", "height", "href", "id", "lang", "name", "rel", "required", "src", "style", "summary", "tabindex", "target", "title", "type", "value", "width"],
+        "ALLOWED_TAGS": ["a", "address", "b", "blockquote", "br", "caption", "code", "dd", "div", "dl", "dt", "em", "figcaption", "figure", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "i", "img", "label", "li", "nl", "ol", "p", "pre", "s", "span", "strike", "strong", "sub", "sup", "table", "tbody", "td", "th", "thead", "tr", "u", "ul"]
+    };
+
+    var tableConf = {
+        "header": {
+            "background": "white",
+            "textAlign": "left",
+            "color": "inherit",
+            "border": "1px solid rgba(240, 240, 240, 1)"
+        },
+        "cells": {
+            "background": "transparent",
+            "textAlign": "left",
+            "color": "inherit",
+            "border": "1px solid rgba(240, 240, 240, 1)"
+        },
+        "evenRow": {
+            "background": "white",
+            "textAlign": "left",
+            "color": "inherit",
+            "borderBottom": "1px solid rgba(240, 240, 240, 1)"
+        },
+        "oddRow": {
+            "background": "rgb(240,240,240)",
+            "textAlign": "left",
+            "color": "inherit",
+            "borderBottom": "1px solid rgba(240, 240, 240, 1)"
+        }
+
+    };
+
+    var clockConf = {
+        "shadows": false,
+        "label": {
+            "labelColor": "#303030",
+            "labelColor2": "#303030"
+        },
+        "hour": {
+            "labelColor": "#303030",
+            "tickColor": "#999"
+        },
+        "second": {
+            "label": false,
+            "labelColor": "#707070",
+            "tickColor": "#ccc"
+        },
+        "hands": {
+            "color": "#303030",
+            "coverFillColor": "white",
+            "coverStrokeColor": "#999",
+            "coverSize": 2
+        },
+        "circle": {
+            "color": "#999",
+            "width": 4,
+            "fillColor": "#999"
+        }
+    };
+
+    var mapConf = {
+        "tour": {
+            "enabled": false,
+            "direction": "right",
+            "speed": 10,
+            "start": -30,
+            "shadowEffect": true
+        },
+        "circles": {
+            "color": "rgb(97, 159, 209)",
+            "radius": 5,
+            "opacity": 0.9,
+            "opacityHover": 0.65,
+            "shadows": false
+        },
+        "map": {
+            "stroke": "white",
+            "strokeWidth": "0.5px",
+            "color": "rgb(170,170,170)",
+            "centerLongitude": 0,
+            "centerLatitude": 0,
+            "initialZoom": 1,
+            "shadows": false
+        }
+    };
+
+    var chartConf = {
+        "axisLabelPosition": "outer2",
+        "background": null,
+        "gauge": {
+            "min": 0,
+            "max": null,
+            "type": "single",
+            "width": null,
+            "arcMinWidth": null,
+            "fullCircle": false,
+            "title": null
+        },
+        "grid": {
+            "x": true,
+            "y": true
+        },
+        "shadows": true,
+        "legend": {
+            "position": "bottom",
+            "show": true
+        },
+        "padding": {
+            "bottom": 0,
+            "left": null,
+            "right": 20,
+            "top": 10
+        },
+        "rotateAxis": false,
+        "showDataLabels": false,
+        "showDataPoints": true,
+        "splineInterpolation": "step-after",
+        "tick": {
+            "cutAfter": 30,
+            "maxNumber": 25,
+            "multiline": false,
+            "rotation": 60,
+            "timeFormat": "%m-%d %H:%M"
+        },
+        "tooltip": {
+            "grouped": true,
+            "show": true
+        },
+        "transitionDuration": 100,
+        "x": {
+            "label": "x Axis",
+            "timeFormat": "%y-%m-%d %H:%M:%S",
+            "type": "category"
+        },
+        "axisHeight": null,
+        "y": {
+            "label": "y Axis 1",
+            "max": null,
+            "min": null
+        },
+        "y2": {
+            "label": "y Axis 2",
+            "max": null,
+            "min": null
+        },
+        "zoom": {
+            "enabled": true,
+            "type": "subchart",
+            "rescale": false
+        }
+    };
+
+    function init() {
+        /* init the dashboard */
+        apexBIDashBoard(bridge, $).initialize('plugin', 'plugin', "ajaxIDKey0815", 'No data found', 'Error occured', mainConf, 'A', 'map:table:charts:clock:calendar:note', chartConf, null, null, false, sanitizerConf, "https://apex.oracle.com/pls/apex/ronnyweiss_outlook_com/r/55310/files/plugin/161556939618477644685/v4869/map/", mapConf, tableConf, clockConf);
+    }
+
+    function ajaxSimulation(ajaxID, pItems, pOptions) {
+        switch (pItems.x01) {
+            /* wait to simulate ajax request */
+            case "items":
+                setTimeout(function () {
+                    pOptions.success(data);
+                }, 200);
+                break;
+            case "itemData":
+                console.log("Try to load async data from item - " + pItems.x02);
+                /* wait to simulate ajax request */
+                setTimeout(function () {
+                    pOptions.success(asyncData, null, {
+                        getResponseHeader: function () {
+                            return pItems.x04;
+                        }
+                    });
+                }, 800);
+                break;
+            case "noteUpload":
+                /* wait to simulate ajax request */
+                console.log("Text successfully send from item - " + pItems.x02 + ": " + pItems.f01.join());
+                setTimeout(function () {
+                    pOptions.success();
+                }, 800);
+                break;
+            case "imageDownload":
+                /* used when image download from pluginURL is done by same ajax call then the other calls
+                 ** this feature is used only when use unleash rte plug-in and images should be load by this build feature in other 
+                 ** frameworks then APEX this make IMHO no sense so this will never be called */
+                console.log("Try to download image");
+                break;
+            default:
+                pOptions.error();
+                bridge.debug.warn("No function set for this AJAX Call!");
+        }
+    }
+
+</script>
+
+<body onload="init()" style="box-sizing: border-box">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="https://linktr.ee/ronny.weiss" target="_blank">Material BI Dashboard</a>
+        </nav>
+    </header>
+    <div class="container-fluid" style="margin-top:60px">
+        <div class="row">
+            <div class="col-12">
+                <div id="plugin" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

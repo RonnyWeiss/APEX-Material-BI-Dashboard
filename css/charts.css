@@ -1,0 +1,56 @@
+.bb svg {
+    font-family: inherit;
+}
+
+.bb-tooltip-container {
+    font-family: inherit;
+}
+
+.bb-tooltip {
+    background-color: rgba(240, 240, 240, 1);
+    border: none;
+    box-shadow: none;
+    padding: 4px;
+}
+
+.bb-tooltip th {
+    background-color: transparent;
+    color: inherit;
+    border-bottom: solid 1px #aaa;
+}
+
+.bb-tooltip td {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bb-line {
+    stroke-width: 1.7px;
+}
+
+.bb-chart-radars .bb-axis text,
+.bb-chart-arc text {
+    font-weight: normal;
+}
+
+.bb-chart-arc .bb-gauge-value,
+.bb-chart-arcs .bb-chart-arcs-title {
+    font-style: normal;
+}
+
+.bb-grid line {
+    stroke: #e1e1e1;
+}
+
+.bb-xgrid-focus line {
+    stroke: #888;
+    stroke-width: 1.5px;
+}
+
+.bb-chart-radars .bb-shapes polygon,
+.bb-area {
+    opacity: 0.3;
+}
+
+.bb-color-pattern {
+    background-image: url("#2ac4b3;#feaf29;#ff617b;#73a2ef;#b180d0;#3064cf;#d0a45f;#8aaec7;#ef65a2;#8aaec7;");
+}

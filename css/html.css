@@ -1,0 +1,36 @@
+.bida-item-html-slide-lc,
+.bida-item-html-slide-rc {
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: absolute;
+    bottom: calc(50% - 40px);
+    cursor: pointer;
+}
+
+.bida-item-html-slide-lc:hover,
+.bida-item-html-slide-rc:hover {
+    background: rgba(120, 120, 120, 0.6);
+}
+
+.bida-item-html-slide-lc-s,
+.bida-item-html-slide-rc-s {
+    border-radius: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    color: white;
+}
+
+.bida-item-html-slide-lc-s.fa,
+.bida-item-html-slide-rc-s.fa {
+    font-size: 24px;
+}
+
+.bida-item-html-slide-lc {
+    left: 5px;
+}
+
+.bida-item-html-slide-rc {
+    right: 5px;
+}

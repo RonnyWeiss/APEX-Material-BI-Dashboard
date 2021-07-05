@@ -1,0 +1,29 @@
+.bida-item-badge-text,
+.bida-item-badge-icon,
+.bida-item-badge-text-value {
+    width: 94%;
+    display: block;
+    margin-lefT: 3%;
+    margin-right: 3%;
+    text-align: center;
+}
+
+.bida-item-badge-text > span,
+.bida-item-badge-icon > span,
+.bida-item-badge-text-value > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, .2);
+    display: block;
+    width: 100%;
+}
+
+.bida-item-badge-icon-image {
+    background-size: cover;
+    background-position: center;
+    border-radius: 20%;
+    /*box-shadow: .5px .5px 2px rgba(0, 0, 0, .2);*/
+    display: block;
+    margin: 0 auto;
+}
