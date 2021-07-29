@@ -832,7 +832,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                    /* optional - icon color of the badge [string] */
                    'iconColor' VALUE NULL,
                    /* optional - value that is shown [string] */
-                   'value' VALUE ROUND(DBMS_RANDOM.VALUE(-10,30))||' �C',
+                   'value' VALUE ROUND(DBMS_RANDOM.VALUE(-10,30))||' °C',
                    /* optional - value color of the badge [string] */
                    'valueColor' VALUE NULL,
                    /* optional - link on click [string] */

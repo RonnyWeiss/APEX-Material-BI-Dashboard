@@ -759,7 +759,7 @@
       month: 'Hónap',
       week: 'Hét',
       day: 'Nap',
-      list: 'Napló',
+      list: 'Lista',
     },
     weekText: 'Hét',
     allDayText: 'Egész nap',
@@ -921,6 +921,28 @@
   };
 
   var l44 = {
+    code: 'km',
+    week: {
+      dow: 1, // Monday is the first day of the week.
+      doy: 4, // The week that contains Jan 4th is the first week of the year.
+    },
+    buttonText: {
+      prev: 'មុន',
+      next: 'បន្ទាប់',
+      today: 'ថ្ងៃនេះ',
+      year: 'ឆ្នាំ',
+      month: 'ខែ',
+      week: 'សប្តាហ៍',
+      day: 'ថ្ងៃ',
+      list: 'បញ្ជី',
+    },
+    weekText: 'សប្តាហ៍',
+    allDayText: 'ពេញមួយថ្ងៃ',
+    moreLinkText: 'ច្រើនទៀត',
+    noEventsText: 'គ្មានព្រឹត្តិការណ៍ត្រូវបង្ហាញ',
+  };
+
+  var l45 = {
     code: 'ko',
     buttonText: {
       prev: '이전달',
@@ -937,7 +959,29 @@
     noEventsText: '일정이 없습니다',
   };
 
-  var l45 = {
+  var l46 = {
+    code: 'ku',
+    week: {
+      dow: 6, // Saturday is the first day of the week.
+      doy: 12, // The week that contains Jan 1st is the first week of the year.
+    },
+    direction: 'rtl',
+    buttonText: {
+      prev: 'پێشتر',
+      next: 'دواتر',
+      today: 'ئەمڕو',
+      month: 'مانگ',
+      week: 'هەفتە',
+      day: 'ڕۆژ',
+      list: 'بەرنامە',
+    },
+    weekText: 'هەفتە',
+    allDayText: 'هەموو ڕۆژەکە',
+    moreLinkText: 'زیاتر',
+    noEventsText: 'هیچ ڕووداوێك نیە',
+  };
+
+  var l47 = {
     code: 'lb',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -958,7 +1002,7 @@
     noEventsText: 'Nee Evenementer ze affichéieren',
   };
 
-  var l46 = {
+  var l48 = {
     code: 'lt',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -979,7 +1023,7 @@
     noEventsText: 'Nėra įvykių rodyti',
   };
 
-  var l47 = {
+  var l49 = {
     code: 'lv',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1002,7 +1046,7 @@
     noEventsText: 'Nav notikumu',
   };
 
-  var l48 = {
+  var l50 = {
     code: 'mk',
     buttonText: {
       prev: 'претходно',
@@ -1021,7 +1065,7 @@
     noEventsText: 'Нема настани за прикажување',
   };
 
-  var l49 = {
+  var l51 = {
     code: 'ms',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1044,7 +1088,7 @@
     noEventsText: 'Tiada peristiwa untuk dipaparkan',
   };
 
-  var l50 = {
+  var l52 = {
     code: 'nb',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1065,7 +1109,7 @@
     noEventsText: 'Ingen hendelser å vise',
   };
 
-  var l51 = {
+  var l53 = {
     code: 'ne', // code for nepal
     week: {
       dow: 7, // Sunday is the first day of the week.
@@ -1086,7 +1130,7 @@
     noEventsText: 'देखाउनको लागि कुनै घटनाहरू छैनन्',
   };
 
-  var l52 = {
+  var l54 = {
     code: 'nl',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1107,7 +1151,7 @@
     noEventsText: 'Geen evenementen om te laten zien',
   };
 
-  var l53 = {
+  var l55 = {
     code: 'nn',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1128,7 +1172,7 @@
     noEventsText: 'Ingen hendelser å vise',
   };
 
-  var l54 = {
+  var l56 = {
     code: 'pl',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1149,7 +1193,7 @@
     noEventsText: 'Brak wydarzeń do wyświetlenia',
   };
 
-  var l55 = {
+  var l57 = {
     code: 'pt-br',
     buttonText: {
       prev: 'Anterior',
@@ -1168,7 +1212,7 @@
     noEventsText: 'Não há eventos para mostrar',
   };
 
-  var l56 = {
+  var l58 = {
     code: 'pt',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1189,7 +1233,7 @@
     noEventsText: 'Não há eventos para mostrar',
   };
 
-  var l57 = {
+  var l59 = {
     code: 'ro',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1212,7 +1256,7 @@
     noEventsText: 'Nu există evenimente de afișat',
   };
 
-  var l58 = {
+  var l60 = {
     code: 'ru',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1235,7 +1279,7 @@
     noEventsText: 'Нет событий для отображения',
   };
 
-  var l59 = {
+  var l61 = {
     code: 'sk',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1258,7 +1302,7 @@
     noEventsText: 'Žiadne akcie na zobrazenie',
   };
 
-  var l60 = {
+  var l62 = {
     code: 'sl',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1279,7 +1323,24 @@
     noEventsText: 'Ni dogodkov za prikaz',
   };
 
-  var l61 = {
+  var l63 = {
+    code: 'sm',
+    buttonText: {
+      prev: 'Talu ai',
+      next: 'Mulimuli atu',
+      today: 'Aso nei',
+      month: 'Masina',
+      week: 'Vaiaso',
+      day: 'Aso',
+      list: 'Faasologa',
+    },
+    weekText: 'Vaiaso',
+    allDayText: 'Aso atoa',
+    moreLinkText: 'sili atu',
+    noEventsText: 'Leai ni mea na tutupu',
+  };
+
+  var l64 = {
     code: 'sq',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1302,7 +1363,7 @@
     noEventsText: 'Nuk ka evente për të shfaqur',
   };
 
-  var l62 = {
+  var l65 = {
     code: 'sr-cyrl',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1325,7 +1386,7 @@
     noEventsText: 'Нема догађаја за приказ',
   };
 
-  var l63 = {
+  var l66 = {
     code: 'sr',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1348,7 +1409,7 @@
     noEventsText: 'Nеma događaja za prikaz',
   };
 
-  var l64 = {
+  var l67 = {
     code: 'sv',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1369,7 +1430,7 @@
     noEventsText: 'Inga händelser att visa',
   };
 
-  var l65 = {
+  var l68 = {
     code: 'ta-in',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1392,7 +1453,7 @@
     noEventsText: 'காண்பிக்க நிகழ்வுகள் இல்லை',
   };
 
-  var l66 = {
+  var l69 = {
     code: 'th',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1416,7 +1477,7 @@
     noEventsText: 'ไม่มีกิจกรรมที่จะแสดง',
   };
 
-  var l67 = {
+  var l70 = {
     code: 'tr',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1437,7 +1498,7 @@
     noEventsText: 'Gösterilecek etkinlik yok',
   };
 
-  var l68 = {
+  var l71 = {
     code: 'ug',
     buttonText: {
       month: 'ئاي',
@@ -1448,7 +1509,7 @@
     allDayText: 'پۈتۈن كۈن',
   };
 
-  var l69 = {
+  var l72 = {
     code: 'uk',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1471,7 +1532,7 @@
     noEventsText: 'Немає подій для відображення',
   };
 
-  var l70 = {
+  var l73 = {
     code: 'uz',
     buttonText: {
       month: 'Oy',
@@ -1486,7 +1547,7 @@
     noEventsText: "Ko'rsatish uchun voqealar yo'q",
   };
 
-  var l71 = {
+  var l74 = {
     code: 'vi',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -1509,7 +1570,7 @@
     noEventsText: 'Không có sự kiện để hiển thị',
   };
 
-  var l72 = {
+  var l75 = {
     code: 'zh-cn',
     week: {
       // GB/T 7408-1994《数据元和交换格式·信息交换·日期和时间表示法》与ISO 8601:1988等效
@@ -1533,7 +1594,7 @@
     noEventsText: '没有事件显示',
   };
 
-  var l73 = {
+  var l76 = {
     code: 'zh-tw',
     buttonText: {
       prev: '上月',
@@ -1553,7 +1614,7 @@
   /* eslint max-len: off */
 
   var localesAll = [
-    l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33, l34, l35, l36, l37, l38, l39, l40, l41, l42, l43, l44, l45, l46, l47, l48, l49, l50, l51, l52, l53, l54, l55, l56, l57, l58, l59, l60, l61, l62, l63, l64, l65, l66, l67, l68, l69, l70, l71, l72, l73, 
+    l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33, l34, l35, l36, l37, l38, l39, l40, l41, l42, l43, l44, l45, l46, l47, l48, l49, l50, l51, l52, l53, l54, l55, l56, l57, l58, l59, l60, l61, l62, l63, l64, l65, l66, l67, l68, l69, l70, l71, l72, l73, l74, l75, l76, 
   ];
 
   return localesAll;

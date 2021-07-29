@@ -1,5 +1,5 @@
 /*!
-FullCalendar v5.8.0
+FullCalendar v5.9.0
 Docs & License: https://fullcalendar.io/
 (c) 2021 Adam Shaw
 */
@@ -48,10 +48,14 @@ var FullCalendar = (function (exports) {
         return __assign.apply(this, arguments);
     };
 
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-            to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || from);
     }
 
     var n,u,i$1,t,o,r$1={},f$1=[],e$1=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;function c$1(n,l){for(var u in l)n[u]=l[u];return n}function s(n){var l=n.parentNode;l&&l.removeChild(n);}function a$1(n,l,u){var i,t,o,r=arguments,f={};for(o in l)"key"==o?i=l[o]:"ref"==o?t=l[o]:f[o]=l[o];if(arguments.length>3)for(u=[u],o=3;o<arguments.length;o++)u.push(r[o]);if(null!=u&&(f.children=u),"function"==typeof n&&null!=n.defaultProps)for(o in n.defaultProps)void 0===f[o]&&(f[o]=n.defaultProps[o]);return v$1(n,f,i,t,null)}function v$1(l,u,i,t,o){var r={type:l,props:u,key:i,ref:t,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,__h:null,constructor:void 0,__v:null==o?++n.__v:o};return null!=n.vnode&&n.vnode(r),r}function h(){return {current:null}}function y(n){return n.children}function p(n,l){this.props=n,this.context=l;}function d(n,l){if(null==l)return n.__?d(n.__,n.__.__k.indexOf(n)+1):null;for(var u;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e)return u.__e;return "function"==typeof n.type?d(n):null}function _(n){var l,u;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,l=0;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e){n.__e=n.__c.base=u.__e;break}return _(n)}}function k(l){(!l.__d&&(l.__d=!0)&&u.push(l)&&!b$1.__r++||t!==n.debounceRendering)&&((t=n.debounceRendering)||i$1)(b$1);}function b$1(){for(var n;b$1.__r=u.length;)n=u.sort(function(n,l){return n.__v.__b-l.__v.__b}),u=[],n.some(function(n){var l,u,i,t,o,r;n.__d&&(o=(t=(l=n).__v).__e,(r=l.__P)&&(u=[],(i=c$1({},t)).__v=t.__v+1,I$1(r,t,i,l.__n,void 0!==r.ownerSVGElement,null!=t.__h?[o]:null,u,null==o?d(t):o,t.__h),T$1(u,t),t.__e!=o&&_(t)));});}function m(n,l,u,i,t,o,e,c,s,a){var h,p,_,k,b,m,w,A=i&&i.__k||f$1,P=A.length;for(u.__k=[],h=0;h<l.length;h++)if(null!=(k=u.__k[h]=null==(k=l[h])||"boolean"==typeof k?null:"string"==typeof k||"number"==typeof k||"bigint"==typeof k?v$1(null,k,null,null,k):Array.isArray(k)?v$1(y,{children:k},null,null,null):k.__b>0?v$1(k.type,k.props,k.key,null,k.__v):k)){if(k.__=u,k.__b=u.__b+1,null===(_=A[h])||_&&k.key==_.key&&k.type===_.type)A[h]=void 0;else for(p=0;p<P;p++){if((_=A[p])&&k.key==_.key&&k.type===_.type){A[p]=void 0;break}_=null;}I$1(n,k,_=_||r$1,t,o,e,c,s,a),b=k.__e,(p=k.ref)&&_.ref!=p&&(w||(w=[]),_.ref&&w.push(_.ref,null,k),w.push(p,k.__c||b,k)),null!=b?(null==m&&(m=b),"function"==typeof k.type&&null!=k.__k&&k.__k===_.__k?k.__d=s=g$1(k,s,n):s=x$1(n,k,_,A,b,s),a||"option"!==u.type?"function"==typeof u.type&&(u.__d=s):n.value=""):s&&_.__e==s&&s.parentNode!=n&&(s=d(_));}for(u.__e=m,h=P;h--;)null!=A[h]&&("function"==typeof u.type&&null!=A[h].__e&&A[h].__e==u.__d&&(u.__d=d(i,h+1)),L$1(A[h],A[h]));if(w)for(h=0;h<w.length;h++)z(w[h],w[++h],w[++h]);}function g$1(n,l,u){var i,t;for(i=0;i<n.__k.length;i++)(t=n.__k[i])&&(t.__=n,l="function"==typeof t.type?g$1(t,l,u):x$1(u,t,t,n.__k,t.__e,l));return l}function w$1(n,l){return l=l||[],null==n||"boolean"==typeof n||(Array.isArray(n)?n.some(function(n){w$1(n,l);}):l.push(n)),l}function x$1(n,l,u,i,t,o){var r,f,e;if(void 0!==l.__d)r=l.__d,l.__d=void 0;else if(null==u||t!=o||null==t.parentNode)n:if(null==o||o.parentNode!==n)n.appendChild(t),r=null;else {for(f=o,e=0;(f=f.nextSibling)&&e<i.length;e+=2)if(f==t)break n;n.insertBefore(t,o),r=o;}return void 0!==r?r:t.nextSibling}function A$1(n,l,u,i,t){var o;for(o in u)"children"===o||"key"===o||o in l||C$1(n,o,null,u[o],i);for(o in l)t&&"function"!=typeof l[o]||"children"===o||"key"===o||"value"===o||"checked"===o||u[o]===l[o]||C$1(n,o,l[o],u[o],i);}function P$1(n,l,u){"-"===l[0]?n.setProperty(l,u):n[l]=null==u?"":"number"!=typeof u||e$1.test(l)?u:u+"px";}function C$1(n,l,u,i,t){var o;n:if("style"===l)if("string"==typeof u)n.style.cssText=u;else {if("string"==typeof i&&(n.style.cssText=i=""),i)for(l in i)u&&l in u||P$1(n.style,l,"");if(u)for(l in u)i&&u[l]===i[l]||P$1(n.style,l,u[l]);}else if("o"===l[0]&&"n"===l[1])o=l!==(l=l.replace(/Capture$/,"")),l=l.toLowerCase()in n?l.toLowerCase().slice(2):l.slice(2),n.l||(n.l={}),n.l[l+o]=u,u?i||n.addEventListener(l,o?H$1:$$1,o):n.removeEventListener(l,o?H$1:$$1,o);else if("dangerouslySetInnerHTML"!==l){if(t)l=l.replace(/xlink[H:h]/,"h").replace(/sName$/,"s");else if("href"!==l&&"list"!==l&&"form"!==l&&"tabIndex"!==l&&"download"!==l&&l in n)try{n[l]=null==u?"":u;break n}catch(n){}"function"==typeof u||(null!=u&&(!1!==u||"a"===l[0]&&"r"===l[1])?n.setAttribute(l,u):n.removeAttribute(l));}}function $$1(l){this.l[l.type+!1](n.event?n.event(l):l);}function H$1(l){this.l[l.type+!0](n.event?n.event(l):l);}function I$1(l,u,i,t,o,r,f,e,s){var a,v,h,d,_,k,b,g,w,x,A,P=u.type;if(void 0!==u.constructor)return null;null!=i.__h&&(s=i.__h,e=u.__e=i.__e,u.__h=null,r=[e]),(a=n.__b)&&a(u);try{n:if("function"==typeof P){if(g=u.props,w=(a=P.contextType)&&t[a.__c],x=a?w?w.props.value:a.__:t,i.__c?b=(v=u.__c=i.__c).__=v.__E:("prototype"in P&&P.prototype.render?u.__c=v=new P(g,x):(u.__c=v=new p(g,x),v.constructor=P,v.render=M$1),w&&w.sub(v),v.props=g,v.state||(v.state={}),v.context=x,v.__n=t,h=v.__d=!0,v.__h=[]),null==v.__s&&(v.__s=v.state),null!=P.getDerivedStateFromProps&&(v.__s==v.state&&(v.__s=c$1({},v.__s)),c$1(v.__s,P.getDerivedStateFromProps(g,v.__s))),d=v.props,_=v.state,h)null==P.getDerivedStateFromProps&&null!=v.componentWillMount&&v.componentWillMount(),null!=v.componentDidMount&&v.__h.push(v.componentDidMount);else {if(null==P.getDerivedStateFromProps&&g!==d&&null!=v.componentWillReceiveProps&&v.componentWillReceiveProps(g,x),!v.__e&&null!=v.shouldComponentUpdate&&!1===v.shouldComponentUpdate(g,v.__s,x)||u.__v===i.__v){v.props=g,v.state=v.__s,u.__v!==i.__v&&(v.__d=!1),v.__v=u,u.__e=i.__e,u.__k=i.__k,u.__k.forEach(function(n){n&&(n.__=u);}),v.__h.length&&f.push(v);break n}null!=v.componentWillUpdate&&v.componentWillUpdate(g,v.__s,x),null!=v.componentDidUpdate&&v.__h.push(function(){v.componentDidUpdate(d,_,k);});}v.context=x,v.props=g,v.state=v.__s,(a=n.__r)&&a(u),v.__d=!1,v.__v=u,v.__P=l,a=v.render(v.props,v.state,v.context),v.state=v.__s,null!=v.getChildContext&&(t=c$1(c$1({},t),v.getChildContext())),h||null==v.getSnapshotBeforeUpdate||(k=v.getSnapshotBeforeUpdate(d,_)),A=null!=a&&a.type===y&&null==a.key?a.props.children:a,m(l,Array.isArray(A)?A:[A],u,i,t,o,r,f,e,s),v.base=u.__e,u.__h=null,v.__h.length&&f.push(v),b&&(v.__E=v.__=null),v.__e=!1;}else null==r&&u.__v===i.__v?(u.__k=i.__k,u.__e=i.__e):u.__e=j$2(i.__e,u,i,t,o,r,f,s);(a=n.diffed)&&a(u);}catch(l){u.__v=null,(s||null!=r)&&(u.__e=e,u.__h=!!s,r[r.indexOf(e)]=null),n.__e(l,u,i);}}function T$1(l,u){n.__c&&n.__c(u,l),l.some(function(u){try{l=u.__h,u.__h=[],l.some(function(n){n.call(u);});}catch(l){n.__e(l,u.__v);}});}function j$2(n,l,u,i,t,o,e,c){var a,v,h,y,p=u.props,d=l.props,_=l.type,k=0;if("svg"===_&&(t=!0),null!=o)for(;k<o.length;k++)if((a=o[k])&&(a===n||(_?a.localName==_:3==a.nodeType))){n=a,o[k]=null;break}if(null==n){if(null===_)return document.createTextNode(d);n=t?document.createElementNS("http://www.w3.org/2000/svg",_):document.createElement(_,d.is&&d),o=null,c=!1;}if(null===_)p===d||c&&n.data===d||(n.data=d);else {if(o=o&&f$1.slice.call(n.childNodes),v=(p=u.props||r$1).dangerouslySetInnerHTML,h=d.dangerouslySetInnerHTML,!c){if(null!=o)for(p={},y=0;y<n.attributes.length;y++)p[n.attributes[y].name]=n.attributes[y].value;(h||v)&&(h&&(v&&h.__html==v.__html||h.__html===n.innerHTML)||(n.innerHTML=h&&h.__html||""));}if(A$1(n,d,p,t,c),h)l.__k=[];else if(k=l.props.children,m(n,Array.isArray(k)?k:[k],l,u,i,t&&"foreignObject"!==_,o,e,n.firstChild,c),null!=o)for(k=o.length;k--;)null!=o[k]&&s(o[k]);c||("value"in d&&void 0!==(k=d.value)&&(k!==n.value||"progress"===_&&!k)&&C$1(n,"value",k,p.value,!1),"checked"in d&&void 0!==(k=d.checked)&&k!==n.checked&&C$1(n,"checked",k,p.checked,!1));}return n}function z(l,u,i){try{"function"==typeof l?l(u):l.current=u;}catch(l){n.__e(l,i);}}function L$1(l,u,i){var t,o,r;if(n.unmount&&n.unmount(l),(t=l.ref)&&(t.current&&t.current!==l.__e||z(t,null,u)),i||"function"==typeof l.type||(i=null!=(o=l.__e)),l.__e=l.__d=void 0,null!=(t=l.__c)){if(t.componentWillUnmount)try{t.componentWillUnmount();}catch(l){n.__e(l,u);}t.base=t.__P=null;}if(t=l.__k)for(r=0;r<t.length;r++)t[r]&&L$1(t[r],u,i);null!=o&&s(o);}function M$1(n,l,u){return this.constructor(n,u)}function N(l,u,i){var t,o,e;n.__&&n.__(l,u),o=(t="function"==typeof i)?null:i&&i.__k||u.__k,e=[],I$1(u,l=(!t&&i||u).__k=a$1(y,null,[l]),o||r$1,r$1,void 0!==u.ownerSVGElement,!t&&i?[i]:o?null:u.firstChild?f$1.slice.call(u.childNodes):null,e,!t&&i?i:o?o.__e:u.firstChild,t),T$1(e,l);}function q(n,l){var u={__c:l="__cC"+o++,__:n,Consumer:function(n,l){return n.children(l)},Provider:function(n){var u,i;return this.getChildContext||(u=[],(i={})[l]=this,this.getChildContext=function(){return i},this.shouldComponentUpdate=function(n){this.props.value!==n.value&&u.some(k);},this.sub=function(n){u.push(n);var l=n.componentWillUnmount;n.componentWillUnmount=function(){u.splice(u.indexOf(n),1),l&&l.call(n);};}),n.children}};return u.Provider.__=u.Consumer.contextType=u}n={__e:function(n,l){for(var u,i,t;l=l.__;)if((u=l.__c)&&!u.__)try{if((i=u.constructor)&&null!=i.getDerivedStateFromError&&(u.setState(i.getDerivedStateFromError(n)),t=u.__d),null!=u.componentDidCatch&&(u.componentDidCatch(n),t=u.__d),t)return u.__E=u}catch(l){n=l;}throw n},__v:0},p.prototype.setState=function(n,l){var u;u=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=c$1({},this.state),"function"==typeof n&&(n=n(c$1({},u),this.props)),n&&c$1(u,n),null!=n&&this.__v&&(l&&this.__h.push(l),k(this));},p.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),k(this));},p.prototype.render=y,u=[],i$1="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,b$1.__r=0,o=0;
@@ -265,6 +269,11 @@ var FullCalendar = (function (exports) {
     function getEventTargetViaRoot(ev) {
         var _a, _b;
         return (_b = (_a = ev.composedPath) === null || _a === void 0 ? void 0 : _a.call(ev)[0]) !== null && _b !== void 0 ? _b : ev.target;
+    }
+    // Shadow DOM consuderations
+    // ----------------------------------------------------------------------------------------------------------------
+    function getElRoot(el) {
+        return el.getRootNode ? el.getRootNode() : document;
     }
 
     // Stops a mouse/touch event from doing it's native browser action
@@ -5432,39 +5441,56 @@ var FullCalendar = (function (exports) {
             }
         };
         ContentHookInner.prototype.renderInnerContent = function () {
-            var contentTypeHandlers = this.context.pluginHooks.contentTypeHandlers;
-            var _a = this, props = _a.props, customContentInfo = _a.customContentInfo;
-            var rawVal = props.content;
-            var innerContent = normalizeContent(rawVal, props.hookProps);
-            var innerContentVDom = null;
+            var customContentInfo = this.customContentInfo; // only populated if using non-[p]react node(s)
+            var innerContent = this.getInnerContent();
+            var meta = this.getContentMeta(innerContent);
+            // initial run, or content-type changing? (from vue -> react for example)
+            if (!customContentInfo || customContentInfo.contentKey !== meta.contentKey) {
+                // clearing old value
+                if (customContentInfo) {
+                    if (customContentInfo.destroy) {
+                        customContentInfo.destroy();
+                    }
+                    customContentInfo = this.customContentInfo = null;
+                }
+                // assigning new value
+                if (meta.contentKey) {
+                    customContentInfo = this.customContentInfo = __assign({ contentKey: meta.contentKey, contentVal: innerContent[meta.contentKey] }, meta.buildLifecycleFuncs());
+                }
+                // updating
+            }
+            else if (customContentInfo) {
+                customContentInfo.contentVal = innerContent[meta.contentKey];
+            }
+            return customContentInfo
+                ? [] // signal that something was specified
+                : innerContent; // assume a [p]react vdom node. use it
+        };
+        ContentHookInner.prototype.getInnerContent = function () {
+            var props = this.props;
+            var innerContent = normalizeContent(props.content, props.hookProps);
             if (innerContent === undefined) { // use the default
                 innerContent = normalizeContent(props.defaultContent, props.hookProps);
             }
-            if (innerContent !== undefined) { // we allow custom content handlers to return nothing
-                if (customContentInfo) {
-                    customContentInfo.contentVal = innerContent[customContentInfo.contentKey];
-                }
-                else if (typeof innerContent === 'object') {
-                    // look for a prop that would indicate a custom content handler is needed
-                    for (var contentKey in contentTypeHandlers) {
-                        if (innerContent[contentKey] !== undefined) {
-                            var stuff = contentTypeHandlers[contentKey]();
-                            customContentInfo = this.customContentInfo = __assign({ contentKey: contentKey, contentVal: innerContent[contentKey] }, stuff);
-                            break;
-                        }
+            return innerContent == null ? null : innerContent; // convert undefined to null (better for React)
+        };
+        ContentHookInner.prototype.getContentMeta = function (innerContent) {
+            var contentTypeHandlers = this.context.pluginHooks.contentTypeHandlers;
+            var contentKey = '';
+            var buildLifecycleFuncs = null;
+            if (innerContent) { // allowed to be null, for convenience to caller
+                for (var searchKey in contentTypeHandlers) {
+                    if (innerContent[searchKey] !== undefined) {
+                        contentKey = searchKey;
+                        buildLifecycleFuncs = contentTypeHandlers[searchKey];
+                        break;
                     }
                 }
-                if (customContentInfo) {
-                    innerContentVDom = []; // signal that something was specified
-                }
-                else {
-                    innerContentVDom = innerContent; // assume a [p]react vdom node. use it
-                }
             }
-            return innerContentVDom;
+            return { contentKey: contentKey, buildLifecycleFuncs: buildLifecycleFuncs };
         };
         ContentHookInner.prototype.updateCustomContent = function () {
-            if (this.customContentInfo) {
+            if (this.customContentInfo) { // for non-[p]react
                 this.customContentInfo.render(this.innerElRef.current || this.props.backupElRef.current, // the element to render into
                 this.customContentInfo.contentVal);
             }
@@ -7399,70 +7425,77 @@ var FullCalendar = (function (exports) {
         };
         SegHierarchy.prototype.insertEntryAt = function (entry, insertion) {
             var _a = this, entriesByLevel = _a.entriesByLevel, levelCoords = _a.levelCoords;
-            var destLevel = insertion.level;
-            if (destLevel >= levelCoords.length || // level doesn't exist yet
-                levelCoords[destLevel] > insertion.levelCoord // destLevel needs to be pushed forward to make way
-            ) {
+            if (insertion.lateral === -1) {
                 // create a new level
-                insertAt(levelCoords, destLevel, insertion.levelCoord);
-                insertAt(entriesByLevel, destLevel, [entry]);
+                insertAt(levelCoords, insertion.level, insertion.levelCoord);
+                insertAt(entriesByLevel, insertion.level, [entry]);
             }
             else {
                 // insert into existing level
-                insertAt(entriesByLevel[destLevel], insertion.lateralEnd, entry);
+                insertAt(entriesByLevel[insertion.level], insertion.lateral, entry);
             }
             this.stackCnts[buildEntryKey(entry)] = insertion.stackCnt;
         };
         SegHierarchy.prototype.findInsertion = function (newEntry) {
-            var _a = this, levelCoords = _a.levelCoords, entriesByLevel = _a.entriesByLevel, stackCnts = _a.stackCnts, strictOrder = _a.strictOrder;
+            var _a = this, levelCoords = _a.levelCoords, entriesByLevel = _a.entriesByLevel, strictOrder = _a.strictOrder, stackCnts = _a.stackCnts;
             var levelCnt = levelCoords.length;
-            var resLevelCoord = 0;
-            var resLevel = 0;
-            var lateralStart = 0;
-            var lateralEnd = 0;
+            var candidateCoord = 0;
             var touchingLevel = -1;
-            var touchingEntry = null; // last touch entry
-            for (var level = 0; level < levelCnt; level += 1) {
-                var levelCoord = levelCoords[level];
+            var touchingLateral = -1;
+            var touchingEntry = null;
+            var stackCnt = 0;
+            for (var trackingLevel = 0; trackingLevel < levelCnt; trackingLevel += 1) {
+                var trackingCoord = levelCoords[trackingLevel];
                 // if the current level is past the placed entry, we have found a good empty space and can stop.
                 // if strictOrder, keep finding more lateral intersections.
-                if (!strictOrder && levelCoord >= resLevelCoord + newEntry.thickness) {
+                if (!strictOrder && trackingCoord >= candidateCoord + newEntry.thickness) {
                     break;
                 }
-                var entries = entriesByLevel[level];
-                var entry = void 0;
-                var searchRes = binarySearch(entries, newEntry.span.start, getEntrySpanEnd);
-                lateralStart = searchRes[0] + searchRes[1]; // if exact match (which doesn't collide), go to next one
-                lateralEnd = lateralStart; // also functions as a moving index
+                var trackingEntries = entriesByLevel[trackingLevel];
+                var trackingEntry = void 0;
+                var searchRes = binarySearch(trackingEntries, newEntry.span.start, getEntrySpanEnd); // find first entry after newEntry's end
+                var lateralIndex = searchRes[0] + searchRes[1]; // if exact match (which doesn't collide), go to next one
                 while ( // loop through entries that horizontally intersect
-                (entry = entries[lateralEnd]) && // but not past the whole entry list
-                    entry.span.start < newEntry.span.end // and not entirely past newEntry
+                (trackingEntry = trackingEntries[lateralIndex]) && // but not past the whole entry list
+                    trackingEntry.span.start < newEntry.span.end // and not entirely past newEntry
                 ) {
-                    if (strictOrder || // strict-mode doesn't care about vert intersection. record touch and keep pushing down
-                        ( // vertically intersects?
-                        resLevelCoord < levelCoord + entry.thickness &&
-                            resLevelCoord + newEntry.thickness > levelCoord)) {
-                        // push down the potential destination
-                        resLevelCoord = levelCoord + entry.thickness; // move to bottom of colliding entry
-                        touchingLevel = level;
-                        touchingEntry = entry;
+                    var trackingEntryBottom = trackingCoord + trackingEntry.thickness;
+                    // intersects into the top of the candidate?
+                    if (trackingEntryBottom > candidateCoord) {
+                        candidateCoord = trackingEntryBottom;
+                        touchingEntry = trackingEntry;
+                        touchingLevel = trackingLevel;
+                        touchingLateral = lateralIndex;
                     }
-                    lateralEnd += 1;
-                }
-                // regardless of whether there were collisions in the current level,
-                // keep updating the final-destination level until it goes past the final-destination coord.
-                if (levelCoord < resLevelCoord) {
-                    resLevel = level + 1;
+                    // butts up against top of candidate? (will happen if just intersected as well)
+                    if (trackingEntryBottom === candidateCoord) {
+                        // accumulate the highest possible stackCnt of the trackingEntries that butt up
+                        stackCnt = Math.max(stackCnt, stackCnts[buildEntryKey(trackingEntry)] + 1);
+                    }
+                    lateralIndex += 1;
                 }
             }
+            // the destination level will be after touchingEntry's level. find it
+            var destLevel = 0;
+            if (touchingEntry) {
+                destLevel = touchingLevel + 1;
+                while (destLevel < levelCnt && levelCoords[destLevel] < candidateCoord) {
+                    destLevel += 1;
+                }
+            }
+            // if adding to an existing level, find where to insert
+            var destLateral = -1;
+            if (destLevel < levelCnt && levelCoords[destLevel] === candidateCoord) {
+                destLateral = binarySearch(entriesByLevel[destLevel], newEntry.span.end, getEntrySpanEnd)[0];
+            }
             return {
-                level: resLevel,
-                levelCoord: resLevelCoord,
-                lateralStart: lateralStart,
-                lateralEnd: lateralEnd,
                 touchingLevel: touchingLevel,
+                touchingLateral: touchingLateral,
                 touchingEntry: touchingEntry,
-                stackCnt: touchingEntry ? stackCnts[buildEntryKey(touchingEntry)] + 1 : 0,
+                stackCnt: stackCnt,
+                levelCoord: candidateCoord,
+                level: destLevel,
+                lateral: destLateral,
             };
         };
         // sorted by levelCoord (lowest to highest)
@@ -9555,7 +9588,7 @@ var FullCalendar = (function (exports) {
 
     // exports
     // --------------------------------------------------------------------------------------------------
-    var version = '5.8.0'; // important to type it, so .d.ts has generic string
+    var version = '5.9.0'; // important to type it, so .d.ts has generic string
 
     var Calendar = /** @class */ (function (_super) {
         __extends(Calendar, _super);
@@ -9955,7 +9988,7 @@ var FullCalendar = (function (exports) {
             this.mirrorEl = null;
             this.sourceElRect = null; // screen coords relative to viewport
             // options that can be set directly by caller
-            this.parentNode = document.body;
+            this.parentNode = document.body; // HIGHLY SUGGESTED to set this to sidestep ShadowDOM issues
             this.zIndex = 9999;
             this.revertDuration = 0;
         }
@@ -10224,9 +10257,9 @@ var FullCalendar = (function (exports) {
                 }
             };
         }
-        AutoScroller.prototype.start = function (pageX, pageY) {
+        AutoScroller.prototype.start = function (pageX, pageY, scrollStartEl) {
             if (this.isEnabled) {
-                this.scrollCaches = this.buildCaches();
+                this.scrollCaches = this.buildCaches(scrollStartEl);
                 this.pointerScreenX = null;
                 this.pointerScreenY = null;
                 this.everMovedUp = false;
@@ -10332,15 +10365,15 @@ var FullCalendar = (function (exports) {
             }
             return bestSide;
         };
-        AutoScroller.prototype.buildCaches = function () {
-            return this.queryScrollEls().map(function (el) {
+        AutoScroller.prototype.buildCaches = function (scrollStartEl) {
+            return this.queryScrollEls(scrollStartEl).map(function (el) {
                 if (el === window) {
                     return new WindowScrollGeomCache(false); // false = don't listen to user-generated scrolls
                 }
                 return new ElementScrollGeomCache(el, false); // false = don't listen to user-generated scrolls
             });
         };
-        AutoScroller.prototype.queryScrollEls = function () {
+        AutoScroller.prototype.queryScrollEls = function (scrollStartEl) {
             var els = [];
             for (var _i = 0, _a = this.scrollQuery; _i < _a.length; _i++) {
                 var query = _a[_i];
@@ -10348,7 +10381,7 @@ var FullCalendar = (function (exports) {
                     els.push(query);
                 }
                 else {
-                    els.push.apply(els, Array.prototype.slice.call(document.querySelectorAll(query)));
+                    els.push.apply(els, Array.prototype.slice.call(getElRoot(scrollStartEl).querySelectorAll(query)));
                 }
             }
             return els;
@@ -10366,6 +10399,7 @@ var FullCalendar = (function (exports) {
         __extends(FeaturefulElementDragging, _super);
         function FeaturefulElementDragging(containerEl, selector) {
             var _this = _super.call(this, containerEl) || this;
+            _this.containerEl = containerEl;
             // options that can be directly set by caller
             // the caller can also set the PointerDragging's options as well
             _this.delay = null;
@@ -10483,7 +10517,7 @@ var FullCalendar = (function (exports) {
                 if (!this.pointer.wasTouchScroll || this.touchScrollAllowed) {
                     this.isDragging = true;
                     this.mirrorNeedsRevert = false;
-                    this.autoScroller.start(ev.pageX, ev.pageY);
+                    this.autoScroller.start(ev.pageX, ev.pageY, this.containerEl);
                     this.emitter.trigger('dragstart', ev);
                     if (this.touchScrollAllowed === false) {
                         this.pointer.cancelTouchScroll();
@@ -10646,7 +10680,7 @@ var FullCalendar = (function (exports) {
             var adjustedPoint = origPoint;
             var subjectEl = ev.subjectEl;
             var subjectRect;
-            if (subjectEl !== document) {
+            if (subjectEl instanceof HTMLElement) { // i.e. not a Document/ShadowRoot
                 subjectRect = computeRect(subjectEl);
                 adjustedPoint = constrainPoint(adjustedPoint, subjectRect);
             }
@@ -11028,7 +11062,7 @@ var FullCalendar = (function (exports) {
                     _this.dragging.setMirrorNeedsRevert(!mutation);
                     // render the mirror if no already-rendered mirror
                     // TODO: wish we could somehow wait for dispatch to guarantee render
-                    _this.dragging.setMirrorIsVisible(!hit || !document.querySelector('.fc-event-mirror'));
+                    _this.dragging.setMirrorIsVisible(!hit || !getElRoot(_this.subjectEl).querySelector('.fc-event-mirror'));
                     // assign states based on new hit
                     _this.receivingContext = receivingContext;
                     _this.validMutation = mutation;
@@ -11429,7 +11463,7 @@ var FullCalendar = (function (exports) {
             };
             this.onDocumentPointerDown = function (pev) {
                 var unselectCancel = _this.context.options.unselectCancel;
-                var downEl = pev.origEvent.target;
+                var downEl = getEventTargetViaRoot(pev.origEvent);
                 _this.matchesCancel = !!elementClosest(downEl, unselectCancel);
                 _this.matchesEvent = !!elementClosest(downEl, EventDragging.SELECTOR); // interaction started on an event?
             };
@@ -11761,9 +11795,10 @@ var FullCalendar = (function (exports) {
                 }
             }
             else {
-                var mirrorEl = this.mirrorSelector ?
-                    document.querySelector(this.mirrorSelector) :
-                    null;
+                var mirrorEl = this.mirrorSelector
+                    // TODO: somehow query FullCalendars WITHIN shadow-roots
+                    ? document.querySelector(this.mirrorSelector)
+                    : null;
                 if (mirrorEl) {
                     this.currentMirrorEl = mirrorEl;
                     mirrorEl.style.visibility = 'hidden';
@@ -12199,7 +12234,7 @@ var FullCalendar = (function (exports) {
                     seg: resliceSeg(seg, col, col + 1, cells),
                     isVisible: true,
                     isAbsolute: false,
-                    absoluteTop: 0,
+                    absoluteTop: rect.levelCoord,
                     marginTop: rect.levelCoord - currentHeight,
                 });
                 currentHeight = rect.levelCoord + rect.thickness;
@@ -12232,7 +12267,7 @@ var FullCalendar = (function (exports) {
                         seg: resliceSeg(seg, rect.span.start, rect.span.end, cells),
                         isVisible: true,
                         isAbsolute: false,
-                        absoluteTop: 0,
+                        absoluteTop: rect.levelCoord,
                         marginTop: currentMarginTop, // claim the margin
                     });
                     currentMarginTop = 0;
@@ -12297,25 +12332,21 @@ var FullCalendar = (function (exports) {
         };
         DayGridSegHierarchy.prototype.handleInvalidInsertion = function (insertion, entry, hiddenEntries) {
             var _a = this, entriesByLevel = _a.entriesByLevel, forceHidden = _a.forceHidden;
-            var touchingLevel = insertion.touchingLevel;
-            if (this.hiddenConsumes && touchingLevel >= 0) {
-                for (var lateral = insertion.lateralStart; lateral < insertion.lateralEnd; lateral += 1) {
-                    var leadingEntry = entriesByLevel[touchingLevel][lateral];
+            var touchingEntry = insertion.touchingEntry, touchingLevel = insertion.touchingLevel, touchingLateral = insertion.touchingLateral;
+            if (this.hiddenConsumes && touchingEntry) {
+                var touchingEntryId = buildEntryKey(touchingEntry);
+                // if not already hidden
+                if (!forceHidden[touchingEntryId]) {
                     if (this.allowReslicing) {
-                        var placeholderEntry = __assign(__assign({}, leadingEntry), { span: intersectSpans(leadingEntry.span, entry.span) });
+                        var placeholderEntry = __assign(__assign({}, touchingEntry), { span: intersectSpans(touchingEntry.span, entry.span) });
                         var placeholderEntryId = buildEntryKey(placeholderEntry);
-                        if (!forceHidden[placeholderEntryId]) { // if not already hidden
-                            forceHidden[placeholderEntryId] = true;
-                            entriesByLevel[touchingLevel][lateral] = placeholderEntry; // replace leadingEntry with our placeholder
-                            this.splitEntry(leadingEntry, entry, hiddenEntries); // split up the leadingEntry, reinsert it
-                        }
+                        forceHidden[placeholderEntryId] = true;
+                        entriesByLevel[touchingLevel][touchingLateral] = placeholderEntry; // replace touchingEntry with our placeholder
+                        this.splitEntry(touchingEntry, entry, hiddenEntries); // split up the touchingEntry, reinsert it
                     }
                     else {
-                        var placeholderEntryId = buildEntryKey(leadingEntry);
-                        if (!forceHidden[placeholderEntryId]) {
-                            forceHidden[placeholderEntryId] = true;
-                            hiddenEntries.push(leadingEntry);
-                        }
+                        forceHidden[touchingEntryId] = true;
+                        hiddenEntries.push(touchingEntry);
                     }
                 }
             }
@@ -12527,7 +12558,7 @@ var FullCalendar = (function (exports) {
                 topsByInstanceId[placement.seg.eventRange.instance.instanceId] = placement.absoluteTop;
             }
         }
-        return colPlacements;
+        return topsByInstanceId;
     }
 
     var Table = /** @class */ (function (_super) {
@@ -14611,9 +14642,11 @@ var FullCalendar = (function (exports) {
     exports.getDateMeta = getDateMeta;
     exports.getDayClassNames = getDayClassNames;
     exports.getDefaultEventEnd = getDefaultEventEnd;
+    exports.getElRoot = getElRoot;
     exports.getElSeg = getElSeg;
     exports.getEntrySpanEnd = getEntrySpanEnd;
     exports.getEventClassNames = getEventClassNames;
+    exports.getEventTargetViaRoot = getEventTargetViaRoot;
     exports.getIsRtlScrollbarOnLeft = getIsRtlScrollbarOnLeft;
     exports.getRectCenter = getRectCenter;
     exports.getRelevantEvents = getRelevantEvents;
