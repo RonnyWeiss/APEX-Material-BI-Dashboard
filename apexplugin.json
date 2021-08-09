@@ -1,6 +1,6 @@
 {
     "name": "APEX Material BI Dashboard",
-    "version": "1.0.0.18",
+    "version": "1.0.0.19",
     "description": "This plug-in allows to integrate a freely configurable dashboard into Oracle APEX.<p>It offers many display options, e.g. charts, lists, KPI cards, world map, tables, HTML, analog clock, calendar and much more. Each dashboard item can be customized, even at runtime without page submit!</p><p>The main advantage of the dashboard is that end-users of your APEX app can configure one or more dashboards at runtime without having to touch the region or page by a developer! This was not possible in APEX so far! Of course, the dashboard can also be used as a fixed region.</p><p>The plug-in requires an APEX 5.1.3 or newer and an Oracle 12c or newer. The Sample App requires an APEX 20.2 or newer. However, you can quickly install it in a free workspace on apex.oracle.com and then get started right away with the help of the Sample App!</p><p>The item dialog in the Sample App is just a very simplified example, of course in your application the respective data source (table, view, function...) and many setting options for the respective dashboard item can be offered there.</p><p>You can find a tutorial at<p>https:\/\/www.youtube.com/playlist?list=PL9daxiSwWyTbIm8fTa0ypeC6dFfMgXALq</p></p>",
     "keywords": ["oracle", "apex", "plugin", "charts", "region", "responsive", "d3"],
     "homepage": "https://github.com/RonnyWeiss/APEX-Material-BI-Dashboard",

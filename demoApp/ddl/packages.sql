@@ -862,12 +862,16 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                                     'fa-apex',
                                     'https://raw.githubusercontent.com/RonnyWeiss/APEX-Advent-Calendar/master/img/thumb/0' || ROUND(DBMS_RANDOM.VALUE(1,9)) || '.jpg'
                                 ),
+                   /* optional - set text instead on an icon */
+                   'iconText' VALUE NULL,
                    /* optional - icon color of the card [string] */
                    'iconColor' VALUE 'white',
                    /* optional - background color of the card [string] */
                    'iconBackColor' VALUE NULL,
                    /* optional - value that is shown [string] */
                    'value' VALUE ROUND(DBMS_RANDOM.VALUE(80,90))||' %',
+                   /* optional - small value below value that is shown [string] */
+                   'valueSmall' VALUE 'This is a smaller Text',
                    /* optional - footer text [string] */
                    'footer' VALUE 'This is a Dashboard KPI Card.',
                    /* optional - link on click [string] */

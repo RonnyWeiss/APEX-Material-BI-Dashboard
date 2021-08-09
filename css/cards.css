@@ -1,5 +1,5 @@
 .bida-item-card {
-    display: inline-block;
+    display: block;
     position: relative;
     width: 100%;
     transition: all .7s ease-out;
