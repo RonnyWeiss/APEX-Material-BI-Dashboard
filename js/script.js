@@ -3,7 +3,7 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.19",
+            scriptVersion: "1.0.0.20",
             utilVersion: "1.4",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
