@@ -1997,6 +1997,13 @@ var apexBIDashBoard = function (apex, $) {
                     "featureDetails": util.featureDetails
                 });
 
+                var possibleTargets = [
+                    "_blank",
+                    "_self",
+                    "_parent",
+                    "_top"
+                ];
+
                 var list = $("<div></div>");
                 list.addClass("bida-item-list-div");
 
@@ -2091,7 +2098,12 @@ var apexBIDashBoard = function (apex, $) {
                         if (util.isDefinedAndNotNull(listItem.link)) {
                             var a = $("<a></a>");
                             a.addClass("bida-a");
-                            a.attr("href", listItem.link);
+                            a.attr("href", listItem.link);                            
+
+                            if (possibleTargets.indexOf(listItem.target) >= 0) {
+                                a.attr("target", listItem.target);
+                            }                            
+
                             a.append(li);
                             pAddTo.append(a);
                         } else {

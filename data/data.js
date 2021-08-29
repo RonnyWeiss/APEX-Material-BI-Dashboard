@@ -839,7 +839,8 @@ var data = {
                "icon":"fa-apex",
                "iconColor":"white",
                "iconBackColor":null,
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "target":"_blank"
             },
             {
                "title":"List item 2",
@@ -847,7 +848,8 @@ var data = {
                "icon":"fa-apex",
                "iconColor":"white",
                "iconBackColor":null,
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "target":"_blank"
             },
             {
                "title":"List item 3",
