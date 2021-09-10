@@ -470,7 +470,15 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                     /* optional - add content of tooltip when hover the circle [string] */
                     'tooltip' VALUE 'This is tooltip ' || ROWNUM,
                     /* optional -  add an url when click on the circle [string] */
-                    'link' VALUE 'https://linktr.ee/ronny.weiss'
+                    'link' VALUE 'https://linktr.ee/ronny.weiss',
+                    /* optional - set target for the link 
+                        _blank - URL is loaded into a new window, or tab. This is default
+                        _parent - URL is loaded into the parent frame
+                        _self - URL replaces the current page
+                        _top - URL replaces any framesets that may be loaded
+                        name - The name of the window (Note: the name does not specify the title of the new window)
+                    */ 
+                    'linkTarget' VALUE '_blank'
                 RETURNING BLOB)
             RETURNING BLOB)
         INTO VR_BLOB
@@ -773,6 +781,14 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                    'type' VALUE NVL(P_IN_CHART_TYPE,'area-spline'), 
                    /* optional - link when point of series is clicked [string] */
                    'link' VALUE 'https://linktr.ee/ronny.weiss',
+                    /* optional - set target for the link 
+                        _blank - URL is loaded into a new window, or tab. This is default
+                        _parent - URL is loaded into the parent frame
+                        _self - URL replaces the current page
+                        _top - URL replaces any framesets that may be loaded
+                        name - The name of the window (Note: the name does not specify the title of the new window)
+                    */ 
+                    'linkTarget' VALUE '_blank',
                    /* optional - color of series e.g #ff0000 [string] */
                    'color' VALUE NULL,
                    /* required - data for x axis [depends on x axis type - number, string, date]*/
@@ -836,7 +852,15 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                    /* optional - value color of the badge [string] */
                    'valueColor' VALUE NULL,
                    /* optional - link on click [string] */
-                   'link' VALUE 'https://linktr.ee/ronny.weiss'
+                   'link' VALUE 'https://linktr.ee/ronny.weiss',
+                    /* optional - set target for the link 
+                        _blank - URL is loaded into a new window, or tab. This is default
+                        _parent - URL is loaded into the parent frame
+                        _self - URL replaces the current page
+                        _top - URL replaces any framesets that may be loaded
+                        name - The name of the window (Note: the name does not specify the title of the new window)
+                    */ 
+                    'linkTarget' VALUE '_blank'
                 RETURNING BLOB)
                 INTO VR_BLOB
             FROM
@@ -875,7 +899,15 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                    /* optional - footer text [string] */
                    'footer' VALUE 'This is a Dashboard KPI Card.',
                    /* optional - link on click [string] */
-                   'link' VALUE 'https://linktr.ee/ronny.weiss'
+                   'link' VALUE 'https://linktr.ee/ronny.weiss',
+                    /* optional - set target for the link 
+                        _blank - URL is loaded into a new window, or tab. This is default
+                        _parent - URL is loaded into the parent frame
+                        _self - URL replaces the current page
+                        _top - URL replaces any framesets that may be loaded
+                        name - The name of the window (Note: the name does not specify the title of the new window)
+                    */ 
+                    'linkTarget' VALUE '_blank'
                 RETURNING BLOB)
                 INTO VR_BLOB
             FROM
@@ -914,7 +946,15 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                         /* optional - background color of the card [string] */
                         'iconBackColor' VALUE NULL,
                         /* optional - link when click on list item [string] */
-                        'link' VALUE 'https://linktr.ee/ronny.weiss' 
+                        'link' VALUE 'https://linktr.ee/ronny.weiss',
+                        /* optional - set target for the link 
+                            _blank - URL is loaded into a new window, or tab. This is default
+                            _parent - URL is loaded into the parent frame
+                            _self - URL replaces the current page
+                            _top - URL replaces any framesets that may be loaded
+                            name - The name of the window (Note: the name does not specify the title of the new window)
+                        */ 
+                        'linkTarget' VALUE '_blank'
                     RETURNING BLOB) 
                 RETURNING BLOB)
                 INTO VR_BLOB

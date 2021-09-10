@@ -190,12 +190,14 @@
         apexBIDashBoard(bridge, $).initialize('plugin', 'plugin', "ajaxIDKey0815", 'No data found', 'Error occured', mainConf, 'A', 'map:table:charts:clock:calendar:note', chartConf, null, null, false, sanitizerConf, "https://apex.oracle.com/pls/apex/ronnyweiss_outlook_com/r/55310/files/plugin/161556939618477644685/v4869/map/", mapConf, tableConf, clockConf);
     }
 
-    function ajaxSimulation(ajaxID, pItems, pOptions) {
+    function ajaxCall(ajaxID, pItems, pOptions) {
         switch (pItems.x01) {
             /* wait to simulate ajax request */
             case "items":
                 setTimeout(function() {
                     pOptions.success(data);
+                    // used when error
+                    //pOptions.error(data);
                 }, 200);
                 break;
             case "itemData":
@@ -207,6 +209,8 @@
                             return pItems.x04;
                         }
                     });
+                    // used when error
+                    //pOptions.error(data);
                 }, 800);
                 break;
             case "noteUpload":
@@ -214,6 +218,8 @@
                 console.log("Text successfully send from item - " + pItems.x02 + ": " + pItems.f01.join());
                 setTimeout(function() {
                     pOptions.success();
+                    // used when error
+                    //pOptions.error();
                 }, 800);
                 break;
             case "imageDownload":

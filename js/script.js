@@ -3,8 +3,8 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.20",
-            utilVersion: "1.4",
+            scriptVersion: "1.0.0.21",
+            utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
             license: "CC BY-ND 4.0 License"
@@ -31,11 +31,9 @@ var apexBIDashBoard = function (apex, $) {
                 return [];
             }
         },
-        link: function (link, tabbed) {
-            if (tabbed) {
-                window.open(link, "_blank");
-            } else {
-                return window.parent.location.href = link;
+        link: function (pLink, pTarget = "_parent") {
+            if (typeof pLink !== "undefined" && pLink !== null && pLink != "") {
+                window.open(pLink, pTarget);
             }
         },
         tooltip: {
@@ -2093,6 +2091,11 @@ var apexBIDashBoard = function (apex, $) {
                             a.addClass("bida-a");
                             a.attr("href", listItem.link);
                             a.append(li);
+
+                            if (util.isDefinedAndNotNull(listItem.linkTarget)) {
+                                a.attr("target", listItem.linkTarget);
+                            }
+
                             pAddTo.append(a);
                         } else {
                             pAddTo.append(li);
@@ -2275,7 +2278,7 @@ var apexBIDashBoard = function (apex, $) {
                 if (util.isDefinedAndNotNull(pItemData.link)) {
                     badgeDiv.css("cursor", "pointer");
                     badgeDiv.on("click", function () {
-                        util.link(pItemData.link);
+                        util.link(pItemData.link, pItemData.linkTarget);
                     });
                 }
 
@@ -2469,6 +2472,11 @@ var apexBIDashBoard = function (apex, $) {
                     var a = $("<a></a>");
                     a.addClass("bida-a");
                     a.attr("href", pItemData.link);
+
+                    if (util.isDefinedAndNotNull(pItemData.linkTarget)) {
+                        a.attr("target", pItemData.linkTarget);
+                    }
+
                     a.append(card);
 
                     $(pItemSel).append(a);
@@ -2546,7 +2554,7 @@ var apexBIDashBoard = function (apex, $) {
                         }
 
                         if (seriesData[key][index] && seriesData[key][index].link) {
-                            util.link(seriesData[key][index].link);
+                            util.link(seriesData[key][index].link, seriesData[key][index].linkTarget);
                         }
                     }
                 }
@@ -3744,7 +3752,20 @@ var apexBIDashBoard = function (apex, $) {
                     eventMouseLeave: function () {
                         util.tooltip.hide();
                     },
-                    eventClick: function () {
+                    eventClick: function (ev) {
+                        ev.jsEvent.preventDefault();
+                        if (ev.event._def && ev.event._def && ev.event._def) {
+                            var def = ev.event._def;
+                            if (def.extendedProps && def.extendedProps.link) {
+                                util.link(def.extendedProps.link, def.extendedProps.linkTarget);
+                            } else {
+                                if (def.extendedProps) {
+                                    util.link(def.url, def.extendedProps.linkTarget);
+                                } else {
+                                    util.link(def.url);
+                                }
+                            }
+                        }
                         util.tooltip.hide();
                     },
                     dayMaxEventRows: eventLimit,
@@ -4166,7 +4187,7 @@ var apexBIDashBoard = function (apex, $) {
                             })
                             .on("click", function (event, d) {
                                 if (util.isDefinedAndNotNull(d.link)) {
-                                    util.link(d.link);
+                                    util.link(d.link, d.linkTarget);
                                 }
                             })
                             .attr("transform", function (d) {

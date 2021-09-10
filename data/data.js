@@ -12,17 +12,18 @@ var data = {
          "itemData":[
             {
                "title":"Event 1",
-               "start":"2020-10-02T18:00:00",
-               "end":"2020-10-02T22:00:00",
+               "start":"2021-09-02T18:00:00",
+               "end":"2021-09-02T22:00:00",
                "color":"hsl(23, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
+               "linkTarget":"https://linktr.ee/ronny.weiss",
                "details":"Here are details for event 1"
             },
             {
                "title":"Event 2",
-               "start":"2020-10-03T15:00:00",
-               "end":"2020-10-03T22:00:00",
+               "start":"2021-09-03T15:00:00",
+               "end":"2021-09-03T22:00:00",
                "color":"hsl(46, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -30,8 +31,8 @@ var data = {
             },
             {
                "title":"Event 3",
-               "start":"2020-10-04T03:00:00",
-               "end":"2020-10-04T23:00:00",
+               "start":"2021-09-04T03:00:00",
+               "end":"2021-09-04T23:00:00",
                "color":"hsl(69, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -39,8 +40,8 @@ var data = {
             },
             {
                "title":"Event 4",
-               "start":"2020-10-05T14:00:00",
-               "end":"2020-10-05T22:00:00",
+               "start":"2021-09-05T14:00:00",
+               "end":"2021-09-05T22:00:00",
                "color":"hsl(92, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -48,8 +49,8 @@ var data = {
             },
             {
                "title":"Event 5",
-               "start":"2020-10-06T08:00:00",
-               "end":"2020-10-06T22:00:00",
+               "start":"2021-09-06T08:00:00",
+               "end":"2021-09-06T22:00:00",
                "color":"hsl(115, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -57,8 +58,8 @@ var data = {
             },
             {
                "title":"Event 6",
-               "start":"2020-10-07T06:00:00",
-               "end":"2020-10-07T23:00:00",
+               "start":"2021-09-07T06:00:00",
+               "end":"2021-09-07T23:00:00",
                "color":"hsl(138, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -66,8 +67,8 @@ var data = {
             },
             {
                "title":"Event 7",
-               "start":"2020-10-08T12:00:00",
-               "end":"2020-10-08T23:00:00",
+               "start":"2021-09-08T12:00:00",
+               "end":"2021-09-08T23:00:00",
                "color":"hsl(161, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -75,8 +76,8 @@ var data = {
             },
             {
                "title":"Event 8",
-               "start":"2020-10-09T17:00:00",
-               "end":"2020-10-09T22:00:00",
+               "start":"2021-09-09T17:00:00",
+               "end":"2021-09-09T22:00:00",
                "color":"hsl(184, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -84,8 +85,8 @@ var data = {
             },
             {
                "title":"Event 9",
-               "start":"2020-10-10T03:00:00",
-               "end":"2020-10-10T21:00:00",
+               "start":"2021-09-10T03:00:00",
+               "end":"2021-09-10T21:00:00",
                "color":"hsl(207, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -93,8 +94,8 @@ var data = {
             },
             {
                "title":"Event 10",
-               "start":"2020-10-11T12:00:00",
-               "end":"2020-10-11T21:00:00",
+               "start":"2021-09-11T12:00:00",
+               "end":"2021-09-11T21:00:00",
                "color":"hsl(230, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -102,8 +103,8 @@ var data = {
             },
             {
                "title":"Event 11",
-               "start":"2020-10-12T13:00:00",
-               "end":"2020-10-12T22:00:00",
+               "start":"2021-09-12T13:00:00",
+               "end":"2021-09-12T22:00:00",
                "color":"hsl(253, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -111,8 +112,8 @@ var data = {
             },
             {
                "title":"Event 12",
-               "start":"2020-10-13T10:00:00",
-               "end":"2020-10-13T22:00:00",
+               "start":"2021-09-13T10:00:00",
+               "end":"2021-09-13T22:00:00",
                "color":"hsl(276, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -120,8 +121,8 @@ var data = {
             },
             {
                "title":"Event 13",
-               "start":"2020-10-14T18:00:00",
-               "end":"2020-10-14T21:00:00",
+               "start":"2021-09-14T18:00:00",
+               "end":"2021-09-14T21:00:00",
                "color":"hsl(299, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -129,8 +130,8 @@ var data = {
             },
             {
                "title":"Event 14",
-               "start":"2020-10-15T09:00:00",
-               "end":"2020-10-15T21:00:00",
+               "start":"2021-09-15T09:00:00",
+               "end":"2021-09-15T21:00:00",
                "color":"hsl(322, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -138,8 +139,8 @@ var data = {
             },
             {
                "title":"Event 15",
-               "start":"2020-10-16T09:00:00",
-               "end":"2020-10-16T22:00:00",
+               "start":"2021-09-16T09:00:00",
+               "end":"2021-09-16T22:00:00",
                "color":"hsl(345, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -147,8 +148,8 @@ var data = {
             },
             {
                "title":"Event 16",
-               "start":"2020-10-17T02:00:00",
-               "end":"2020-10-17T23:00:00",
+               "start":"2021-09-17T02:00:00",
+               "end":"2021-09-17T23:00:00",
                "color":"hsl(18, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -156,8 +157,8 @@ var data = {
             },
             {
                "title":"Event 17",
-               "start":"2020-10-18T16:00:00",
-               "end":"2020-10-18T23:00:00",
+               "start":"2021-09-18T16:00:00",
+               "end":"2021-09-18T23:00:00",
                "color":"hsl(41, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -165,8 +166,8 @@ var data = {
             },
             {
                "title":"Event 18",
-               "start":"2020-10-19T17:00:00",
-               "end":"2020-10-19T22:00:00",
+               "start":"2021-09-19T17:00:00",
+               "end":"2021-09-19T22:00:00",
                "color":"hsl(64, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -174,8 +175,8 @@ var data = {
             },
             {
                "title":"Event 19",
-               "start":"2020-10-20T05:00:00",
-               "end":"2020-10-20T22:00:00",
+               "start":"2021-09-20T05:00:00",
+               "end":"2021-09-20T22:00:00",
                "color":"hsl(87, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -183,8 +184,8 @@ var data = {
             },
             {
                "title":"Event 20",
-               "start":"2020-10-21T03:00:00",
-               "end":"2020-10-21T22:00:00",
+               "start":"2021-09-21T03:00:00",
+               "end":"2021-09-21T22:00:00",
                "color":"hsl(110, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -192,8 +193,8 @@ var data = {
             },
             {
                "title":"Event 21",
-               "start":"2020-10-22T06:00:00",
-               "end":"2020-10-22T21:00:00",
+               "start":"2021-09-22T06:00:00",
+               "end":"2021-09-22T21:00:00",
                "color":"hsl(133, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -201,8 +202,8 @@ var data = {
             },
             {
                "title":"Event 22",
-               "start":"2020-10-23T19:00:00",
-               "end":"2020-10-23T21:00:00",
+               "start":"2021-09-23T19:00:00",
+               "end":"2021-09-23T21:00:00",
                "color":"hsl(156, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -210,8 +211,8 @@ var data = {
             },
             {
                "title":"Event 23",
-               "start":"2020-10-24T07:00:00",
-               "end":"2020-10-24T22:00:00",
+               "start":"2021-09-24T07:00:00",
+               "end":"2021-09-24T22:00:00",
                "color":"hsl(179, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -219,8 +220,8 @@ var data = {
             },
             {
                "title":"Event 24",
-               "start":"2020-10-25T14:00:00",
-               "end":"2020-10-25T21:00:00",
+               "start":"2021-09-25T14:00:00",
+               "end":"2021-09-25T21:00:00",
                "color":"hsl(202, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -228,8 +229,8 @@ var data = {
             },
             {
                "title":"Event 25",
-               "start":"2020-10-26T19:00:00",
-               "end":"2020-10-26T22:00:00",
+               "start":"2021-09-26T19:00:00",
+               "end":"2021-09-26T22:00:00",
                "color":"hsl(225, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -237,8 +238,8 @@ var data = {
             },
             {
                "title":"Event 26",
-               "start":"2020-10-27T16:00:00",
-               "end":"2020-10-27T22:00:00",
+               "start":"2021-09-27T16:00:00",
+               "end":"2021-09-27T22:00:00",
                "color":"hsl(248, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -246,8 +247,8 @@ var data = {
             },
             {
                "title":"Event 27",
-               "start":"2020-10-28T03:00:00",
-               "end":"2020-10-28T22:00:00",
+               "start":"2021-09-28T03:00:00",
+               "end":"2021-09-28T22:00:00",
                "color":"hsl(271, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -255,8 +256,8 @@ var data = {
             },
             {
                "title":"Event 28",
-               "start":"2020-10-29T01:00:00",
-               "end":"2020-10-29T23:00:00",
+               "start":"2021-09-29T01:00:00",
+               "end":"2021-09-29T23:00:00",
                "color":"hsl(294, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -264,8 +265,8 @@ var data = {
             },
             {
                "title":"Event 29",
-               "start":"2020-10-30T10:00:00",
-               "end":"2020-10-30T21:00:00",
+               "start":"2021-09-30T10:00:00",
+               "end":"2021-09-30T21:00:00",
                "color":"hsl(317, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -273,8 +274,8 @@ var data = {
             },
             {
                "title":"Event 30",
-               "start":"2020-10-31T11:00:00",
-               "end":"2020-10-31T22:00:00",
+               "start":"2021-09-31T11:00:00",
+               "end":"2021-09-31T22:00:00",
                "color":"hsl(340, 79%, 45%)",
                "textColor":"white",
                "url":"https://linktr.ee/ronny.weiss",
@@ -297,7 +298,8 @@ var data = {
             "icon":"fa-gear",
             "value":"87%",
             "footer":"This is a Dashboard KPI Card",
-            "link":"https://linktr.ee/ronny.weiss"
+            "link":"https://linktr.ee/ronny.weiss",
+            "linkTarget": "_blank"
          }
       },
       {
@@ -338,7 +340,8 @@ var data = {
                "longitude":-24,
                "color":"hsl(23,55%,60%)",
                "tooltip":"This is tooltip 1",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":14,
@@ -346,7 +349,8 @@ var data = {
                "longitude":158,
                "color":"hsl(46,55%,60%)",
                "tooltip":"This is tooltip 2",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":14,
@@ -354,7 +358,8 @@ var data = {
                "longitude":-118,
                "color":"hsl(69,55%,60%)",
                "tooltip":"This is tooltip 3",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":12,
@@ -362,7 +367,8 @@ var data = {
                "longitude":149,
                "color":"hsl(92,55%,60%)",
                "tooltip":"This is tooltip 4",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":9,
@@ -370,7 +376,8 @@ var data = {
                "longitude":25,
                "color":"hsl(115,55%,60%)",
                "tooltip":"This is tooltip 5",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":14,
@@ -378,7 +385,8 @@ var data = {
                "longitude":-106,
                "color":"hsl(138,55%,60%)",
                "tooltip":"This is tooltip 6",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":11,
@@ -386,7 +394,8 @@ var data = {
                "longitude":98,
                "color":"hsl(161,55%,60%)",
                "tooltip":"This is tooltip 7",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":8,
@@ -394,7 +403,8 @@ var data = {
                "longitude":-70,
                "color":"hsl(184,55%,60%)",
                "tooltip":"This is tooltip 8",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":9,
@@ -402,7 +412,8 @@ var data = {
                "longitude":-166,
                "color":"hsl(7,55%,60%)",
                "tooltip":"This is tooltip 9",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":11,
@@ -410,7 +421,8 @@ var data = {
                "longitude":-6,
                "color":"hsl(30,55%,60%)",
                "tooltip":"This is tooltip 10",
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "radius":11,
@@ -839,7 +851,8 @@ var data = {
                "icon":"fa-apex",
                "iconColor":"white",
                "iconBackColor":null,
-               "link":"https://linktr.ee/ronny.weiss"
+               "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank"
             },
             {
                "title":"List item 2",
@@ -893,6 +906,7 @@ var data = {
                "yAxis":"y",
                "type":"pie",
                "link":"https://linktr.ee/ronny.weiss",
+               "linkTarget": "_blank",
                "color":null,
                "x":"Val 1",
                "y":77

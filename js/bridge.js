@@ -68,7 +68,7 @@
                 "pItems": pItems,
                 "pOptions": pOptions
             });
-            ajaxSimulation(ajaxID, pItems, pOptions);
+            ajaxCall(ajaxID, pItems, pOptions);
         },
         pluginUrl: function (ajaxID, pItems) {
             /* here must the url be returned that make it possible for the plug-in to load images by id that are given by pItems
