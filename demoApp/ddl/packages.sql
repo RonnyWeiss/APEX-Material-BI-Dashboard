@@ -383,7 +383,15 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                 /* optional -  set color of the event text [string] */
                 'textColor' VALUE 'white',
                 /* optional -  add an url when click on the event [string] */
-                'url' VALUE 'https://linktr.ee/ronny.weiss',
+                'link' VALUE 'https://linktr.ee/ronny.weiss',
+                /* optional - set target for the link 
+                    _blank - URL is loaded into a new window, or tab. This is default
+                    _parent - URL is loaded into the parent frame
+                    _self - URL replaces the current page
+                    _top - URL replaces any framesets that may be loaded
+                    name - The name of the window (Note: the name does not specify the title of the new window)
+                */ 
+                'linkTarget' VALUE '_blank',
                 /* optional -  add details that are shown in tooltip [string] */
                 'details' VALUE 'Here are details for event ' || ROWNUM
             RETURNING BLOB)
