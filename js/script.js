@@ -3704,6 +3704,13 @@ var apexBIDashBoard = function (apex, $) {
                     initialView: viewType,
                     eventDisplay: 'block',
                     eventMouseEnter: function (info) {
+                        if (info.event && info.event._def) {
+                            var def = info.event._def;
+                            if (def.extendedProps && def.extendedProps.link) {
+                               $(info.el).css("cursor", "pointer");
+                            }
+                        }
+
                         var html = $("<div></div>");
                         html.addClass("bida-calendar-event-tt");
 
@@ -3754,7 +3761,7 @@ var apexBIDashBoard = function (apex, $) {
                     },
                     eventClick: function (ev) {
                         ev.jsEvent.preventDefault();
-                        if (ev.event._def && ev.event._def && ev.event._def) {
+                        if (ev.event && ev.event._def) {
                             var def = ev.event._def;
                             if (def.extendedProps && def.extendedProps.link) {
                                 util.link(def.extendedProps.link, def.extendedProps.linkTarget);

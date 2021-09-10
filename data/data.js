@@ -16,7 +16,7 @@ var data = {
                "end":"2021-09-02T22:00:00",
                "color":"hsl(23, 79%, 45%)",
                "textColor":"white",
-               "url":"https://linktr.ee/ronny.weiss",
+               "link":"https://linktr.ee/ronny.weiss",
                "linkTarget":"https://linktr.ee/ronny.weiss",
                "details":"Here are details for event 1"
             },
@@ -26,7 +26,6 @@ var data = {
                "end":"2021-09-03T22:00:00",
                "color":"hsl(46, 79%, 45%)",
                "textColor":"white",
-               "url":"https://linktr.ee/ronny.weiss",
                "details":"Here are details for event 2"
             },
             {
