@@ -23,3 +23,5 @@ https://apex.oracle.com/pls/apex/f?p=103428
 If you like my stuff, donate me a coffee or checkout my Amazon Wishlist
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/RonnyW1) or [![Donate](https://img.shields.io/badge/Amazon-Wishlist-%23febd69)](https://www.amazon.de/hz/wishlist/ls/1VFULRV8XUPQ0?ref_=wl_share)
+
+**Important clarification: My work in the development team of Oracle APEX is in no way related to my open source projects or the plug-ins on apex.world! All plug-ins are built in my spare time and are not supported by Oracle!**
