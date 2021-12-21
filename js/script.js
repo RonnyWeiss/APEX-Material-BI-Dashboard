@@ -3,7 +3,7 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.24",
+            scriptVersion: "1.0.0.25",
             utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -606,6 +606,7 @@ var apexBIDashBoard = function (apex, $) {
                     "showDataLabels": false,
                     "showDataPoints": true,
                     "showAbsoluteValues": false,
+                    "threshold": 0.05,
                     "tooltip": {
                         "grouped": true,
                         "show": true
@@ -2727,6 +2728,8 @@ var apexBIDashBoard = function (apex, $) {
                     var zoomType = setObjectParameter(pConfigData.zoomType, pDefaultConfig.d3chart.zoom.type);
                     var showSubChart = false;
 
+                    var charThreshold = setObjectParameter(pConfigData.threshold, pDefaultConfig.d3chart.threshold);
+
                     if (zoomEnabled) {
                         if (zoomType == "scroll") {
                             showSubChart = false;
@@ -2911,9 +2914,10 @@ var apexBIDashBoard = function (apex, $) {
                                             index = 0
                                         }
                                         if (seriesData[key][index] && util.isDefinedAndNotNull(seriesData[key][index].tooltip)) {
+                                            var subDiv = $("<div>");
                                             var ttS = escapeOrSanitizeHTML(seriesData[key][index].tooltip, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
-                                            div.append(ttS);
-                                            div.append("<br>");
+                                            subDiv.append(ttS);
+                                            div.append(subDiv);
                                         }
                                     }
                                 });
@@ -2955,13 +2959,13 @@ var apexBIDashBoard = function (apex, $) {
                                 pie: {
                                     label: {
                                         format: absoluteFormatting,
-                                        threshold: 0.05
+                                        threshold: charThreshold
                                     }
                                 },
                                 donut: {
                                     label: {
                                         format: absoluteFormatting,
-                                        threshold: 0.05
+                                        threshold: charThreshold
                                     }
                                 },
                                 line: {
@@ -2972,7 +2976,7 @@ var apexBIDashBoard = function (apex, $) {
                                 gauge: {
                                     label: {
                                         format: absoluteFormatting,
-                                        threshold: (gaugeType === "single") ? 0.05 : null
+                                        threshold: charThreshold
                                     },
                                     fullCircle: gaugeFullCircle,
                                     min: gaugeMin,
