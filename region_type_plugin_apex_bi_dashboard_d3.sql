@@ -78,12 +78,118 @@ wwv_flow_api.create_plugin(
 '    END IF;',
 'END;',
 '',
+'/* helper function to load a file */',
+'PROCEDURE GET_FILE (',
+'    P_IN_PLSQL_PRINT_IMG   VARCHAR2,',
+'    P_IN_PK                VARCHAR2,',
+'    P_IN_ITEM_ID           VARCHAR2,',
+'    P_OUT_BLOB             OUT   BLOB,',
+'    P_OUT_FILE_NAME        OUT   VARCHAR2,',
+'    P_OUT_MIME_TYPE        OUT   VARCHAR2,',
+'    P_OUT_CACHE_TIME       OUT   NUMBER',
+') AS',
+'',
+'    VR_BIND_NAMES          SYS.DBMS_SQL.VARCHAR2_TABLE := WWV_FLOW_UTILITIES.GET_BINDS(P_IN_PLSQL_PRINT_IMG);',
+'    VR_CURS                BINARY_INTEGER;',
+'    VR_EXEC                BINARY_INTEGER;',
+'    VR_BINDS               VARCHAR(100);',
+'    VR_CACHE_TIME_EXISTS   BOOLEAN := FALSE;',
+'BEGIN',
+'    VR_CURS   := DBMS_SQL.OPEN_CURSOR;',
+'    DBMS_SQL.PARSE(',
+'        VR_CURS,',
+'        P_IN_PLSQL_PRINT_IMG,',
+'        DBMS_SQL.NATIVE',
+'    );',
+'    FOR I IN 1..VR_BIND_NAMES.COUNT LOOP',
+'        VR_BINDS := LTRIM(',
+'            VR_BIND_NAMES(I),',
+'            '':''',
+'        );',
+'        CASE VR_BINDS',
+'            WHEN ''PK'' THEN',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_IN_PK',
+'                );',
+'            WHEN ''ITEM_ID'' THEN',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_IN_ITEM_ID',
+'                );',
+'            WHEN ''FILE_NAME'' THEN',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_OUT_FILE_NAME,',
+'                    4000',
+'                );',
+'            WHEN ''MIME_TYPE'' THEN',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_OUT_MIME_TYPE,',
+'                    4000',
+'                );',
+'            WHEN ''BINARY_FILE'' THEN',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_OUT_BLOB',
+'                );',
+'            WHEN ''CACHE_TIME'' THEN',
+'                VR_CACHE_TIME_EXISTS := TRUE;',
+'                DBMS_SQL.BIND_VARIABLE(',
+'                    VR_CURS,',
+'                    VR_BINDS,',
+'                    P_OUT_CACHE_TIME',
+'                );',
+'            ELSE',
+'                NULL;',
+'        END CASE;',
+'',
+'    END LOOP;',
+'',
+'    VR_EXEC   := DBMS_SQL.EXECUTE(VR_CURS);',
+'    DBMS_SQL.VARIABLE_VALUE(',
+'        VR_CURS,',
+'        ''FILE_NAME'',',
+'        P_OUT_FILE_NAME',
+'    );',
+'    DBMS_SQL.VARIABLE_VALUE(',
+'        VR_CURS,',
+'        ''MIME_TYPE'',',
+'        P_OUT_MIME_TYPE',
+'    );',
+'    DBMS_SQL.VARIABLE_VALUE(',
+'        VR_CURS,',
+'        ''BINARY_FILE'',',
+'        P_OUT_BLOB',
+'    );',
+'    IF VR_CACHE_TIME_EXISTS THEN',
+'        DBMS_SQL.VARIABLE_VALUE(',
+'            VR_CURS,',
+'            ''CACHE_TIME'',',
+'            P_OUT_CACHE_TIME',
+'        );',
+'    END IF;',
+'EXCEPTION',
+'    WHEN OTHERS THEN',
+'        IF DBMS_SQL.IS_OPEN(VR_CURS) THEN',
+'            DBMS_SQL.CLOSE_CURSOR(VR_CURS);',
+'        END IF;',
+'        RAISE;',
+'END;',
+'',
 '/* helper function to download a file */',
 'PROCEDURE DOWNLOAD_FILE (',
 '    P_IN_BLOB           BLOB,',
 '    P_IN_MIME_TYPE      VARCHAR2,',
 '    P_IN_FILE_NAME      VARCHAR2,',
-'    P_IN_AJAX_REFERENCE VARCHAR2 := NULL',
+'    P_IN_AJAX_REFERENCE VARCHAR2 := NULL,',
+'    P_IN_CACHE_TIME     NUMBER  := NULL',
 ') AS',
 '    VR_BLOB BLOB := P_IN_BLOB;',
 'BEGIN',
@@ -101,6 +207,11 @@ wwv_flow_api.create_plugin(
 '    IF P_IN_AJAX_REFERENCE IS NOT NULL THEN',
 '        HTP.P(''ajax-reference: '' || P_IN_AJAX_REFERENCE);',
 '    END IF;',
+'    IF P_IN_CACHE_TIME IS NOT NULL THEN',
+'        HTP.P(''Cache-Control: public, max-age='' || P_IN_CACHE_TIME);',
+'        HTP.P(''Pragma: ''); -- overrides the "no-cache" setting in the application',
+'    END IF;',
+'    ',
 '    OWA_UTIL.HTTP_HEADER_CLOSE;',
 '    WPG_DOCLOAD.DOWNLOAD_FILE(VR_BLOB);',
 'EXCEPTION',
@@ -180,6 +291,7 @@ wwv_flow_api.create_plugin(
 '    VR_JSON_END   CONSTANT BLOB := UTL_RAW.CAST_TO_RAW('']}'');',
 '    VR_JSON_MIME  CONSTANT VARCHAR2(30) := ''application/json'';',
 '    VR_JSON_NAME  CONSTANT VARCHAR2(4) := ''json'';',
+'    VR_CACHE_TIME          NUMBER;',
 '',
 'BEGIN',
 '    CASE',
@@ -299,8 +411,15 @@ wwv_flow_api.create_plugin(
 '            END;',
 '        WHEN VR_FUNCTION_TYPE = ''imageDownload'' THEN',
 '             BEGIN',
-'                EXECUTE IMMEDIATE ( P_REGION.ATTRIBUTE_07 )',
-'                    USING IN VR_PK, IN VR_ITEM_ID, OUT VR_FILE_NAME, OUT VR_MIME_TYPE, OUT VR_BLOB;',
+'                GET_FILE(',
+'                    P_IN_PLSQL_PRINT_IMG   => P_REGION.ATTRIBUTE_07,',
+'                    P_IN_PK                => VR_PK,',
+'                    P_IN_ITEM_ID           => VR_ITEM_ID,',
+'                    P_OUT_BLOB             => VR_BLOB,',
+'                    P_OUT_FILE_NAME        => VR_FILE_NAME,',
+'                    P_OUT_MIME_TYPE        => VR_MIME_TYPE,',
+'                    P_OUT_CACHE_TIME       => VR_CACHE_TIME',
+'                );',
 '            EXCEPTION',
 '                WHEN OTHERS THEN',
 '                    APEX_DEBUG.ERROR(''APEX Material BI Dashboard - Error while executing dynamic PL/SQL Block to get Blob Source for Image Download.'');',
@@ -313,7 +432,8 @@ wwv_flow_api.create_plugin(
 '                DOWNLOAD_FILE(',
 '                    P_IN_BLOB        => VR_BLOB,',
 '                    P_IN_FILE_NAME   => VR_FILE_NAME,',
-'                    P_IN_MIME_TYPE   => VR_MIME_TYPE',
+'                    P_IN_MIME_TYPE   => VR_MIME_TYPE,',
+'                    P_IN_CACHE_TIME  => VR_CACHE_TIME',
 '                );',
 '            END IF;',
 '        ELSE',
@@ -417,7 +537,7 @@ wwv_flow_api.create_plugin(
 '<p>The plug-in requires an APEX 5.1.3 or newer and an Oracle 12c or newer. The Sample App requires an APEX 20.2 or newer. However, you can quickly install it in a free workspace on apex.oracle.com and then get started right away with the help of the '
 ||'Sample App!</p>',
 '<p>The item dialog in the Sample App is just a very simplified example, of course in your application the respective data source (table, view, function...) and many setting options for the respective dashboard item can be offered there.</p>'))
-,p_version_identifier=>'1.0.0.25'
+,p_version_identifier=>'1.0.0.26a'
 ,p_about_url=>'https://github.com/RonnyWeiss/APEX-BI-Dashboard'
 ,p_files_version=>5079
 );
@@ -790,6 +910,9 @@ wwv_flow_api.create_plugin_attribute(
 'END;',
 '</pre>'))
 );
+end;
+/
+begin
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(161556941984861644693)
 ,p_plugin_id=>wwv_flow_api.id(161556939618477644685)
@@ -812,9 +935,6 @@ wwv_flow_api.create_plugin_attr_value(
 ,p_return_value=>'charts'
 ,p_help_text=>'Activate the D3 Billboard Charts'
 );
-end;
-/
-begin
 wwv_flow_api.create_plugin_attr_value(
  p_id=>wwv_flow_api.id(161556942916804644693)
 ,p_plugin_attribute_id=>wwv_flow_api.id(161556941984861644693)
@@ -1335,6 +1455,7 @@ wwv_flow_api.create_plugin_attribute(
 '       APEX PL/SQL Validator ',
 '     */',
 '    :BINARY_FILE   := VR_BINARY_FILE;',
+'    :CACHE_TIME    := 31536000; -- (optional)',
 'EXCEPTION',
 '    WHEN OTHERS THEN',
 '        APEX_DEBUG.ERROR(SQLERRM);',
@@ -1345,7 +1466,9 @@ wwv_flow_api.create_plugin_attribute(
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'IN_LIST'
 ,p_depending_on_expression=>'inlineimagesdownload'
-,p_examples=>'When the HTML that should be rendered in HTML Items come from an RichTextField with the Unleash RTE Plug-in then the Dashboard Item can Show these images.'
+,p_examples=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>When the HTML that should be rendered in HTML Items come from an RichTextField with the Unleash RTE Plug-in then the Dashboard Item can Show these images.</p>',
+'<p>When :CACHE_TIME is defined, downloaded images are cached by the browser. This overrides the "no-cache" setting in the application. You can omit this parameter.</p>'))
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<p>If the CLOB is loaded into the RTE, the image download is inserted on the left.</p>',
 '<p>This PL/SQL block is used to load the images from a table or collection using a primary key (:PK).</p>',
@@ -1386,6 +1509,7 @@ wwv_flow_api.create_plugin_attribute(
 '       APEX PL/SQL Validator ',
 '     */',
 '    :BINARY_FILE   := VR_BINARY_FILE;',
+'    :CACHE_TIME    := 31536000; -- (optional)',
 'EXCEPTION',
 '    WHEN OTHERS THEN',
 '        APEX_DEBUG.ERROR(SQLERRM);',
@@ -1778,6 +1902,9 @@ unistr('<li><b>viewType (string):</b> set type of the calendar view. Possible Ty
 '<li><b>timeGridStartTime (string):</b> Set time of scroll position for timeGridWeek</li>',
 '</ul>'))
 );
+end;
+/
+begin
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(135375457093864055660)
 ,p_plugin_id=>wwv_flow_api.id(161556939618477644685)
@@ -1853,9 +1980,6 @@ wwv_flow_api.create_plugin_attribute(
 'END;',
 '</pre>'))
 );
-end;
-/
-begin
 wwv_flow_api.create_plugin_std_attribute(
  p_id=>wwv_flow_api.id(161556947481493644702)
 ,p_plugin_id=>wwv_flow_api.id(161556939618477644685)
