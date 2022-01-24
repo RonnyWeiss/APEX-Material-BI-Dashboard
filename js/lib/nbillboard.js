@@ -5,7 +5,7 @@
  * billboard.js, JavaScript chart library
  * https://naver.github.io/billboard.js/
  *
- * @version 3.2.1
+ * @version 3.3.0
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -432,9 +432,9 @@ var external_commonjs_d3_brush_commonjs2_d3_brush_amd_d3_brush_root_d3_ = __webp
 ;// CONCATENATED MODULE: ./src/module/util.ts
 
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
@@ -524,18 +524,19 @@ function hasValue(dict, value) {
 /**
  * Call function with arguments
  * @param {Function} fn Function to be called
- * @param {*} args Arguments
+ * @param {*} thisArg "this" value for fn
+ * @param {*} args Arguments for fn
  * @returns {boolean} true: fn is function, false: fn is not function
  * @private
  */
 
 
-function callFn(fn) {
-  for (var isFn = isFunction(fn), _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    args[_key - 1] = arguments[_key];
+function callFn(fn, thisArg) {
+  for (var isFn = isFunction(fn), _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    args[_key - 2] = arguments[_key];
   }
 
-  isFn && fn.call.apply(fn, args);
+  isFn && fn.call.apply(fn, [thisArg].concat(args));
   return isFn;
 }
 /**
@@ -691,9 +692,13 @@ function getPathBox(path) {
 
 
 function getPointer(event, element) {
-  var touches = event && (event.touches || event.sourceEvent && event.sourceEvent.touches),
-      pointer = event ? (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.pointer)(touches ? touches[0] : event, element) : [0, 0];
-  return pointer;
+  var _ref,
+      touches = event && ((_ref = event.touches || event.sourceEvent && event.sourceEvent.touches) == null ? void 0 : _ref[0]),
+      pointer = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.pointer)(touches || event, element);
+
+  return pointer.map(function (v) {
+    return isNaN(v) ? 0 : v;
+  });
 }
 /**
  * Return brush selection array
@@ -1681,12 +1686,21 @@ var Store = /*#__PURE__*/function () {
    * @name padding
    * @memberof Options
    * @type {object}
-   * @property {object} [padding] padding object
+   * @property {object|boolean} [padding=true] Set padding of chart, and accepts object or boolean type.
+   * - `Object`: Specify each side's padding.
+   * - `false`: Remove padding completely and make shape to fully occupy the container element.
+   *   - In this case, axes and subchart will be hidden.
+   *   - To adjust some padding from this state, use `axis.[x|y].padding` option.
    * @property {number} [padding.top] padding on the top of chart
    * @property {number} [padding.right] padding on the right of chart
    * @property {number} [padding.bottom] padding on the bottom of chart
    * @property {number} [padding.left] padding on the left of chart
+   * @see [Demo](https://naver.github.io/billboard.js/demo/#ChartOptions.Padding)
    * @example
+   * // remove padding completely.
+   * padding: false,
+   *
+   * // or specify padding value for each side
    * padding: {
    *   top: 20,
    *   right: 20,
@@ -1694,6 +1708,7 @@ var Store = /*#__PURE__*/function () {
    *   left: 20
    * }
    */
+  padding: !0,
   padding_left: undefined,
   padding_right: undefined,
   padding_top: undefined,
@@ -2552,6 +2567,18 @@ var Store = /*#__PURE__*/function () {
    *   ]
    * }
    *
+   * // for 'bar' type, data can contain:
+   * // - an array of [start, end] data following the order
+   * data: {
+   *   rows: [
+   *      ["data1", "data2"],
+   *      [[100, 150], 120],
+   *      [[200, 300], 55],
+   *      [[-400, 500], 60]
+   *   ],
+   *   type: "bar"
+   * }
+   *
    * // for 'range' types('area-line-range' or 'area-spline-range'), data should contain:
    * // - an array of [high, mid, low] data following the order
    * // - or an object with 'high', 'mid' and 'low' key value
@@ -2626,6 +2653,16 @@ var Store = /*#__PURE__*/function () {
    *      ["data2", 200, 130, 90, 240, 130, 220],
    *      ["data3", 300, 200, 160, 400, 250, 250]
    *   ]
+   * }
+   *
+   * // for 'bar' type, data can contain:
+   * // - an array of [start, end] data following the order
+   * data: {
+   *   columns: [
+   *     ["data1", -100, 50, [100, 200], [200, 300]],
+   *     ["data2", -200, 300, [-100, 100], [-50, -30]],
+   *   ],
+   *   type: "bar"
    * }
    *
    * // for 'range' types('area-line-range' or 'area-spline-range'), data should contain:
@@ -3244,9 +3281,9 @@ var Store = /*#__PURE__*/function () {
 ;// CONCATENATED MODULE: ./src/config/Options/Options.ts
 
 
-function Options_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function Options_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function Options_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { Options_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { Options_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function Options_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Options_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Options_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
@@ -3987,7 +4024,7 @@ var external_commonjs_d3_dsv_commonjs2_d3_dsv_amd_d3_dsv_root_d3_ = __webpack_re
 
     if (filterNull) {
       value = value.filter(function (v) {
-        return isValue(v.value);
+        return v && "value" in v && isValue(v.value);
       });
     }
 
@@ -4421,6 +4458,7 @@ var external_commonjs_d3_dsv_commonjs2_d3_dsv_amd_d3_dsv_root_d3_ = __webpack_re
 
   /**
    * Sort targets data
+   * Note: For stacked bar, will sort from the total sum of data series, not for each stacked bar
    * @param {Array} targetsValue Target value
    * @returns {Array}
    * @private
@@ -4457,8 +4495,8 @@ var external_commonjs_d3_dsv_commonjs2_d3_dsv_amd_d3_dsv_root_d3_ = __webpack_re
       };
 
       fn = function (t1, t2) {
-        var t1Sum = t1.values.reduce(reducer, 0),
-            t2Sum = t2.values.reduce(reducer, 0);
+        var t1Sum = "values" in t1 ? t1.values.reduce(reducer, 0) : t1.value,
+            t2Sum = "values" in t2 ? t2.values.reduce(reducer, 0) : t2.value;
         return isArc ? orderAsc ? t1Sum - t2Sum : t2Sum - t1Sum : orderAsc ? t2Sum - t1Sum : t1Sum - t2Sum;
       };
     } else if (isFunction(order)) {
@@ -4572,19 +4610,20 @@ var external_commonjs_d3_dsv_commonjs2_d3_dsv_amd_d3_dsv_root_d3_ = __webpack_re
     }),
         minDist = config.point_sensitivity,
         closest;
-    // find mouseovering bar
+    // find mouseovering bar/candlestick
+    // https://github.com/naver/billboard.js/issues/2434
     data.filter(function (v) {
-      return $$.isBarType(v.id);
+      return $$.isBarType(v.id) || $$.isCandlestickType(v.id);
     }).forEach(function (v) {
-      var shape = main.select("." + config_classes.bars + $$.getTargetSelectorSuffix(v.id) + " ." + config_classes.bar + "-" + v.index).node();
+      var selector = $$.isBarType(v.id) ? "." + config_classes.chartBar + "." + config_classes.target + $$.getTargetSelectorSuffix(v.id) + " ." + config_classes.bar + "-" + v.index : "." + config_classes.chartCandlestick + "." + config_classes.target + $$.getTargetSelectorSuffix(v.id) + " ." + config_classes.candlestick + "-" + v.index + " path";
 
-      if (!closest && $$.isWithinBar(shape)) {
+      if (!closest && $$.isWithinBar(main.select(selector).node())) {
         closest = v;
       }
-    }); // find closest point from non-bar
+    }); // find closest point from non-bar/candlestick
 
     data.filter(function (v) {
-      return !$$.isBarType(v.id);
+      return !$$.isBarType(v.id) && !$$.isCandlestickType(v.id);
     }).forEach(function (v) {
       var d = $$.dist(v, pos);
 
@@ -4815,6 +4854,20 @@ var external_commonjs_d3_dsv_commonjs2_d3_dsv_amd_d3_dsv_root_d3_ = __webpack_re
   isBubbleZType: function isBubbleZType(d) {
     var $$ = this;
     return $$.isBubbleType(d) && (isObject(d.value) && ("z" in d.value || "y" in d.value) || isArray(d.value) && d.value.length === 2);
+  },
+
+  /**
+   * Determine if bar has ranged data
+   * @param {Array} d data value
+   * @returns {boolean}
+   * @private
+   */
+  isBarRangeType: function isBarRangeType(d) {
+    var $$ = this,
+        value = d.value;
+    return $$.isBarType(d) && isArray(value) && value.length === 2 && value.every(function (v) {
+      return isNumber(v);
+    });
   },
 
   /**
@@ -5194,14 +5247,40 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    * @private
    */
   unbindZoomEvent: function unbindZoomEvent() {
-    var _zoomResetBtn,
+    var _eventRect,
+        _zoomResetBtn,
         $$ = this,
         _$$$$el2 = $$.$el,
         eventRect = _$$$$el2.eventRect,
         zoomResetBtn = _$$$$el2.zoomResetBtn;
 
-    eventRect.on(".zoom", null).on(".drag", null);
-    (_zoomResetBtn = zoomResetBtn) == null ? void 0 : _zoomResetBtn.style("display", "none");
+    (_eventRect = eventRect) == null ? void 0 : _eventRect.on(".zoom wheel.zoom .drag", null);
+    (_zoomResetBtn = zoomResetBtn) == null ? void 0 : _zoomResetBtn.on("click", null).style("display", "none");
+  },
+
+  /**
+   * Unbind all attached events
+   * @private
+   */
+  unbindAllEvents: function unbindAllEvents() {
+    var _region,
+        _brush,
+        _arcs,
+        _legend,
+        $$ = this,
+        _$$$$el3 = $$.$el,
+        arcs = _$$$$el3.arcs,
+        eventRect = _$$$$el3.eventRect,
+        legend = _$$$$el3.legend,
+        region = _$$$$el3.region,
+        svg = _$$$$el3.svg,
+        brush = $$.brush;
+
+    // detach all possible event types
+    [svg, eventRect, (_region = region) == null ? void 0 : _region.list, (_brush = brush) == null ? void 0 : _brush.getSelection(), (_arcs = arcs) == null ? void 0 : _arcs.selectAll("path"), (_legend = legend) == null ? void 0 : _legend.selectAll("g")].forEach(function (v) {
+      return v == null ? void 0 : v.on("wheel click mouseover mousemove mouseout touchstart touchmove touchend touchstart.eventRect touchmove.eventRect touchend.eventRect .brush .drag .zoom wheel.zoom dblclick.zoom", null);
+    });
+    $$.unbindZoomEvent == null ? void 0 : $$.unbindZoomEvent();
   }
 });
 ;// CONCATENATED MODULE: ./src/ChartInternal/internals/class.ts
@@ -5695,9 +5774,10 @@ var colorizePattern = function (pattern, color, id) {
       ["bottom", "top"].forEach(function (v, i) {
         padding[v] += $$.convertPixelToScale("y", lengths[i], domainLength);
       });
-    } // if padding is set, the domain will be updated relative the current domain value
-    // ex) $$.height=300, padding.top=150, domainLength=4  --> domain=6
+    }
 
+    padding = $$.getResettedPadding(padding); // if padding is set, the domain will be updated relative the current domain value
+    // ex) $$.height=300, padding.top=150, domainLength=4  --> domain=6
 
     var p = config[pfx + "_padding"];
 
@@ -5761,7 +5841,7 @@ var colorizePattern = function (pattern, color, id) {
       var maxDataCount = $$.getMaxDataCount();
       defaultValue = maxDataCount > 1 ? diff / (maxDataCount - 1) / 2 : .5;
     } else {
-      defaultValue = diff * .01;
+      defaultValue = $$.getResettedPadding(diff * .01);
     }
 
     var _ref = isNumber(padding) ? {
@@ -6589,8 +6669,9 @@ function getFormat($$, typeValue, v) {
         return browser_doc.createElementNS(external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.namespaces.svg, "hasValidPointType" in $$ && $$.hasValidPointType(point) ? point : "use");
       }).attr("class", config_classes.legendItemPoint).style("fill", getColor).style("pointer-events", "none").attr("href", function (data, idx, selection) {
         var node = selection[idx],
-            nodeName = node.nodeName.toLowerCase();
-        return nodeName === "use" ? "#" + state.datetimeId + "-point-" + data : undefined;
+            nodeName = node.nodeName.toLowerCase(),
+            id = $$.getTargetSelectorSuffix(data);
+        return nodeName === "use" ? "#" + state.datetimeId + "-point" + id : undefined;
       });
     } else {
       l.append("line").attr("class", config_classes.legendItemTile).style("stroke", getColor).style("pointer-events", "none").attr("x1", isLegendRightOrInset ? x1ForLegendTile : pos).attr("y1", isLegendRightOrInset ? pos : yForLegendTile).attr("x2", isLegendRightOrInset ? x2ForLegendTile : pos).attr("y2", isLegendRightOrInset ? pos : yForLegendTile).attr("stroke-width", config.legend_item_tile_height);
@@ -6693,8 +6774,9 @@ var external_commonjs_d3_transition_commonjs2_d3_transition_amd_d3_transition_ro
         main = $el.main;
     state.redrawing = !0;
     var targetsToShow = $$.filterTargetsToShow($$.data.targets),
-        initializing = options.initializing,
-        flow = options.flow,
+        _options = options,
+        flow = _options.flow,
+        initializing = _options.initializing,
         wth = $$.getWithOption(options),
         duration = wth.Transition ? config.transition_duration : 0,
         durationForExit = wth.TransitionForExit ? duration : 0,
@@ -6900,6 +6982,7 @@ var external_commonjs_d3_transition_commonjs2_d3_transition_amd_d3_transition_ro
   redrawWithoutRescale: function redrawWithoutRescale() {
     this.redraw({
       withY: !1,
+      withLegend: !0,
       withSubchart: !1,
       withEventRect: !1,
       withTransitionForAxis: !1
@@ -7070,15 +7153,16 @@ function getScale(type, min, max) {
     if (hasAxis) {
       var _scale$x,
           isRotated = config.axis_rotated,
+          resettedPadding = $$.getResettedPadding(1),
           min = {
-        x: isRotated ? 1 : 0,
+        x: isRotated ? resettedPadding : 0,
         y: isRotated ? 0 : height,
         subX: isRotated ? 1 : 0,
         subY: isRotated ? 0 : height2
       },
           max = {
         x: isRotated ? height : width,
-        y: isRotated ? width : 1,
+        y: isRotated ? width : resettedPadding,
         subX: isRotated ? height : width,
         subY: isRotated ? width2 : 1
       },
@@ -7211,6 +7295,20 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
 
     return shape;
   },
+
+  /**
+   * Get shape's indices according it's position
+   *
+   * From the below example, indices will be:
+   * ==> {data1: 0, data2: 0, data3: 1, data4: 1, __max__: 1}
+   *
+   *	data1 data3   data1 data3
+   *	data2 data4   data2 data4
+   *	-------------------------
+   *		 0             1
+   * @param {Function} typeFilter Chart type filter function
+   * @returns {object} Indices object with its position
+   */
   getShapeIndices: function getShapeIndices(typeFilter) {
     var $$ = this,
         config = $$.config,
@@ -7256,12 +7354,30 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
   /**
    * Get indices value based on data ID value
    * @param {object} indices Indices object
-   * @param {string} id Data id value
+   * @param {object} d Data row
+   * @param {string} caller Caller function name (Used only for 'sparkline' plugin)
    * @returns {object} Indices object
    * @private
    */
-  getIndices: function getIndices(indices, id) {
-    var xs = this.config.data_xs;
+  getIndices: function getIndices(indices, d) {
+    // eslint-disable-line
+    var $$ = this,
+        _$$$config = $$.config,
+        xs = _$$$config.data_xs,
+        removeNull = _$$$config.bar_indices_removeNull,
+        id = d.id,
+        index = d.index;
+
+    if ($$.isBarType(id) && removeNull) {
+      var ind = {}; // redefine bar indices order
+
+      $$.getAllValuesOnIndex(index, !0).forEach(function (v, i) {
+        ind[v.id] = i;
+        ind.__max__ = i;
+      });
+      return ind;
+    }
+
     return notEmpty(xs) ? indices[xs[id]] : indices;
   },
 
@@ -7291,7 +7407,7 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
         halfWidth = isObjectType(offset) && (offset._$total.length ? offset._$total.reduce(sum) / 2 : 0);
 
     return function (d) {
-      var ind = $$.getIndices(indices, d.id, "getShapeX"),
+      var ind = $$.getIndices(indices, d, "getShapeX"),
           index = d.id in ind ? ind[d.id] : 0,
           targetsNum = (ind.__max__ || 0) + 1,
           x = 0;
@@ -7334,6 +7450,9 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
         value = $$.getRatio("index", d, !0);
       } else if ($$.isBubbleZType(d)) {
         value = $$.getBubbleZData(d.value, "y");
+      } else if ($$.isBarRangeType(d)) {
+        // TODO use range.getEnd() like method
+        value = value[1];
       }
 
       return $$.getYScaleById(d.id, isSub)(value);
@@ -7406,9 +7525,15 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
       var id = d.id,
           value = d.value,
           x = d.x,
-          ind = $$.getIndices(indices, id),
-          scale = $$.getYScaleById(id, isSub),
-          y0 = scale($$.getShapeYMin(id)),
+          ind = $$.getIndices(indices, d),
+          scale = $$.getYScaleById(id, isSub);
+
+      if ($$.isBarRangeType(d)) {
+        // TODO use range.getStart()
+        return scale(value[0]);
+      }
+
+      var y0 = scale($$.getShapeYMin(id)),
           dataXAsNumber = +x,
           offset = y0;
       shapeOffsetTargets.filter(function (t) {
@@ -7417,7 +7542,7 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
         var tid = t.id,
             rowValueMapByXValue = t.rowValueMapByXValue,
             rowValues = t.rowValues,
-            tvalues = t.values;
+            tvalues = t.values; // for same stacked group (ind[tid] === ind[id])
 
         if (ind[tid] === ind[id] && indexMapByTargetId[tid] < indexMapByTargetId[id]) {
           var _row,
@@ -7547,6 +7672,22 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
         type = config.spline_interpolation_type,
         interpolation = $$.isInterpolationType(type) ? type : "cardinal";
     return $$.isSplineType(d) ? interpolation : $$.isStepType(d) ? config.line_step_type : "linear";
+  },
+  isWithinBar: function isWithinBar(that) {
+    var mouse = getPointer(this.state.event, that),
+        list = getRectSegList(that),
+        _list = list,
+        seg0 = _list[0],
+        seg1 = _list[1],
+        x = Math.min(seg0.x, seg1.x),
+        y = Math.min(seg0.y, seg1.y),
+        offset = this.config.bar_sensitivity,
+        _that$getBBox = that.getBBox(),
+        width = _that$getBBox.width,
+        height = _that$getBBox.height,
+        isWithin = x - offset < mouse[0] && mouse[0] < x + width + offset && y - offset < mouse[1] && mouse[1] < y + height + offset;
+
+    return isWithin;
   }
 });
 ;// CONCATENATED MODULE: ./src/ChartInternal/internals/size.ts
@@ -7764,6 +7905,31 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
   },
 
   /**
+   * Get resetted padding values when 'padding=false' option is set
+   * https://github.com/naver/billboard.js/issues/2367
+   * @param {number|object} v Padding values to be resetted
+   * @returns {number|object} Padding value
+   * @private
+   */
+  getResettedPadding: function getResettedPadding(v) {
+    var $$ = this,
+        config = $$.config,
+        isNum = isNumber(v),
+        p = isNum ? 0 : {};
+
+    if (config.padding === !1) {
+      isNum || Object.keys(v).forEach(function (key) {
+        // when data.lables=true, do not reset top padding
+        p[key] = !isEmpty(config.data_labels) && config.data_labels !== !1 && key === "top" ? v[key] : 0;
+      });
+    } else {
+      p = v;
+    }
+
+    return p;
+  },
+
+  /**
    * Update size values
    * @param {boolean} isInit If is called at initialization
    * @private
@@ -7801,7 +7967,8 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
       right: hasArc ? 0 : $$.getCurrentPaddingRight(!0),
       bottom: xAxisHeight + subchartHeight + legendHeightForBottom + $$.getCurrentPaddingBottom(),
       left: hasArc ? 0 : $$.getCurrentPaddingLeft()
-    }; // for subchart
+    };
+    state.margin = $$.getResettedPadding(state.margin); // for subchart
 
     state.margin2 = isRotated ? {
       top: state.margin.top,
@@ -8140,9 +8307,11 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
         isRotated = config.axis_rotated,
         xPos = points[0][0];
 
-    if ($$.hasType("candlestick")) {
+    if ($$.isCandlestickType(d)) {
       if (isRotated) {
-        xPos = $$.getCandlestickData(d)._isUp ? points[2][2] + 4 : points[2][1] - 4;
+        var _$$$getCandlestickDat;
+
+        xPos = (_$$$getCandlestickDat = $$.getCandlestickData(d)) != null && _$$$getCandlestickDat._isUp ? points[2][2] + 4 : points[2][1] - 4;
       } else {
         xPos += (points[1][0] - xPos) / 2;
       }
@@ -8450,7 +8619,7 @@ function getTextPos(pos, width) {
     $el.tooltip = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(config.tooltip_contents.bindto);
 
     if ($el.tooltip.empty()) {
-      $el.tooltip = $el.chart.style("position", "relative").append("div").attr("class", config_classes.tooltipContainer).style("position", "absolute").style("pointer-events", "none").style("display", "none");
+      $el.tooltip = $el.chart.append("div").attr("class", config_classes.tooltipContainer).style("position", "absolute").style("pointer-events", "none").style("display", "none");
     }
 
     $$.bindTooltipResizePos();
@@ -8634,6 +8803,11 @@ function getTextPos(pos, width) {
             volume = _map3[4];
 
         value = "<b>Open:</b> " + open + " <b>High:</b> " + _high + " <b>Low:</b> " + _low + " <b>Close:</b> " + close + (volume ? " <b>Volume:</b> " + volume : "");
+      } else if ($$.isBarRangeType(row)) {
+        var _row$value = row.value,
+            start = _row$value[0],
+            end = _row$value[1];
+        value = valueFormat(start) + " ~ " + valueFormat(end);
       }
 
       if (value !== undefined) {
@@ -9400,7 +9574,15 @@ var ChartInternal = /*#__PURE__*/function () {
         $el = $$.$el;
     checkModuleImport($$);
     state.hasAxis = !$$.hasArcType();
-    state.hasRadar = !state.hasAxis && $$.hasType("radar");
+    state.hasRadar = !state.hasAxis && $$.hasType("radar"); // when 'padding=false' is set, disable axes and subchart. Because they are useless.
+
+    if (config.padding === !1) {
+      config.axis_x_show = !1;
+      config.axis_y_show = !1;
+      config.axis_y2_show = !1;
+      config.subchart_show = !1;
+    }
+
     $$.initParams();
     var bindto = {
       element: config.bindto,
@@ -9419,7 +9601,7 @@ var ChartInternal = /*#__PURE__*/function () {
       $el.chart = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(browser_doc.body.appendChild(browser_doc.createElement("div")));
     }
 
-    $el.chart.html("").classed(bindto.classname, !0);
+    $el.chart.html("").classed(bindto.classname, !0).style("position", "relative");
     $$.initToRender();
   }
   /**
@@ -9496,7 +9678,8 @@ var ChartInternal = /*#__PURE__*/function () {
     state.isLegendInset = config.legend_position === "inset";
     state.isLegendTop = config.legend_inset_anchor === "top-left" || config.legend_inset_anchor === "top-right";
     state.isLegendLeft = config.legend_inset_anchor === "top-left" || config.legend_inset_anchor === "bottom-left";
-    state.rotatedPaddingRight = isRotated && !config.axis_x_show ? 0 : 30;
+    state.rotatedPadding.top = $$.getResettedPadding(state.rotatedPadding.top);
+    state.rotatedPadding.right = isRotated && !config.axis_x_show ? 0 : 30;
     state.inputType = convertInputType(config.interaction_inputType_mouse, config.interaction_inputType_touch);
   };
 
@@ -10076,12 +10259,14 @@ function loadConfig(config) {
 
     if (notEmpty($$)) {
       $$.callPluginHook("$willDestroy");
-      $$.charts.splice($$.charts.indexOf(this), 1); // clear timers && pending transition
+      $$.charts.splice($$.charts.indexOf(this), 1); // detach events
+
+      $$.unbindAllEvents(); // clear timers && pending transition
 
       svg.select("*").interrupt();
       $$.resizeFunction.clear();
       win.removeEventListener("resize", $$.resizeFunction);
-      chart.classed("bb", !1).html(""); // releasing own references
+      chart.classed("bb", !1).style("position", null).selectChildren().remove(); // releasing own references
 
       Object.keys(this).forEach(function (key) {
         key === "internal" && Object.keys($$).forEach(function (k) {
@@ -13395,7 +13580,7 @@ var Axis_Axis = /*#__PURE__*/function () {
       }
 
       isYAxis || this.updateXAxisTickValues(targetsToShow, axis);
-      var dummy = chart.append("svg").style("visibility", "hidden").style("position", "fixed").style("top", "0px").style("left", "0px");
+      var dummy = chart.append("svg").style("visibility", "hidden").style("position", "fixed").style("top", "0").style("left", "0");
       axis.create(dummy);
       dummy.selectAll("text").each(function (d, i) {
         var currentTextWidth = this.getBoundingClientRect().width;
@@ -13691,13 +13876,15 @@ var Axis_Axis = /*#__PURE__*/function () {
     ["subX", "x", "y", "y2"].forEach(function (type) {
       var axis = $el.axis[type],
           id = type === "subX" ? "x" : type,
-          toCull = config["axis_" + id + "_tick_culling"]; // subchart x axis should be aligned with x axis culling
+          cullingOptionPrefix = "axis_" + id + "_tick_culling",
+          toCull = config[cullingOptionPrefix]; // subchart x axis should be aligned with x axis culling
 
       if (axis && toCull) {
-        var tickText = axis.selectAll(".tick text"),
-            tickValues = sortValue(tickText.data()),
+        var tickNodes = axis.selectAll(".tick"),
+            tickValues = sortValue(tickNodes.data()),
             tickSize = tickValues.length,
-            cullingMax = config["axis_" + id + "_tick_culling_max"],
+            cullingMax = config[cullingOptionPrefix + "_max"],
+            lines = config[cullingOptionPrefix + "_lines"],
             intervalForCulling;
 
         if (tickSize) {
@@ -13708,11 +13895,13 @@ var Axis_Axis = /*#__PURE__*/function () {
             }
           }
 
-          tickText.each(function (d) {
-            this.style.display = tickValues.indexOf(d) % intervalForCulling ? "none" : null;
+          tickNodes.each(function (d) {
+            if (tickValues.indexOf(d) % intervalForCulling) {
+              (lines ? this.querySelector("text") : this).style.display = "none";
+            }
           });
         } else {
-          tickText.style("display", null);
+          tickNodes.style("display", null);
         } // set/unset x_axis_tick_clippath
 
 
@@ -15523,15 +15712,16 @@ function smoothLines(el, type) {
   axis_x_tick_format: undefined,
 
   /**
-   * Setting for culling ticks.<br><br>
-   * If true is set, the ticks will be culled, then only limitted tick text will be shown. This option does not hide the tick lines. If false is set, all of ticks will be shown.<br><br>
-   * We can change the number of ticks to be shown by axis.x.tick.culling.max.
+   * Setting for culling ticks.
+   * - `true`: the ticks will be culled, then only limited tick text will be shown.<br>
+   *   This option does not hide the tick lines by default, if want to hide tick lines, set `axis.x.tick.culling.lines=false`.
+   * - `false`: all of ticks will be shown.<br><br>
+   * The number of ticks to be shown can be chaned by `axis.x.tick.culling.max`.
    * @name axis․x․tick․culling
    * @memberof Options
    * @type {boolean}
    * @default
-   * - true for indexed axis and timeseries axis
-   * - false for category axis
+   * `true` for indexed axis and timeseries axis, `false` for category axis
    * @example
    * axis: {
    *   x: {
@@ -15561,6 +15751,25 @@ function smoothLines(el, type) {
    * }
    */
   axis_x_tick_culling_max: 10,
+
+  /**
+   * Control visibility of tick lines within culling option, along with tick text.
+   * @name axis․x․tick․culling․lines
+   * @memberof Options
+   * @type {boolean}
+   * @default true
+   * @example
+   * axis: {
+   *   x: {
+   *     tick: {
+   *       culling: {
+   *           lines: false,
+   *       }
+   *     }
+   *   }
+   * }
+   */
+  axis_x_tick_culling_lines: !0,
 
   /**
    * The number of x axis ticks to show.<br><br>
@@ -15645,8 +15854,8 @@ function smoothLines(el, type) {
 
   /**
    * Fit x axis ticks.
-   * - **true**: ticks will be positioned nicely to have same intervals.
-   * - **false**: ticks will be positioned according to x value of the data points.
+   * - **true**: ticks will be shown according to x value of the data points.
+   * - **false**: ticks will be shown as to have same intervals.
    * @name axis․x․tick․fit
    * @memberof Options
    * @type {boolean}
@@ -16235,9 +16444,11 @@ function smoothLines(el, type) {
   axis_y_tick_format: undefined,
 
   /**
-   * Setting for culling ticks.<br><br>
-   * If true is set, the ticks will be culled, then only limitted tick text will be shown. This option does not hide the tick lines. If false is set, all of ticks will be shown.<br><br>
-   * We can change the number of ticks to be shown by axis.y.tick.culling.max.
+   * Setting for culling ticks.
+   * - `true`: the ticks will be culled, then only limited tick text will be shown.<br>
+   *   This option does not hide the tick lines by default, if want to hide tick lines, set `axis.y.tick.culling.lines=false`.
+   * - `false`: all of ticks will be shown.<br><br>
+   * The number of ticks to be shown can be chaned by `axis.y.tick.culling.max`.
    * @name axis․y․tick․culling
    * @memberof Options
    * @type {boolean}
@@ -16271,6 +16482,25 @@ function smoothLines(el, type) {
    * }
    */
   axis_y_tick_culling_max: 5,
+
+  /**
+   * Control visibility of tick lines within culling option, along with tick text.
+   * @name axis․y․tick․culling․lines
+   * @memberof Options
+   * @type {boolean}
+   * @default true
+   * @example
+   * axis: {
+   *   y: {
+   *     tick: {
+   *       culling: {
+   *           lines: false,
+   *       }
+   *     }
+   *   }
+   * }
+   */
+  axis_y_tick_culling_lines: !0,
 
   /**
    * Show y axis outer tick.
@@ -16715,9 +16945,11 @@ function smoothLines(el, type) {
   axis_y2_tick_format: undefined,
 
   /**
-   * Setting for culling ticks.<br><br>
-   * If true is set, the ticks will be culled, then only limitted tick text will be shown. This option does not hide the tick lines. If false is set, all of ticks will be shown.<br><br>
-   * We can change the number of ticks to be shown by axis.y.tick.culling.max.
+   * Setting for culling ticks.
+   * - `true`: the ticks will be culled, then only limited tick text will be shown.<br>
+   *   This option does not hide the tick lines by default, if want to hide tick lines, set `axis.y2.tick.culling.lines=false`.
+   * - `false`: all of ticks will be shown.<br><br>
+   * The number of ticks to be shown can be chaned by `axis.y2.tick.culling.max`.
    * @name axis․y2․tick․culling
    * @memberof Options
    * @type {boolean}
@@ -16751,6 +16983,25 @@ function smoothLines(el, type) {
    * }
    */
   axis_y2_tick_culling_max: 5,
+
+  /**
+   * Control visibility of tick lines within culling option, along with tick text.
+   * @name axis․y2․tick․culling․lines
+   * @memberof Options
+   * @type {boolean}
+   * @default true
+   * @example
+   * axis: {
+   *   y2: {
+   *     tick: {
+   *       culling: {
+   *           lines: false,
+   *       }
+   *     }
+   *   }
+   * }
+   */
+  axis_y2_tick_culling_lines: !0,
 
   /**
    * Show or hide y2 axis outer tick.
@@ -16995,9 +17246,9 @@ function smoothLines(el, type) {
 ;// CONCATENATED MODULE: ./src/config/Options/axis/axis.ts
 
 
-function axis_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function axis_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function axis_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { axis_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { axis_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function axis_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? axis_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : axis_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
@@ -17569,11 +17820,7 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
 
     if (title) {
       var text = $$.$el.arcs.append("text").attr("class", config_classes[hasGauge ? "chartArcsGaugeTitle" : "chartArcsTitle"]).style("text-anchor", "middle");
-
-      if (hasGauge) {
-        text.attr("dy", "-0.3em").style("font-size", "27px");
-      }
-
+      hasGauge && text.attr("dy", "-0.3em");
       setTextValue(text, title, hasGauge ? undefined : [-.6, 1.35], !0);
     }
   },
@@ -17797,6 +18044,7 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
           return;
         }
 
+        state.event = event;
         var eventArc = getEventArc(event),
             datum = eventArc.datum(),
             updated = (_datum = datum) != null && _datum.data && datum.data.id ? $$.updateAngle(datum) : null,
@@ -18034,9 +18282,16 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
 
 /* harmony default export */ var bar = ({
   initBar: function initBar() {
-    var $el = this.$el;
+    var $el = this.$el,
+        config = this.config,
+        clip = this.state.clip;
     $el.bar = $el.main.select("." + config_classes.chart) // should positioned at the beginning of the shape node to not overlap others
-    .insert("g", ":first-child").attr("class", config_classes.chartBars);
+    .insert("g", ":first-child").attr("class", config_classes.chartBars); // set clip-path attribute when condition meet
+    // https://github.com/naver/billboard.js/issues/2421
+
+    if (config.clipPath === !1 && (config.bar_radius || config.bar_radius_ratio)) {
+      $el.bar.attr("clip-path", clip.pathXAxis.replace(/#[^)]*/, "#" + clip.id));
+    }
   },
   updateTargetsForBar: function updateTargetsForBar(targets) {
     var $$ = this,
@@ -18053,8 +18308,8 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
 
     var mainBarUpdate = $$.$el.main.select("." + config_classes.chartBars).selectAll("." + config_classes.chartBar).data( // remove
     targets.filter(function (v) {
-      return !v.values.every(function (d) {
-        return !isNumber(d.value);
+      return v.values.some(function (d) {
+        return isNumber(d.value) || $$.isBarRangeType(d);
       });
     })).attr("class", function (d) {
       return classChartBar(d) + classFocus(d);
@@ -18092,7 +18347,7 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
 
   /**
    * Redraw function
-   * @param {Function} drawFn Retuned functino from .generateDrawCandlestick()
+   * @param {Function} drawFn Retuned function from .getDrawShape() => .generateDrawBar()
    * @param {boolean} withTransition With or without transition
    * @param {boolean} isSub Subchart draw
    * @returns {Array}
@@ -18107,15 +18362,35 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
         bar = _ref.bar;
 
     return [$$.$T(bar, withTransition, getRandom()).attr("d", function (d) {
-      return isNumber(d.value) && drawFn(d);
+      return (isNumber(d.value) || $$.isBarRangeType(d)) && drawFn(d);
     }).style("fill", this.color).style("opacity", null)];
   },
+
+  /**
+   * Generate draw function
+   * @param {object} barIndices data order within x axis.
+   * barIndices ==> {data1: 0, data2: 0, data3: 1, data4: 1, __max__: 1}
+   *
+   * When gropus given as:
+   *  groups: [
+   *		["data1", "data2"],
+   *		["data3", "data4"]
+   *	],
+   *
+   * Will be rendered as:
+   * 		data1 data3   data1 data3
+   *		data2 data4   data2 data4
+   *		-------------------------
+   *			 0             1
+   * @param {boolean} isSub If is for subchart
+   * @returns {Function}
+   * @private
+   */
   generateDrawBar: function generateDrawBar(barIndices, isSub) {
     var $$ = this,
         config = $$.config,
         getPoints = $$.generateGetBarPoints(barIndices, isSub),
         isRotated = config.axis_rotated,
-        isGrouped = config.data_groups.length,
         barRadius = config.bar_radius,
         barRadiusRatio = config.bar_radius_ratio,
         getRadius = isNumber(barRadius) && barRadius > 0 ? function () {
@@ -18130,9 +18405,12 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
           indexY = +!indexX,
           isNegative = d.value < 0,
           pathRadius = ["", ""],
-          radius = 0; // switch points if axis is rotated, not applicable for sub chart
+          radius = 0,
+          isGrouped = $$.isGrouped(d.id),
+          hasRadius = d.value !== 0 && getRadius,
+          isRadiusData = hasRadius && isGrouped ? $$.isStackingRadiusData(d) : !1; // switch points if axis is rotated, not applicable for sub chart
 
-      if (getRadius && !isGrouped) {
+      if (hasRadius && (!isGrouped || isRadiusData)) {
         var index = isRotated ? indexY : indexX,
             barW = points[2][index] - points[0][index];
         radius = getRadius(barW);
@@ -18148,6 +18426,43 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
       return "M" + points[0][indexX] + "," + points[0][indexY] + path + "z";
     };
   },
+
+  /**
+   * Determine if given stacking bar data is radius type
+   * @param {Object} d Data row
+   * @returns {boolean}
+   */
+  isStackingRadiusData: function isStackingRadiusData(d) {
+    var $$ = this,
+        config = $$.config,
+        data = $$.data,
+        id = d.id,
+        index = d.index,
+        value = d.value,
+        keys = config.data_groups.find(function (v) {
+      return v.indexOf(id) > -1;
+    }),
+        sortedList = $$.orderTargets($$.filterTargetsToShow(data.targets.filter($$.isBarType, $$))).filter(function (v) {
+      return keys.indexOf(v.id) > -1;
+    }),
+        sortedIds = sortedList.map(function (v) {
+      return v.values.filter(function (v2) {
+        return v2.index === index && (value > 0 ? v2.value > 0 : v2.value < 0);
+      })[0];
+    }).filter(Boolean).map(function (v) {
+      return v.id;
+    });
+    // If the given id stays in the last position, then radius should be applied.
+    return value !== 0 && sortedIds.indexOf(id) === sortedIds.length - 1;
+  },
+
+  /**
+   * Generate bar coordinate points data
+   * @param {object} barIndices Data order within x axis.
+   * @param {boolean} isSub If is for subchart
+   * @returns {Array} Array of coordinate points
+   * @private
+   */
   generateGetBarPoints: function generateGetBarPoints(barIndices, isSub) {
     var $$ = this,
         config = $$.config,
@@ -18170,35 +18485,22 @@ var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate
         posY = y0;
       }
 
-      posY -= y0 - offset;
+      if (!$$.isBarRangeType(d)) {
+        posY -= y0 - offset;
+      }
+
       var startPosX = posX + width; // 4 points that make a bar
 
       return [[posX, offset], [posX, posY], [startPosX, posY], [startPosX, offset]];
     };
-  },
-  isWithinBar: function isWithinBar(that) {
-    var mouse = getPointer(this.state.event, that),
-        list = getRectSegList(that),
-        _list = list,
-        seg0 = _list[0],
-        seg1 = _list[1],
-        x = Math.min(seg0.x, seg1.x),
-        y = Math.min(seg0.y, seg1.y),
-        offset = this.config.bar_sensitivity,
-        _that$getBBox = that.getBBox(),
-        width = _that$getBBox.width,
-        height = _that$getBBox.height,
-        isWithin = x - offset < mouse[0] && mouse[0] < x + width + offset && y - offset < mouse[1] && mouse[1] < y + height + offset;
-
-    return isWithin;
   }
 });
 ;// CONCATENATED MODULE: ./src/ChartInternal/shape/candlestick.ts
 
 
-function candlestick_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function candlestick_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function candlestick_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { candlestick_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { candlestick_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function candlestick_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? candlestick_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : candlestick_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
@@ -19707,6 +20009,7 @@ var cacheKey = KEY.radarPoints;
         return d && Object.keys(d).length === 1 ? d.index : undefined;
       },
           hide = function (event) {
+        state.event = event;
         var index = getIndex(event),
             noIndex = isUndefined(index);
 
@@ -19958,10 +20261,10 @@ var cacheKey = KEY.radarPoints;
    * @memberof Options
    * @type {object}
    * @property {object} bar Bar object
+   * @property {number} [bar.indices.removeNull=false] Remove nullish data on bar indices positions.
    * @property {number} [bar.label.threshold=0] Set threshold ratio to show/hide labels.
    * @property {number} [bar.padding=0] The padding pixel value between each bar.
    * @property {number} [bar.radius] Set the radius of bar edge in pixel.
-   * - **NOTE:** Works only for non-stacked bar
    * @property {number} [bar.radius.ratio] Set the radius ratio of bar edge in relative the bar's width.
    * @property {number} [bar.sensitivity=2] The senstivity offset value for interaction boundary.
    * @property {number} [bar.width] Change the width of bar chart.
@@ -19974,15 +20277,21 @@ var cacheKey = KEY.radarPoints;
    * @property {number} [bar.width.dataname.ratio=0.6] Change the width of bar chart by ratio.
    * @property {number} [bar.width.dataname.max] The maximum width value for ratio.
    * @property {boolean} [bar.zerobased=true] Set if min or max value will be 0 on bar chart.
+   * @see [Demo: bar indices](https://naver.github.io/billboard.js/demo/#BarChartOptions.BarIndices)
    * @see [Demo: bar padding](https://naver.github.io/billboard.js/demo/#BarChartOptions.BarPadding)
    * @see [Demo: bar radius](https://naver.github.io/billboard.js/demo/#BarChartOptions.BarRadius)
    * @see [Demo: bar width](https://naver.github.io/billboard.js/demo/#BarChartOptions.BarWidth)
    * @see [Demo: bar width variant](https://naver.github.io/billboard.js/demo/#BarChartOptions.BarWidthVariant)
    * @example
    *  bar: {
+   *      // remove nullish data on bar indices postions
+   *      indices: {
+   *          removeNull: true
+   *      },
+   *
    *      padding: 1,
    *
-   *      // the 'radius' option can be used only for non-stacking bars
+   *      // bar radius
    *      radius: 10,
    *      // or
    *      radius: {
@@ -20019,6 +20328,7 @@ var cacheKey = KEY.radarPoints;
    *  }
    */
   bar_label_threshold: 0,
+  bar_indices_removeNull: !1,
   bar_padding: 0,
   bar_radius: undefined,
   bar_radius_ratio: undefined,
@@ -21422,9 +21732,9 @@ extend(zoom, {
 ;// CONCATENATED MODULE: ./src/ChartInternal/internals/selection.ts
 
 
-function selection_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function selection_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function selection_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { selection_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { selection_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function selection_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? selection_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : selection_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
@@ -22646,7 +22956,7 @@ var _defaults = {},
    *    bb.version;  // "1.0.0"
    * @memberof bb
    */
-  version: "3.2.1",
+  version: "3.3.0",
 
   /**
    * Generate chart
@@ -22780,7 +23090,7 @@ var _defaults = {},
 };
 /**
  * @namespace bb
- * @version 3.2.1
+ * @version 3.3.0
  */
 ;// CONCATENATED MODULE: ./src/index.ts
 /**

@@ -3,7 +3,7 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.25",
+            scriptVersion: "1.0.0.26",
             utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -1212,7 +1212,6 @@ var apexBIDashBoard = function (apex, $) {
                             /* add item id to item div */
                             if (util.isDefinedAndNotNull(newAsyncAjaxItems.itemID)) {
                                 div.attr("item-id", newAsyncAjaxItems.itemID);
-                                div.addClass(newAsyncAjaxItems.itemID);
                             }
 
                             /* set region height if height has changed */
