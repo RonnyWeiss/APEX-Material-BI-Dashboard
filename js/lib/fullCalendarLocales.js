@@ -354,6 +354,11 @@
     noEventsText: 'Ingen arrangementer at vise',
   };
 
+  function affix$1(buttonText) {
+    return (buttonText === 'Tag' || buttonText === 'Monat') ? 'r' :
+      buttonText === 'Jahr' ? 's' : ''
+  }
+
   var l16 = {
     code: 'de-at',
     week: {
@@ -371,12 +376,47 @@
       list: 'Terminübersicht',
     },
     weekText: 'KW',
+    weekTextLong: 'Woche',
     allDayText: 'Ganztägig',
     moreLinkText: function(n) {
       return '+ weitere ' + n
     },
     noEventsText: 'Keine Ereignisse anzuzeigen',
+    buttonHints: {
+      prev(buttonText) {
+        return `Vorherige${affix$1(buttonText)} ${buttonText}`
+      },
+      next(buttonText) {
+        return `Nächste${affix$1(buttonText)} ${buttonText}`
+      },
+      today(buttonText) {
+        // → Heute, Diese Woche, Dieser Monat, Dieses Jahr
+        if (buttonText === 'Tag') {
+          return 'Heute'
+        }
+        return `Diese${affix$1(buttonText)} ${buttonText}`
+      },
+    },
+    viewHint(buttonText) {
+      // → Tagesansicht, Wochenansicht, Monatsansicht, Jahresansicht
+      const glue = buttonText === 'Woche' ? 'n' : buttonText === 'Monat' ? 's' : 'es';
+      return buttonText + glue + 'ansicht'
+    },
+    navLinkHint: 'Gehe zu $0',
+    moreLinkHint(eventCnt) {
+      return 'Zeige ' + (eventCnt === 1 ?
+        'ein weiteres Ereignis' :
+        eventCnt + ' weitere Ereignisse')
+    },
+    closeHint: 'Schließen',
+    timeHint: 'Uhrzeit',
+    eventHint: 'Ereignis',
   };
+
+  function affix(buttonText) {
+    return (buttonText === 'Tag' || buttonText === 'Monat') ? 'r' :
+      buttonText === 'Jahr' ? 's' : ''
+  }
 
   var l17 = {
     code: 'de',
@@ -395,11 +435,41 @@
       list: 'Terminübersicht',
     },
     weekText: 'KW',
+    weekTextLong: 'Woche',
     allDayText: 'Ganztägig',
     moreLinkText: function(n) {
       return '+ weitere ' + n
     },
     noEventsText: 'Keine Ereignisse anzuzeigen',
+    buttonHints: {
+      prev(buttonText) {
+        return `Vorherige${affix(buttonText)} ${buttonText}`
+      },
+      next(buttonText) {
+        return `Nächste${affix(buttonText)} ${buttonText}`
+      },
+      today(buttonText) {
+        // → Heute, Diese Woche, Dieser Monat, Dieses Jahr
+        if (buttonText === 'Tag') {
+          return 'Heute'
+        }
+        return `Diese${affix(buttonText)} ${buttonText}`
+      },
+    },
+    viewHint(buttonText) {
+      // → Tagesansicht, Wochenansicht, Monatsansicht, Jahresansicht
+      const glue = buttonText === 'Woche' ? 'n' : buttonText === 'Monat' ? 's' : 'es';
+      return buttonText + glue + 'ansicht'
+    },
+    navLinkHint: 'Gehe zu $0',
+    moreLinkHint(eventCnt) {
+      return 'Zeige ' + (eventCnt === 1 ?
+        'ein weiteres Ereignis' :
+        eventCnt + ' weitere Ereignisse')
+    },
+    closeHint: 'Schließen',
+    timeHint: 'Uhrzeit',
+    eventHint: 'Ereignis',
   };
 
   var l18 = {
@@ -1153,9 +1223,20 @@
       list: 'Agenda',
     },
     weekText: 'Uke',
+    weekTextLong: 'Uke',
     allDayText: 'Hele dagen',
     moreLinkText: 'til',
     noEventsText: 'Ingen hendelser å vise',
+    buttonHints: {
+      prev: 'Forrige $0',
+      next: 'Neste $0',
+      today: 'Nåværende $0',
+    },
+    viewHint: '$0 visning',
+    navLinkHint: 'Gå til $0',
+    moreLinkHint(eventCnt) {
+      return `Vis ${eventCnt} flere hendelse${eventCnt === 1 ? '' : 'r'}`
+    },
   };
 
   var l53 = {
@@ -1494,10 +1575,30 @@
       day: 'Dag',
       list: 'Program',
     },
+    buttonHints: {
+      prev(buttonText) {
+        return `Föregående ${buttonText.toLocaleLowerCase()}`
+      },
+      next(buttonText) {
+        return `Nästa ${buttonText.toLocaleLowerCase()}`
+      },
+      today(buttonText) {
+        return (buttonText === 'Program' ? 'Detta' : 'Denna') + ' ' + buttonText.toLocaleLowerCase()
+      },
+    },
+    viewHint: '$0 vy',
+    navLinkHint: 'Gå till $0',
+    moreLinkHint(eventCnt) {
+      return `Visa ytterligare ${eventCnt} händelse${eventCnt === 1 ? '' : 'r'}`
+    },
     weekText: 'v.',
+    weekTextLong: 'Vecka',
     allDayText: 'Heldag',
     moreLinkText: 'till',
     noEventsText: 'Inga händelser att visa',
+    closeHint: 'Stäng',
+    timeHint: 'Klockan',
+    eventHint: 'Händelse',
   };
 
   var l69 = {

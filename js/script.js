@@ -3,11 +3,11 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.26",
+            scriptVersion: "1.0.0.27",
             utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
-            license: "CC BY-ND 4.0 License"
+            license: "MIT License"
         },
         isDefinedAndNotNull: function (pInput) {
             if (typeof pInput !== "undefined" && pInput !== null && pInput != "") {
