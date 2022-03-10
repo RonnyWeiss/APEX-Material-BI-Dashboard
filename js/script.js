@@ -3,7 +3,7 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.28",
+            scriptVersion: "1.0.0.29",
             utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -3778,10 +3778,9 @@ var apexBIDashBoard = function (apex, $) {
                         util.tooltip.hide();
                     },
                     dayMaxEventRows: eventLimit,
-                    eventDidMount: function (ev) {
+                    eventContent: function (ev) {
                         var str = escapeOrSanitizeHTML(ev.event.title, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
-                        $(ev.el).find('.fc-event-title').html(str);
-                        $(ev.el).find('.fc-list-event-title').find("a").html(str);
+                        return { html: str };
                     },
                     allDaySlot: false,
                     nowIndicator: true,

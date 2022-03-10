@@ -11,7 +11,7 @@ var data = {
          "optionsLinkIcon":"fa-gear",
          "itemData":[
             {
-               "title":"Event 1",
+               "title":"<span class=\"fa fa-cog\"></span>Event 1",
                "start":"2021-10-02T18:00:00",
                "end":"2021-10-03T00:00:00",
                "color":"hsl(23, 79%, 45%)",
