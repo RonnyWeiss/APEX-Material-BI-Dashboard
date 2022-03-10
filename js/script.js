@@ -3,7 +3,7 @@ var apexBIDashBoard = function (apex, $) {
     var util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "1.0.0.27",
+            scriptVersion: "1.0.0.28",
             utilVersion: "1.6",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -656,7 +656,7 @@ var apexBIDashBoard = function (apex, $) {
 
                 /* default purify js - sanitizer options */
                 var stdSanatizerConfigJSON = {
-                    "ALLOWED_ATTR": ["accesskey", "align", "alt", "always", "autocomplete", "autoplay", "border", "cellpadding", "cellspacing", "charset", "class", "dir", "height", "href", "id", "lang", "name", "rel", "required", "src", "style", "summary", "tabindex", "target", "title", "type", "value", "width"],
+                    "ALLOWED_ATTR": ["accesskey", "align", "alt", "always", "autocomplete", "autoplay", "border", "cellpadding", "cellspacing", "charset", "class", "colspan", "dir", "height", "href", "id", "lang", "name", "rel", "required", "rowspan", "src", "style", "summary", "tabindex", "target", "title", "type", "value", "width"],
                     "ALLOWED_TAGS": ["a", "address", "b", "blockquote", "br", "caption", "code", "dd", "div", "dl", "dt", "em", "figcaption", "figure", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "i", "img", "label", "li", "nl", "ol", "p", "pre", "s", "span", "strike", "strong", "sub", "sup", "table", "tbody", "td", "th", "thead", "tr", "u", "ul"]
                 };
 
@@ -3656,7 +3656,6 @@ var apexBIDashBoard = function (apex, $) {
 
                 var pCon = $(pItemSel);
                 var calendarID = pCon.attr("id") + "-calendar";
-                var calendarIDSel = "#" + calendarID;
                 var locale = apex.locale.getLanguage();
 
                 var calendarCon = $("<div></div>");
