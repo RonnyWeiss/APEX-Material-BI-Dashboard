@@ -3967,10 +3967,10 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     localeMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
                 // check if the all needed apex.locale api's are available
-                if ( typeof apex.locale.getSetting === "function" && apex.locale.getSetting().calendar && apex.locale.getSetting().calendar.startOfWeek ) {
+                if ( typeof apex.locale.getSettings === "function" && apex.locale.getSettings().calendar && apex.locale.getSettings().calendar.startOfWeek ) {
                     localeMonths = apex.locale.getAbbrevMonthNames();
                     localeDays = apex.locale.getAbbrevDayNames();
-                    startOfWeek = apex.locale.getSetting().calendar.startOfWeek;
+                    startOfWeek = apex.locale.getSettings().calendar.startOfWeek;
                 }
 
                 // eslint-disable-next-line no-undef
