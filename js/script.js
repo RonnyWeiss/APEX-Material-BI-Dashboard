@@ -53,6 +53,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     if ( $( "#dynToolTip" ).length === 0 ) {
                         const tooltip = $( "<div></div>" )
                             .attr( "id", "dynToolTip" )
+                            .css("color", "#111")
                             .css( "max-width", "400px" )
                             .css( "position", "absolute" )
                             .css( "top", "0px" )
