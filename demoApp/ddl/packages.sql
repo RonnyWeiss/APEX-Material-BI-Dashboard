@@ -1078,6 +1078,49 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
         WHEN OTHERS THEN
             RETURN VR_BLOB;
     END;
+
+    --------------------------------------------------------------------------------------------------------------------
+    -- Calendar Heatmap
+    --------------------------------------------------------------------------------------------------------------------
+    FUNCTION GET_CAL_HEATMAP_ITEM_DATA RETURN BLOB AS
+        VR_BLOB BLOB := EMPTY_BLOB();
+        BEGIN 
+             SELECT
+                JSON_ARRAYAGG(
+                    JSON_OBJECT(
+                        /* required - date in iso short format of the day e.g. 2022-01-01 [string] */
+                        'date' VALUE TRUNC(SYSDATE - RN),
+                        /* required - value of this day [number] */
+                        'value' VALUE VAL,
+                        /* optional - color [string] */
+                        'color' VALUE CASE 
+                                        WHEN VAL = 0 THEN NULL
+                                        WHEN VAL <= 4 THEN '#ACDF87'
+                                        WHEN VAL <= 8 THEN '#76BA1B'
+                                        ELSE '#1E5631'
+                                      END,
+                        /* optional - tooltip that is shown on mouse over [string] */
+                        'tooltip' VALUE 'This is a tooltip',
+                        /* optional - link when click on list item [string] */
+                        'link' VALUE 'https://linktr.ee/ronny.weiss',
+                        /* optional - set target for the link 
+                            _blank - URL is loaded into a new window, or tab. This is default
+                            _parent - URL is loaded into the parent frame
+                            _self - URL replaces the current page
+                            _top - URL replaces any framesets that may be loaded
+                            name - The name of the window (Note: the name does not specify the title of the new window)
+                        */ 
+                        'linkTarget' VALUE '_blank'
+                    RETURNING BLOB) 
+                RETURNING BLOB)
+                INTO VR_BLOB
+            FROM
+                (SELECT ROWNUM AS RN, ROUND(DBMS_RANDOM.VALUE(0,10)) AS VAL FROM DUAL CONNECT BY ROWNUM <= 365);
+              RETURN VR_BLOB;
+        EXCEPTION
+            WHEN OTHERS THEN
+                RETURN VR_BLOB;
+        END;
     
     -------------------------------------------------------------------------------------------------------------------------------------------------
     -- Section 2: Public Functions to Get Data/Config of Dashboard Items
@@ -1129,6 +1172,8 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                 RETURN GET_LIST_ITEM_DATA;
             WHEN P_IN_TYPE_ID = 'clock' THEN
                 RETURN GET_CLOCK_ITEM_DATA;
+            WHEN P_IN_TYPE_ID = 'calendarheatmap' THEN
+                RETURN GET_CAL_HEATMAP_ITEM_DATA;
             WHEN P_IN_TYPE_ID = 'note' THEN
                 RETURN GET_NOTE_ITEM_DATA(P_IN_IN_ITEM_IDENT => P_IN_IN_ITEM_IDENT);
             WHEN P_IN_TYPE_ID = 'chart' THEN
