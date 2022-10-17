@@ -91,6 +91,10 @@ create or replace PACKAGE BODY PKG_DASHBOARD_MGMT AS
                             'title' VALUE TDI.ITEM_TITLE,
                             /* optional - set background color of dashboard item */
                             'backColor' VALUE NULL, 
+                            /* optional - set color of dashboard item */
+                            'color' VALUE NULL,
+                            /* optional - set box-shadow of dashboard item */
+                            'boxShadow' VALUE null,
                             /* optional - set a background color for the item title */
                             'titleBackColor' VALUE NULL,
                             /* optional - set a icon for the item title */

@@ -537,6 +537,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     "refresh": 0,
                     "backColor": "transparent",
                     "color": "inherit",
+                    "boxShadow": "0px 0px 6px 0.32px rgba(0, 0, 0, 0.26)",
                     "optionsLink": {
                         "backColor": "transparent",
                         "color": "inherit",
@@ -1125,6 +1126,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                 col.css( "min-height", itemHeight );
                 col.css( "background", pAjaxItems.backColor || pDefaultConfig.backColor );
                 col.css( "color", pAjaxItems.color || pDefaultConfig.color );
+                col.css( "box-shadow", pAjaxItems.boxShadow || pDefaultConfig.boxShadow );
 
                 // add item id to item div
                 if ( util.isDefinedAndNotNull( pAjaxItems.itemID ) ) {
