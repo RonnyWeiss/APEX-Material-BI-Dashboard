@@ -3961,22 +3961,16 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     "featureDetails": util.featureDetails
                 } );
 
-                // apex.locale is only available on 20.1 so this is the en fallback
+                // apex.locale is only available on 21.2 so this is the en fallback
                 let startOfWeek = "sunday",
                     localeDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
                     localeMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-                // check  if the different apex.locale api's are available
-                if ( apex.locale ) {
-                    if ( typeof apex.locale.getAbbrevMonthNames === "function" ) {
-                        localeMonths = apex.locale.getAbbrevMonthNames();
-                    }
-                    if ( typeof apex.locale.getAbbrevDayNames === "function" ) {
-                        localeDays = apex.locale.getAbbrevDayNames();
-                    }
-                    if ( typeof apex.locale.getSetting === "function" && apex.locale.getSetting().calendar && apex.locale.getSetting().calendar.startOfWeek ) {
-                        startOfWeek = apex.locale.getSetting().calendar.startOfWeek;
-                    }
+                // check if the all needed apex.locale api's are available
+                if ( typeof apex.locale.getSetting === "function" && apex.locale.getSetting().calendar && apex.locale.getSetting().calendar.startOfWeek ) {
+                    localeMonths = apex.locale.getAbbrevMonthNames();
+                    localeDays = apex.locale.getAbbrevDayNames();
+                    startOfWeek = apex.locale.getSetting().calendar.startOfWeek;
                 }
 
                 // eslint-disable-next-line no-undef
