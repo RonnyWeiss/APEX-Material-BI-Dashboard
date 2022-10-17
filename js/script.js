@@ -3920,7 +3920,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                 noteCon.on( "colorchange", function( event, data ){
                     // remove hilite when black is selected
                     if ( data === "#000" ) {
-                        pell.exec( "hiliteColor", undefined );
+                        pell.exec( "hiliteColor", "#fff" );
                     } else {
                         pell.exec( "hiliteColor", data );
                     }
