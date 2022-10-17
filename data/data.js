@@ -1306,6 +1306,52 @@ var data = {
            "label": "#date#",
            "label2": "UTC-02:00"
          }
-       }
+       },{
+         "itemID":"calendarHeatMap",
+         "itemType":"calendarheatmap",
+         "title":"Calendar Heatmap",
+         "titleIcon":"fa-calendar-o",
+         "colSpan":12,
+         "height":220,
+         "itemData":[
+            {
+               "date":"2021-11-01",
+               "value": 10,
+               "tooltip": "This is a tooltip",
+               "link": "https://ronnyweiss.app",
+               "linkTarget": "_blank"
+            },
+            {
+               "date":"2021-12-15",
+               "value": 10,
+               "tooltip": "This is a tooltip",
+               "color": "#ACDF87",
+               "link": "https://ronnyweiss.app"
+            },{
+               "date":"2022-01-01",
+               "value": 10,
+               "tooltip": "This is a tooltip",
+               "color": "#ACDF87"
+            },
+            {
+               "date":"2022-01-10",
+               "value": 50,
+               "tooltip": "This is a tooltip",
+               "color": "#1E5631"
+            },
+            {
+               "date":"2022-02-01",
+               "value": 24,
+               "tooltip": "This is a tooltip",
+               "color": "#76BA1B"
+            },
+            {
+               "date":"2022-10-31",
+               "value": 24,
+               "tooltip": "This is a tooltip",
+               "color": "#76BA1B"
+            }
+         ]
+      }
    ]
 };

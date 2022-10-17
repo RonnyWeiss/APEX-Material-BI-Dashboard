@@ -2,13 +2,19 @@
     border: 10px solid transparent;
 }
 
-.bida-note > .pell-actionbar {
+.bida-note>.pell-actionbar {
     background-color: transparent;
 }
 
 .pell-content {
     height: 100%;
     overflow: auto;
+}
+
+.pell-content .fa {
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: middle;
 }
 
 .pell-content p {
@@ -38,4 +44,10 @@
 .pell-button-disabled {
     pointer-events: none;
     opacity: 0.5;
+}
+
+.pell-button-c-select {
+    width: 40px;
+    background: #fff;
+    border: 0px solid #ccc;
 }

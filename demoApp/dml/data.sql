@@ -162,6 +162,23 @@ BEGIN
         4
     );
 
+    INSERT INTO T_DASHBOARD_ITEM_TYPES (
+        TYPE_ID,
+        TITLE,
+        DESCRIPTION,
+        ICON,
+        DEFAULT_WIDTH,
+        DEFAULT_HEIGHT
+    ) VALUES (
+        'calendarheatmap',
+        'Calendar Heatmap',
+        'Add a new Calendar Heatmap Item to the Dashboard.',
+        'fa-calendar',
+        4,
+        2
+    );
+
+
     -------------------------------------------------------------------------------------------------------------------------------------------------
     -- T_DASHBOARD_ITEMS
     -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -338,11 +355,11 @@ BEGIN
         ATTRIBUTE_01
     ) VALUES (
         1,
-        'List',
+        'Calendar Heatmap',
         4,
         2,
         8,
-        'list',
+        'calendarheatmap',
         NULL,
         NULL
     );

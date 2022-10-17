@@ -354,7 +354,9 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                 /* optional - Use 12 hours or 24 hours. [boolean] */
                 'hours12' VALUE 'false' FORMAT JSON,
                 /* optional - Set time of scroll position for timeGridWeek [string] */
-                'timeGridStartTime' VALUE '06:00:00'
+                'timeGridStartTime' VALUE '06:00:00',
+                /* Whether to fix the date-headers at the top of the calendar to the viewport while scrolling (auto, true, false) [string] */
+                'stickyHeaderDates' VALUE 'auto'
             RETURNING BLOB )
         INTO VR_BLOB
         FROM

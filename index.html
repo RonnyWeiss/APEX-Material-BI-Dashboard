@@ -188,7 +188,26 @@
 
     function init() {
         /* init the dashboard */
-        apexBIDashBoard(bridge, $).initialize('plugin', 'plugin', "ajaxIDKey0815", 'No data found', 'Error occured', mainConf, 'A', 'map:table:charts:clock:calendar:note', chartConf, null, null, false, sanitizerConf, "https://apex.oracle.com/pls/apex/ronnyweiss_outlook_com/r/55310/files/plugin/161556939618477644685/v4869/map/", mapConf, tableConf, clockConf);
+        apexBIDashBoard(bridge, $, DOMPurify, Masonry, pell).initialize(
+            'plugin',
+            'plugin',
+            "ajaxIDKey0815",
+            'No data found',
+            'Error occured',
+            mainConf,
+            'A',
+            'map:table:charts:clock:calendar:note:calendarheatmap',
+            chartConf,
+            null,
+            null,
+            false,
+            sanitizerConf,
+            "https://apex.oracle.com/pls/apex/ronnyweiss_outlook_com/r/55310/files/plugin/161556939618477644685/v4869/map/",
+            mapConf,
+            tableConf,
+            clockConf,
+            null
+        );
     }
 
     function ajaxCall(ajaxID, pItems, pOptions) {

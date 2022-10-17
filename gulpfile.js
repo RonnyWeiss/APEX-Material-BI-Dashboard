@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var uglifycss = require('gulp-uglifycss');
 
-function concatmainjs() {
+async function concatmainjs() {
   return gulp.src([
     './js/lib/masonry.pkgd.js',
     './js/lib/pell.js',
@@ -22,7 +22,7 @@ function concatmainjs() {
     .pipe(gulp.dest('./build/'));
 }
 
-function concatd3js() {
+async function concatd3js() {
   return gulp.src([
     './js/lib/d3.js',
     './js/lib/maptopojson.js'])
@@ -31,7 +31,7 @@ function concatd3js() {
     .pipe(gulp.dest('./build/'));
 }
 
-function concatbbjs() {
+async function concatbbjs() {
   return gulp.src([
     './js/lib/nbillboard.js'])
     .pipe(concat('bida-chart.pkgd.min.js'))
@@ -39,7 +39,7 @@ function concatbbjs() {
     .pipe(gulp.dest('./build/'));
 }
 
-function concatcaljs() {
+async function concatcaljs() {
   return gulp.src([
     './js/lib/fullCalendar.js',
     './js/lib/fullCalendarLocales.js'])
@@ -48,11 +48,19 @@ function concatcaljs() {
     .pipe(gulp.dest('./build/'));
 }
 
-function concatcss() {
+async function concatcss() {
   return gulp.src('./css/*.css')
     .pipe(concat({ path: 'bida.pkgd.min.css' }))
     .pipe(uglifycss({ "uglyComments": true }))
     .pipe(gulp.dest('./build/'))
+}
+
+async function concatall() {
+  concatmainjs();
+  concatcss();
+  concatd3js();
+  concatbbjs();
+  concatcaljs();
 }
 
 exports.concatmainjs = concatmainjs;
@@ -60,3 +68,4 @@ exports.concatd3js = concatd3js;
 exports.concatbbjs = concatbbjs;
 exports.concatcaljs = concatcaljs;
 exports.concatcss = concatcss;
+exports.concatall = concatall;
