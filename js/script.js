@@ -2039,7 +2039,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                             if ( listItem.icon && listItem.icon.substr( 0, faSrcString.length ) === faSrcString ) {
                                 icon.addClass( "fa " + listItem.icon );
 
-                                const listItemStdStyle = 'linear-gradient(60deg, hsl(' + ( i * 23 ) % 350 + ', 79%, 45%), hsl(' + ( i * 23 ) % 350 + ', 60%, 45%))';
+                                const listItemStdStyle = 'hsl(' + ( i * 23 ) % 350 + ', 79%, 45%)';
 
                                 icon.css( "background", listItem.iconBackColor || listItemStdStyle );
                             } else {
@@ -2197,7 +2197,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                 } );
 
                 const faSrcString = "fa-",
-                      stdFontColor = 'linear-gradient(60deg, hsl(' + ( pIndex * 23 ) % 350 + ', 79%, 45%), hsl(' + ( pIndex * 23 ) % 350 + ', 60%, 45%))';
+                      stdFontColor = 'hsl(' + ( pIndex * 23 ) % 350 + ', 79%, 45%)';
 
                 let spanIcon,
                     spanTitle, 
@@ -2367,7 +2367,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     if ( util.isDefinedAndNotNull( pItemData.icon ) && pItemData.icon.substr( 0, faSrcString.length ) === faSrcString ) {
                         icon.addClass( "fa " + pItemData.icon );
 
-                        const cardStdStyle = 'linear-gradient(60deg, hsl(' + ( pIndex * 23 ) % 350 + ', 79%, 45%), hsl(' + ( pIndex * 23 ) % 350 + ', 60%, 45%))';
+                        const cardStdStyle = 'hsl(' + ( pIndex * 23 ) % 350 + ', 79%, 45%)';
                         icon.css( "background", pItemData.iconBackColor || cardStdStyle );
                     } else {
                         if ( util.isDefinedAndNotNull( pItemData.iconText ) ) {
