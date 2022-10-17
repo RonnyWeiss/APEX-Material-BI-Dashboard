@@ -53,7 +53,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                     if ( $( "#dynToolTip" ).length === 0 ) {
                         const tooltip = $( "<div></div>" )
                             .attr( "id", "dynToolTip" )
-                            .css("color", "#111")
+                            .css( "color", "#111" )
                             .css( "max-width", "400px" )
                             .css( "position", "absolute" )
                             .css( "top", "0px" )
@@ -3769,11 +3769,10 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                 const highlightArr = [],
                       colors = ["#000", "#f77272", "#f7f772", "#8af772", "#72aef7", "#c672f7" ];
 
-                highlightArr.push( `<select class="${selectClass}">` );
+                highlightArr.push( `<select class="${selectClass}" onchange="$('#${noteID}').trigger('colorchange', this.value );">` );
                 colors.forEach( function( element ) {
-                    highlightArr.push( `<option value="${element}" style="color:${element};" onclick="$('#${noteID}').trigger('colorchange', '${element}' );">&#9632;</option>` );
+                    highlightArr.push( `<option value="${element}" style="color:${element};">&#9632;</option>` );
                 } );
-
                 highlightArr.push( '</select>' );
 
                 pell.init( {
@@ -3920,7 +3919,6 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
 
                 noteCon.on( "colorchange", function( event, data ){ 
                     pell.exec( "hiliteColor", data );
-                    noteCon.find( "." + selectClass ).val( "#000" );
                 } );
 
                 let str;
