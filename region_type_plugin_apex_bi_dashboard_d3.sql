@@ -27,7 +27,7 @@ prompt APPLICATION 55310 - Material BI Dashboard Demo
 -- Application Export:
 --   Application:     55310
 --   Name:            Material BI Dashboard Demo
---   Date and Time:   23:09 Monday November 28, 2022
+--   Date and Time:   23:14 Monday November 28, 2022
 --   Exported By:     RONNY
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -601,7 +601,7 @@ wwv_flow_api.create_plugin(
 '<p>The plug-in requires an APEX 5.1.3 or newer and an Oracle 12c or newer. The Sample App requires an APEX 20.2 or newer. However, you can quickly install it in a free workspace on apex.oracle.com and then get started right away with the help of the '
 ||'Sample App!</p>',
 '<p>The item dialog in the Sample App is just a very simplified example, of course in your application the respective data source (table, view, function...) and many setting options for the respective dashboard item can be offered there.</p>'))
-,p_version_identifier=>'22.10.17'
+,p_version_identifier=>'22.11.28'
 ,p_about_url=>'https://github.com/RonnyWeiss/APEX-BI-Dashboard'
 ,p_files_version=>5175
 );
