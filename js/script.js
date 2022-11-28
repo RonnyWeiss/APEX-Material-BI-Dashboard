@@ -4,8 +4,8 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
     const util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "22.10.17",
-            utilVersion: "22.10.17",
+            scriptVersion: "22.11.28",
+            utilVersion: "22.11.28",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
             license: "MIT License"
@@ -3992,7 +3992,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                       startDate = new Date( date.getFullYear() - 1, curMonth + 1, 1 ),
                       endDate = new Date( date.getFullYear(), curMonth + 1, 1 ),
                       monthst1 = localeMonths.slice( curMonth + 1 ),
-                      monthst2 =  localeMonths.slice( 0, monthst1.indexOf( curMonth ) - 1 ),
+                      monthst2 =  localeMonths.slice( 0, monthst1.indexOf( curMonth ) ),
                       months = monthst1.concat( monthst2 );
 
                 let startMonday = false,
@@ -4019,13 +4019,12 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
 
                     const width = item$.width(),
                           cellSize = width/53 -40/53,
-                          cellHeight = pItemHeight/7 - 20/7 ;
+                          cellHeight = pItemHeight/7 - 20/7,
+                          axisCorrect = 40;
 
-                    let axisCorrect = 50,
-                        marginCorrent = 4;
+                    let marginCorrent = 4;
                     
                     if ( width <= 640 ) {
-                        axisCorrect = 40;
                         marginCorrent = 2;
                     } else if ( width <= 450 ) {
                         marginCorrent = 1;
