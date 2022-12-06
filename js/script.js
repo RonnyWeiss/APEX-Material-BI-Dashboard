@@ -4,7 +4,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
     const util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "22.11.28",
+            scriptVersion: "22.12.06",
             utilVersion: "22.11.28",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -3992,7 +3992,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                       startDate = new Date( date.getFullYear() - 1, curMonth + 1, 1 ),
                       endDate = new Date( date.getFullYear(), curMonth + 1, 1 ),
                       monthst1 = localeMonths.slice( curMonth + 1 ),
-                      monthst2 =  localeMonths.slice( 0, monthst1.indexOf( curMonth ) ),
+                      monthst2 =  localeMonths.slice( 0, curMonth + 1 ),
                       months = monthst1.concat( monthst2 );
 
                 let startMonday = false,
