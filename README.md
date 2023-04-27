@@ -16,7 +16,7 @@ You can find a tutorial at https://www.youtube.com/watch?v=amzzRHLT5KY&list=PL9d
 
 For working Demo just click on:
 
-https://APEX.oracle.com/pls/APEX/f?p=103428
+https://apex.oracle.com/pls/apex/f?p=103428
 
 If you like my stuff, donate me a coffee
 
