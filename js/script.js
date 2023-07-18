@@ -4,7 +4,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
     const util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "22.12.06",
+            scriptVersion: "23.07.18",
             utilVersion: "22.11.28",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -300,7 +300,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                   min = pValue2 - range,
                   max = pValue2 + range;
             return ( pValue >= min && pValue <= max );
-        },
+        }
     };
 
     /***********************************************************************
@@ -2890,20 +2890,15 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                                 div.addClass( "bb-tooltip" );
                                 div.addClass( "bida-chart-tooltip-custome" );
                                 $.each( d, function ( i, pData ) {
-                                    const key = specialStr + unescape( pData.id );
-                                    let index = pData.index;
-
-                                    if ( seriesData[key] ) {
-                                        const seriesObj = seriesData[key];
-                                        if ( seriesObj.length === 1 ) {
-                                            index = 0;
-                                        }
-                                        if ( seriesData[key][index] && util.isDefinedAndNotNull( seriesData[key][index].tooltip ) ) {
-                                            const subDiv = $( "<div>" ),
-                                                  ttS = escapeOrSanitizeHTML( seriesData[key][index].tooltip, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape );
-                                            subDiv.append( ttS );
-                                            div.append( subDiv );
-                                        }
+                                    const key = specialStr + unescape( pData.id ),
+                                          seriesObj = seriesData[key],
+                                          index = pData.index;
+                                    
+                                    if ( seriesObj && seriesObj[index] && util.isDefinedAndNotNull( seriesObj[index].tooltip ) && util.isDefinedAndNotNull( pData.value ) ) {
+                                        const subDiv = $( "<div>" ),
+                                              ttS = escapeOrSanitizeHTML( seriesObj[index].tooltip, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape );
+                                        subDiv.append( ttS );
+                                        div.append( subDiv );
                                     }
                                 } );
                                 return div[0].outerHTML;

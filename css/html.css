@@ -5,6 +5,7 @@
     position: absolute;
     bottom: calc(50% - 40px);
     cursor: pointer;
+    z-index: 1;
 }
 
 .bida-item-html-slide-lc:hover,

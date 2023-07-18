@@ -253,7 +253,7 @@
                     pOptions.success(data);
                     // used when error
                     //pOptions.error(data);
-                }, 200);
+                }, 0);
                 break;
             case "itemData":
                 console.log("Try to load async data from item - " + pItems.x02);
@@ -266,7 +266,7 @@
                     });
                     // used when error
                     //pOptions.error(data);
-                }, 800);
+                }, 0);
                 break;
             case "noteUpload":
                 /* wait to simulate ajax request */
@@ -275,7 +275,7 @@
                     pOptions.success();
                     // used when error
                     //pOptions.error();
-                }, 800);
+                }, 0);
                 break;
             case "imageDownload":
                 /* used when image download from pluginURL is done by same ajax call then the other calls
