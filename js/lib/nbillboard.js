@@ -5,7 +5,7 @@
  * billboard.js, JavaScript chart library
  * https://naver.github.io/billboard.js/
  *
- * @version 3.9.1
+ * @version 3.9.4
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -317,14 +317,14 @@ var TYPE_BY_CATEGORY = {
   Spline: [TYPE.SPLINE, TYPE.AREA_SPLINE, TYPE.AREA_SPLINE_RANGE]
 };
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js
 
@@ -367,8 +367,8 @@ var external_commonjs_d3_brush_commonjs2_d3_brush_amd_d3_brush_root_d3_ = __webp
 
 
 var util_this = undefined;
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -891,7 +891,7 @@ function getCssRules(styleSheets) {
       }
     } catch (e) {
       var _window$console;
-      (_window$console = win.console) == null ? void 0 : _window$console.warn("Error while reading rules from " + sheet.href + ": " + e.toString());
+      (_window$console = win.console) == null || _window$console.warn("Error while reading rules from " + sheet.href + ": " + e.toString());
     }
   }.bind(this));
   return rules;
@@ -1290,8 +1290,8 @@ function logError(head, tail) {
 }
 ;// CONCATENATED MODULE: ./src/config/classes.ts
 
-function classes_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function classes_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? classes_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : classes_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function classes_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function classes_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? classes_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : classes_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -3589,8 +3589,8 @@ var tooltip_this = undefined;
 ;// CONCATENATED MODULE: ./src/config/Options/Options.ts
 
 
-function Options_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function Options_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Options_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Options_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function Options_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function Options_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? Options_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : Options_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -3855,7 +3855,7 @@ function generateWait() {
     }
     runUntil(function () {
       _newArrowCheck(this, _this5);
-      callback == null ? void 0 : callback();
+      callback == null || callback();
     }.bind(this), loop);
   };
   f.add = function (t) {
@@ -4067,7 +4067,7 @@ function json(json, keysParam) {
   } else {
     Object.keys(json).forEach(function (key) {
       var tmp = json[key].concat();
-      tmp.unshift == null ? void 0 : tmp.unshift(key);
+      tmp.unshift == null || tmp.unshift(key);
       newRows.push(tmp);
     });
     data = columns(newRows);
@@ -4363,7 +4363,7 @@ function getDataKeyForJson(keysParam, config) {
       }.bind(this));
 
       // this needs to be sorted because its index and value.index is identical
-      (_$$$data$xs$t$id = $$.data.xs[t.id]) == null ? void 0 : _$$$data$xs$t$id.sort(function (v1, v2) {
+      (_$$$data$xs$t$id = $$.data.xs[t.id]) == null || _$$$data$xs$t$id.sort(function (v1, v2) {
         _newArrowCheck(this, _this5);
         return v1 - v2;
       }.bind(this));
@@ -4396,6 +4396,7 @@ function getDataKeyForJson(keysParam, config) {
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
  */
+
 
 
 
@@ -5049,16 +5050,26 @@ function getDataKeyForJson(keysParam, config) {
     var $$ = this,
       config = $$.config,
       _$$$state = $$.state,
+      hasRadar = _$$$state.hasRadar,
       inputType = _$$$state.inputType,
       _$$$state$eventReceiv = _$$$state.eventReceiver,
       coords = _$$$state$eventReceiv.coords,
-      rect = _$$$state$eventReceiv.rect,
-      isRotated = config.axis_rotated,
-      e = inputType === "touch" && event.changedTouches ? event.changedTouches[0] : event,
+      rect = _$$$state$eventReceiv.rect;
+    var index;
+    if (hasRadar) {
+      var target = event.target;
+
+      // in case of multilined axis text
+      if (/tspan/i.test(target.tagName)) {
+        target = target.parentNode;
+      }
+      var d = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(target).datum();
+      index = d && Object.keys(d).length === 1 ? d.index : undefined;
+    } else {
+      var isRotated = config.axis_rotated,
+        e = inputType === "touch" && event.changedTouches ? event.changedTouches[0] : event; // get data based on the mouse coords
       index = findIndex(coords, isRotated ? e.clientY - rect.top : e.clientX - rect.left, 0, coords.length - 1, isRotated);
-
-    // get data based on the mouse coords
-
+    }
     return index;
   },
   getDataLabelLength: function getDataLabelLength(min, max, key) {
@@ -5448,7 +5459,7 @@ function callDone(fn, resizeAfter) {
   var $$ = this,
     api = $$.api;
   resizeAfter && $$.api.flush(!0);
-  fn == null ? void 0 : fn.call(api);
+  fn == null || fn.call(api);
 }
 /* harmony default export */ var load = ({
   load: function load(rawTargets, args) {
@@ -5589,54 +5600,6 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
 
 
 /* harmony default export */ var interactions_interaction = ({
-  selectRectForSingle: function selectRectForSingle(context, eventRect, index) {
-    var _this = this,
-      $$ = this,
-      config = $$.config,
-      _$$$$el = $$.$el,
-      main = _$$$$el.main,
-      circle = _$$$$el.circle,
-      isSelectionEnabled = config.data_selection_enabled,
-      isSelectionGrouped = config.data_selection_grouped,
-      isSelectable = config.data_selection_isselectable,
-      isTooltipGrouped = config.tooltip_grouped,
-      selectedData = $$.getAllValuesOnIndex(index);
-    if (isTooltipGrouped) {
-      $$.showTooltip(selectedData, context);
-      $$.showGridFocus == null ? void 0 : $$.showGridFocus(selectedData);
-      if (!isSelectionEnabled || isSelectionGrouped) {
-        return;
-      }
-    }
-
-    // remove possible previous focused state
-    circle || main.selectAll("." + $COMMON.EXPANDED + ":not(." + $SHAPE.shape + "-" + index + ")").classed($COMMON.EXPANDED, !1);
-    var shapeAtIndex = main.selectAll("." + $SHAPE.shape + "-" + index).classed($COMMON.EXPANDED, !0).style("cursor", isSelectable ? "pointer" : null).filter(function (d) {
-      return $$.isWithinShape(this, d);
-    });
-    if (shapeAtIndex.empty() && !isTooltipGrouped) {
-      $$.hideGridFocus == null ? void 0 : $$.hideGridFocus();
-      $$.hideTooltip();
-      isSelectionGrouped || $$.setExpand(index);
-    }
-    shapeAtIndex.call(function (selected) {
-      var _this2 = this;
-      _newArrowCheck(this, _this);
-      var d = selected.data();
-      if (isSelectionEnabled && (isSelectionGrouped || isSelectable != null && isSelectable.bind($$.api)(d))) {
-        eventRect.style("cursor", "pointer");
-      }
-      if (!isTooltipGrouped) {
-        $$.showTooltip(d, context);
-        $$.showGridFocus == null ? void 0 : $$.showGridFocus(d);
-        $$.unexpandCircles == null ? void 0 : $$.unexpandCircles();
-        selected.each(function (d) {
-          _newArrowCheck(this, _this2);
-          return $$.setExpand(index, d.id);
-        }.bind(this));
-      }
-    }.bind(this));
-  },
   /**
    * Expand data shape/point
    * @param {number} index Index number
@@ -5662,16 +5625,16 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    * @private
    */
   expandBarTypeShapes: function expandBarTypeShapes(expand, i, id, reset) {
-    var _this3 = this;
+    var _this = this;
     if (expand === void 0) {
       expand = !0;
     }
     var $$ = this;
     ["bar", "candlestick"].filter(function (v) {
-      _newArrowCheck(this, _this3);
+      _newArrowCheck(this, _this);
       return $$.$el[v];
     }.bind(this)).forEach(function (v) {
-      _newArrowCheck(this, _this3);
+      _newArrowCheck(this, _this);
       reset && $$.$el[v].classed($COMMON.EXPANDED, !1);
       $$.getShapeByIndex(v, i, id).classed($COMMON.EXPANDED, expand);
     }.bind(this));
@@ -5683,7 +5646,7 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    * @private
    */
   setOverOut: function setOverOut(isOver, d) {
-    var _this5 = this,
+    var _this3 = this,
       $$ = this,
       config = $$.config,
       _$$$state = $$.state,
@@ -5704,16 +5667,16 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
             return $$.isWithinShape(this, d);
           }),
           shape = shapesAtIndex.filter(function () {
-            var _this4 = this;
+            var _this2 = this;
             return last.every(function (v) {
-              _newArrowCheck(this, _this4);
+              _newArrowCheck(this, _this2);
               return v !== this;
             }.bind(this));
           }); // select based on the index
         // filter if has new selection
         // call onout callback
         if (!isOver || shapesAtIndex.empty() || last.length === shape.size() && shape.nodes().every(function (v, i) {
-          _newArrowCheck(this, _this5);
+          _newArrowCheck(this, _this3);
           return v !== last[i];
         }.bind(this))) {
           while (last.length) {
@@ -5760,7 +5723,7 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    * @private
    */
   getDraggableSelection: function getDraggableSelection() {
-    var _this6 = this,
+    var _this4 = this,
       $$ = this,
       config = $$.config,
       state = $$.state;
@@ -5771,11 +5734,11 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
       state.event = event;
       $$.dragstart(getPointer(event, this));
     }).on("end", function (event) {
-      _newArrowCheck(this, _this6);
+      _newArrowCheck(this, _this4);
       state.event = event;
       $$.dragend();
     }.bind(this)) : function () {
-      _newArrowCheck(this, _this6);
+      _newArrowCheck(this, _this4);
     }.bind(this);
   },
   /**
@@ -5787,7 +5750,6 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    */
   dispatchEvent: function dispatchEvent(type, index, mouse) {
     var _ref,
-      _this7 = this,
       $$ = this,
       config = $$.config,
       _$$$state2 = $$.state,
@@ -5795,15 +5757,11 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
       hasAxis = _$$$state2.hasAxis,
       hasRadar = _$$$state2.hasRadar,
       hasTreemap = _$$$state2.hasTreemap,
-      _$$$$el2 = $$.$el,
-      eventRect = _$$$$el2.eventRect,
-      arcs = _$$$$el2.arcs,
-      radar = _$$$$el2.radar,
-      treemap = _$$$$el2.treemap,
-      element = (_ref = hasTreemap && eventReceiver.rect || hasRadar && radar.axes.select("." + $AXIS.axis + "-" + index + " text") || eventRect || (arcs == null ? void 0 : arcs.selectAll("." + $COMMON.target + " path").filter(function (d, i) {
-        _newArrowCheck(this, _this7);
-        return i === index;
-      }.bind(this)))) == null ? void 0 : _ref.node();
+      _$$$$el = $$.$el,
+      eventRect = _$$$$el.eventRect,
+      radar = _$$$$el.radar,
+      treemap = _$$$$el.treemap,
+      element = (_ref = hasTreemap && eventReceiver.rect || hasRadar && radar.axes.select("." + $AXIS.axis + "-" + index + " text") || eventRect || ($$.getArcElementByIdOrIndex == null ? void 0 : $$.getArcElementByIdOrIndex(index))) == null ? void 0 : _ref.node();
     if (element) {
       var isMultipleX = $$.isMultipleX();
       var _element$getBoundingC = element.getBoundingClientRect(),
@@ -5835,33 +5793,33 @@ var external_commonjs_d3_drag_commonjs2_d3_drag_amd_d3_drag_root_d3_ = __webpack
    */
   unbindZoomEvent: function unbindZoomEvent() {
     var $$ = this,
-      _$$$$el3 = $$.$el,
-      eventRect = _$$$$el3.eventRect,
-      zoomResetBtn = _$$$$el3.zoomResetBtn;
-    eventRect == null ? void 0 : eventRect.on(".zoom wheel.zoom .drag", null);
-    zoomResetBtn == null ? void 0 : zoomResetBtn.on("click", null).style("display", "none");
+      _$$$$el2 = $$.$el,
+      eventRect = _$$$$el2.eventRect,
+      zoomResetBtn = _$$$$el2.zoomResetBtn;
+    eventRect == null || eventRect.on(".zoom wheel.zoom .drag", null);
+    zoomResetBtn == null || zoomResetBtn.on("click", null).style("display", "none");
   },
   /**
    * Unbind all attached events
    * @private
    */
   unbindAllEvents: function unbindAllEvents() {
-    var _this8 = this,
+    var _this5 = this,
       $$ = this,
-      _$$$$el4 = $$.$el,
-      arcs = _$$$$el4.arcs,
-      eventRect = _$$$$el4.eventRect,
-      legend = _$$$$el4.legend,
-      region = _$$$$el4.region,
-      svg = _$$$$el4.svg,
-      treemap = _$$$$el4.treemap,
+      _$$$$el3 = $$.$el,
+      arcs = _$$$$el3.arcs,
+      eventRect = _$$$$el3.eventRect,
+      legend = _$$$$el3.legend,
+      region = _$$$$el3.region,
+      svg = _$$$$el3.svg,
+      treemap = _$$$$el3.treemap,
       brush = $$.brush;
     // detach all possible event types
     [svg, eventRect, region == null ? void 0 : region.list, brush == null ? void 0 : brush.getSelection(), arcs == null ? void 0 : arcs.selectAll("path"), legend == null ? void 0 : legend.selectAll("g"), treemap].forEach(function (v) {
-      _newArrowCheck(this, _this8);
+      _newArrowCheck(this, _this5);
       return v == null ? void 0 : v.on("wheel click mouseover mousemove mouseout touchstart touchmove touchend touchstart.eventRect touchmove.eventRect touchend.eventRect .brush .drag .zoom wheel.zoom dblclick.zoom", null);
     }.bind(this));
-    $$.unbindZoomEvent == null ? void 0 : $$.unbindZoomEvent();
+    $$.unbindZoomEvent == null || $$.unbindZoomEvent();
   }
 });
 ;// CONCATENATED MODULE: ./src/ChartInternal/internals/class.ts
@@ -6551,7 +6509,7 @@ var schemeCategory10 = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "
       org.xDomain = x.domain();
       zoomEnabled && $$.zoom.updateScaleExtent();
       subX.domain(x.domain());
-      (_$$$brush = $$.brush) == null ? void 0 : _$$$brush.scale(subX);
+      (_$$$brush = $$.brush) == null || _$$$brush.scale(subX);
     }
     if (withUpdateXDomain) {
       var domainValue = domain || !$$.brush || brushEmpty($$) ? org.xDomain : getBrushSelection($$).map(subX.invert);
@@ -6781,7 +6739,7 @@ function getLegendColor(id) {
     }
 
     // toggle legend state
-    (_$el$legend = $el.legend) == null ? void 0 : _$el$legend.selectAll("." + $LEGEND.legendItem).classed($LEGEND.legendItemHidden, function (id) {
+    (_$el$legend = $el.legend) == null || _$el$legend.selectAll("." + $LEGEND.legendItem).classed($LEGEND.legendItemHidden, function (id) {
       var hide = !$$.isTargetToShow(id);
       if (hide) {
         this.style.opacity = null;
@@ -7545,7 +7503,7 @@ var external_commonjs_d3_transition_commonjs2_d3_transition_amd_d3_transition_ro
       // event rects will redrawn when flow called
       if (config.interaction_enabled && !flow && wth.EventRect) {
         $$.redrawEventRect();
-        $$.bindZoomEvent == null ? void 0 : $$.bindZoomEvent();
+        $$.bindZoomEvent == null || $$.bindZoomEvent();
       }
     } else {
       // arc
@@ -7570,9 +7528,10 @@ var external_commonjs_d3_transition_commonjs2_d3_transition_amd_d3_transition_ro
     $$.hasDataLabel() && !$$.hasArcType(null, ["radar"]) && $$.updateText();
 
     // title
-    $$.redrawTitle == null ? void 0 : $$.redrawTitle();
+    $$.redrawTitle == null || $$.redrawTitle();
     initializing && $$.updateTypesElements();
     $$.generateRedrawList(targetsToShow, flow, duration, wth.Subchart);
+    $$.updateTooltipOnRedraw();
     $$.callPluginHook("$redraw", options, duration);
   },
   /**
@@ -7931,7 +7890,7 @@ function getScale(type, min, max) {
       scale.y = (0,external_commonjs_d3_scale_commonjs2_d3_scale_amd_d3_scale_root_d3_.scaleLinear)().rangeRound([padding.top, current.height - padding.bottom]);
     } else {
       // update for arc
-      $$.updateArc == null ? void 0 : $$.updateArc();
+      $$.updateArc == null || $$.updateArc();
     }
   },
   /**
@@ -8611,7 +8570,7 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
       $el = $$.$el;
     if (hasAxis && !withoutAxis && $$.axis.x && config.axis_rotated) {
       var _$$$axis$subX;
-      (_$$$axis$subX = $$.axis.subX) == null ? void 0 : _$$$axis$subX.create($el.axis.subX);
+      (_$$$axis$subX = $$.axis.subX) == null || _$$$axis$subX.create($el.axis.subX);
     }
 
     // pass 'withoutAxis' param to not animate at the init rendering
@@ -8741,7 +8700,7 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
       bottom: 0,
       left: 0
     };
-    $$.updateSizeForLegend == null ? void 0 : $$.updateSizeForLegend(currLegend);
+    $$.updateSizeForLegend == null || $$.updateSizeForLegend(currLegend);
     state.width = state.current.width - state.margin.left - state.margin.right;
     state.height = state.current.height - state.margin.top - state.margin.bottom;
     if (state.width < 0) {
@@ -8768,7 +8727,7 @@ var external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_ = __webp
       if (hasGauge && !config.gauge_fullCircle) {
         state.arcHeight += state.height - $$.getPaddingBottomForGauge();
       }
-      $$.updateRadius == null ? void 0 : $$.updateRadius();
+      $$.updateRadius == null || $$.updateRadius();
     }
     if (state.isLegendRight && isNonAxis) {
       state.margin3.left = state.arcWidth / 2 + state.radiusExpanded * 1.1;
@@ -9630,75 +9589,76 @@ function title_getTextPos(pos, width) {
       len = d.length;
     var text, row, param, value, i;
     var _loop = function () {
-      var _this3 = this;
-      row = d[i];
-      if (!row || !(getRowValue(row) || getRowValue(row) === 0)) {
-        return "continue";
-      }
-      if (isUndefined(text)) {
-        var title = (state.hasAxis || state.hasRadar) && sanitise(titleFormat ? titleFormat(row.x) : row.x);
-        text = tplProcess(tpl[0], {
-          CLASS_TOOLTIP: $TOOLTIP.tooltip,
-          TITLE: isValue(title) ? tplStr ? title : "<tr><th colspan=\"2\">" + title + "</th></tr>" : ""
-        });
-      }
-      if (!row.ratio && $el.arcs) {
-        param = ["arc", $$.$el.arcs.select("path." + $ARC.arc + "-" + row.id).data()[0]];
-        row.ratio = $$.getRatio.apply($$, param);
-      }
-      param = [row.ratio, row.id, row.index, d];
-      value = sanitise(valueFormat.apply(void 0, [getRowValue(row)].concat(param)));
-      if ($$.isAreaRangeType(row)) {
-        var _map2 = ["high", "low"].map(function (v) {
-            _newArrowCheck(this, _this3);
-            return sanitise(valueFormat.apply(void 0, [$$.getRangedData(row, v)].concat(param)));
-          }.bind(this)),
-          high = _map2[0],
-          low = _map2[1];
-        value = "<b>Mid:</b> " + value + " <b>High:</b> " + high + " <b>Low:</b> " + low;
-      } else if ($$.isCandlestickType(row)) {
-        var _map3 = ["open", "high", "low", "close", "volume"].map(function (v) {
-            _newArrowCheck(this, _this3);
-            return sanitise(valueFormat.apply(void 0, [$$.getRangedData(row, v, "candlestick")].concat(param)));
-          }.bind(this)),
-          open = _map3[0],
-          _high = _map3[1],
-          _low = _map3[2],
-          close = _map3[3],
-          volume = _map3[4];
-        value = "<b>Open:</b> " + open + " <b>High:</b> " + _high + " <b>Low:</b> " + _low + " <b>Close:</b> " + close + (volume ? " <b>Volume:</b> " + volume : "");
-      } else if ($$.isBarRangeType(row)) {
-        var _row$value = row.value,
-          start = _row$value[0],
-          end = _row$value[1];
-        value = valueFormat(start) + " ~ " + valueFormat(end);
-      }
-      if (value !== undefined) {
-        // Skip elements when their name is set to null
-        if (row.name === null) {
-          return "continue";
+        var _this3 = this;
+        row = d[i];
+        if (!row || !(getRowValue(row) || getRowValue(row) === 0)) {
+          return 0; // continue
         }
-        var name = sanitise(nameFormat.apply(void 0, [row.name].concat(param))),
-          _color = getBgColor(row),
-          contentValue = {
-            CLASS_TOOLTIP_NAME: $TOOLTIP.tooltipName + $$.getTargetSelectorSuffix(row.id),
-            COLOR: tplStr || !$$.patterns ? _color : "<svg><rect style=\"fill:" + _color + "\" width=\"10\" height=\"10\"></rect></svg>",
-            NAME: name,
-            VALUE: value
-          };
-        if (tplStr && isObject(contents.text)) {
-          var index = targetIds.indexOf(row.id);
-          Object.keys(contents.text).forEach(function (key) {
-            _newArrowCheck(this, _this3);
-            contentValue[key] = contents.text[key][index];
-          }.bind(this));
+        if (isUndefined(text)) {
+          var title = (state.hasAxis || state.hasRadar) && sanitise(titleFormat ? titleFormat(row.x) : row.x);
+          text = tplProcess(tpl[0], {
+            CLASS_TOOLTIP: $TOOLTIP.tooltip,
+            TITLE: isValue(title) ? tplStr ? title : "<tr><th colspan=\"2\">" + title + "</th></tr>" : ""
+          });
         }
-        text += tplProcess(tpl[1], contentValue);
-      }
-    };
+        if (!row.ratio && $el.arcs) {
+          param = ["arc", $$.$el.arcs.select("path." + $ARC.arc + "-" + row.id).data()[0]];
+          row.ratio = $$.getRatio.apply($$, param);
+        }
+        param = [row.ratio, row.id, row.index, d];
+        value = sanitise(valueFormat.apply(void 0, [getRowValue(row)].concat(param)));
+        if ($$.isAreaRangeType(row)) {
+          var _map2 = ["high", "low"].map(function (v) {
+              _newArrowCheck(this, _this3);
+              return sanitise(valueFormat.apply(void 0, [$$.getRangedData(row, v)].concat(param)));
+            }.bind(this)),
+            high = _map2[0],
+            low = _map2[1];
+          value = "<b>Mid:</b> " + value + " <b>High:</b> " + high + " <b>Low:</b> " + low;
+        } else if ($$.isCandlestickType(row)) {
+          var _map3 = ["open", "high", "low", "close", "volume"].map(function (v) {
+              _newArrowCheck(this, _this3);
+              return sanitise(valueFormat.apply(void 0, [$$.getRangedData(row, v, "candlestick")].concat(param)));
+            }.bind(this)),
+            open = _map3[0],
+            _high = _map3[1],
+            _low = _map3[2],
+            close = _map3[3],
+            volume = _map3[4];
+          value = "<b>Open:</b> " + open + " <b>High:</b> " + _high + " <b>Low:</b> " + _low + " <b>Close:</b> " + close + (volume ? " <b>Volume:</b> " + volume : "");
+        } else if ($$.isBarRangeType(row)) {
+          var _row$value = row.value,
+            start = _row$value[0],
+            end = _row$value[1];
+          value = valueFormat(start) + " ~ " + valueFormat(end);
+        }
+        if (value !== undefined) {
+          // Skip elements when their name is set to null
+          if (row.name === null) {
+            return 0; // continue
+          }
+          var name = sanitise(nameFormat.apply(void 0, [row.name].concat(param))),
+            _color = getBgColor(row),
+            contentValue = {
+              CLASS_TOOLTIP_NAME: $TOOLTIP.tooltipName + $$.getTargetSelectorSuffix(row.id),
+              COLOR: tplStr || !$$.patterns ? _color : "<svg><rect style=\"fill:" + _color + "\" width=\"10\" height=\"10\"></rect></svg>",
+              NAME: name,
+              VALUE: value
+            };
+          if (tplStr && isObject(contents.text)) {
+            var index = targetIds.indexOf(row.id);
+            Object.keys(contents.text).forEach(function (key) {
+              _newArrowCheck(this, _this3);
+              contentValue[key] = contents.text[key][index];
+            }.bind(this));
+          }
+          text += tplProcess(tpl[1], contentValue);
+        }
+      },
+      _ret;
     for (i = 0; i < len; i++) {
-      var _ret = _loop();
-      if (_ret === "continue") continue;
+      _ret = _loop();
+      if (_ret === 0) continue;
     }
     return text + "</table>";
   },
@@ -9727,11 +9687,11 @@ function title_getTextPos(pos, width) {
       eventRect = _$$$$el.eventRect,
       tooltip = _$$$$el.tooltip,
       bindto = config.tooltip_contents.bindto,
-      datum = tooltip.datum();
+      datum = tooltip == null || tooltip.datum == null ? void 0 : tooltip.datum();
     if (!bindto && datum) {
       var _config$tooltip_posit,
         _config$tooltip_posit2,
-        _getPointer = getPointer(state.event, eventTarget != null ? eventTarget : eventRect.node()),
+        _getPointer = getPointer(state.event, eventTarget != null ? eventTarget : eventRect == null ? void 0 : eventRect.node()),
         x = _getPointer[0],
         y = _getPointer[1],
         currPos = {
@@ -9842,11 +9802,12 @@ function title_getTextPos(pos, width) {
       dataToShow = selectedData.filter(function (d) {
         _newArrowCheck(this, _this6);
         return d && isValue($$.getBaseValue(d));
-      }.bind(this));
+      }.bind(this)),
+      _tooltip;
     if (!tooltip || dataToShow.length === 0 || !config.tooltip_show) {
       return;
     }
-    var datum = tooltip.datum();
+    var datum = (_tooltip = tooltip) == null || _tooltip.datum == null ? void 0 : _tooltip.datum();
     var dataStr = JSON.stringify(selectedData);
     if (!datum || datum.current !== dataStr) {
       var _selectedData$concat$ = selectedData.concat().sort()[0],
@@ -9914,7 +9875,8 @@ function title_getTextPos(pos, width) {
       config = $$.config,
       tooltip = $$.$el.tooltip;
     if (tooltip && tooltip.style("display") !== "none" && (!config.tooltip_doNotHide || force)) {
-      var selectedData = JSON.parse(tooltip.datum().current);
+      var _tooltip$datum$curren,
+        selectedData = JSON.parse((_tooltip$datum$curren = tooltip == null || tooltip.datum == null ? void 0 : tooltip.datum().current) != null ? _tooltip$datum$curren : {});
       callFn(config.tooltip_onhide, api, selectedData);
 
       // hide tooltip
@@ -9960,6 +9922,63 @@ function title_getTextPos(pos, width) {
           } catch (e) {}
         }
       }.bind(this));
+    }
+  },
+  /**
+   * Update tooltip content on redraw
+   * - In a situation where tooltip is displayed and data load happens, it should reflect loaded data to tooltip
+   * @param {d3Selection} context Event rect element
+   * @param {number} index Data index
+   * @private
+   */
+  updateTooltipOnRedraw: function updateTooltipOnRedraw(context, index) {
+    var _this9 = this,
+      $$ = this,
+      config = $$.config,
+      _$$$$el2 = $$.$el,
+      eventRect = _$$$$el2.eventRect,
+      svg = _$$$$el2.svg,
+      tooltip = _$$$$el2.tooltip,
+      _$$$state2 = $$.state,
+      event = _$$$state2.event,
+      hasAxis = _$$$state2.hasAxis,
+      hasRadar = _$$$state2.hasRadar,
+      hasTreemap = _$$$state2.hasTreemap;
+    // Update tooltip, when tooltip is in shown state
+    if ((tooltip == null ? void 0 : tooltip.style("display")) === "block" && event) {
+      var _ref,
+        rect = context != null ? context : (_ref = hasRadar ? svg : eventRect) == null ? void 0 : _ref.node();
+      // for Axis based & Radar
+      if (hasAxis || hasRadar) {
+        if ($$.isMultipleX()) {
+          $$.selectRectForMultipleXs(rect, !1);
+        } else {
+          var idx = index != null ? index : $$.getDataIndexFromEvent(event);
+          if (index === -1) {
+            $$.api.tooltip.hide();
+          } else {
+            $$.selectRectForSingle(rect, idx);
+            $$.setExpand(idx, null, !0);
+          }
+        }
+
+        // for Arc & Treemap
+      } else {
+        var clientX = event.clientX,
+          clientY = event.clientY;
+        setTimeout(function () {
+          _newArrowCheck(this, _this9);
+          var target = browser_doc.elementFromPoint(clientX, clientY);
+          var data = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(target).datum();
+          if (data) {
+            var d = $$.hasArcType() ? $$.convertToArcData($$.updateAngle(data)) : data == null ? void 0 : data.data;
+            hasTreemap && (target = svg.node());
+            d && $$.showTooltip([d], target);
+          } else {
+            $$.api.tooltip.hide();
+          }
+        }.bind(this), config.transition_duration);
+      }
     }
   }
 });
@@ -10915,7 +10934,7 @@ var ChartInternal = /*#__PURE__*/function () {
     // Point types
     var hasPointType = $$.hasType("bubble") || $$.hasType("scatter");
     if (hasPointType) {
-      $$.updateTargetForCircle == null ? void 0 : $$.updateTargetForCircle();
+      $$.updateTargetForCircle == null || $$.updateTargetForCircle();
     }
 
     // Fade-in each chart
@@ -11146,16 +11165,16 @@ function loadConfig(config) {
       if (state.resizing) {
         var _$$$brush;
         // arguments[1] is given when is called from resize
-        (_$$$brush = $$.brush) == null ? void 0 : _$$$brush.updateResize();
+        (_$$$brush = $$.brush) == null || _$$$brush.updateResize();
       } else {
         var _$$$axis;
         // re-update config info
-        (_$$$axis = $$.axis) == null ? void 0 : _$$$axis.setOrient();
+        (_$$$axis = $$.axis) == null || _$$$axis.setOrient();
       }
 
       // hide possible reset zoom button
       // https://github.com/naver/billboard.js/issues/2201
-      zoomResetBtn == null ? void 0 : zoomResetBtn.style("display", "none");
+      zoomResetBtn == null || zoomResetBtn.style("display", "none");
       $$.scale.zoom = null;
       soft ? $$.redraw({
         withTransform: !0,
@@ -12186,7 +12205,6 @@ var legend_legend = {
         }.bind(this));
       }.bind(this));
     } else {
-      $$.api.tooltip.hide();
       $$.loadFromArgs(args);
     }
   },
@@ -12219,6 +12237,8 @@ var legend_legend = {
     var _this3 = this,
       $$ = this.internal,
       args = argsValue || {};
+    // hide possible tooltip display when data is completely unloaded
+    isEmpty(args) && this.tooltip.hide();
     if (isArray(args)) {
       args = {
         ids: args
@@ -12436,6 +12456,10 @@ var tooltip_tooltip = {
    *    }
    *  });
    *
+   *  // for Arc types, specify 'id' or 'index'
+   *  chart.tooltip.show({ data: { id: "data2" }});
+   *  chart.tooltip.show({ data: { index: 2 }});
+   *
    *  // when data.xs is used
    *  chart.tooltip.show({
    *    data: {
@@ -12472,18 +12496,20 @@ var tooltip_tooltip = {
 
     // determine focus data
     if (args.data) {
-      var data = args.data,
-        y = $$.getYScaleById(data.id)(data.value);
+      var _$$$getYScaleById,
+        data = args.data,
+        y = (_$$$getYScaleById = $$.getYScaleById(data.id)) == null ? void 0 : _$$$getYScaleById(data.value);
       if (hasTreemap && data.id) {
         eventReceiver.rect = $el.main.select("" + $$.selectorTarget(data.id, undefined, "rect"));
       } else if ($$.isMultipleX()) {
         // if multiple xs, target point will be determined by mouse
         mouse = [$$.xx(data), y];
       } else {
+        var _data$index, _$$$getArcElementById;
         if (!config.tooltip_grouped) {
           mouse = [0, y];
         }
-        index = isValue(data.index) ? data.index : $$.getIndexByX(data.x);
+        index = (_data$index = data.index) != null ? _data$index : $$.hasArcType() && data.id ? (_$$$getArcElementById = $$.getArcElementByIdOrIndex(data.id)) == null ? void 0 : _$$$getArcElementById.datum().index : $$.getIndexByX(data.x);
       }
     } else if (isDefined(args.x)) {
       index = $$.getIndexByX(args.x);
@@ -12520,9 +12546,9 @@ var tooltip_tooltip = {
     // reset last touch point index
     inputType === "touch" && $$.callOverOutForTouch();
     $$.hideTooltip(!0);
-    $$.hideGridFocus == null ? void 0 : $$.hideGridFocus();
-    $$.unexpandCircles == null ? void 0 : $$.unexpandCircles();
-    $$.expandBarTypeShapes == null ? void 0 : $$.expandBarTypeShapes(!1);
+    $$.hideGridFocus == null || $$.hideGridFocus();
+    $$.unexpandCircles == null || $$.unexpandCircles();
+    $$.expandBarTypeShapes == null || $$.expandBarTypeShapes(!1);
   }
 };
 /* harmony default export */ var api_tooltip = ({
@@ -14539,7 +14565,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     } else if (this.x) {
       var _this$subX;
       this.x.tickValues(values);
-      (_this$subX = this.subX) == null ? void 0 : _this$subX.tickValues(values);
+      (_this$subX = this.subX) == null || _this$subX.tickValues(values);
     }
     return values;
   };
@@ -14982,7 +15008,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     } else if (this.x) {
       var _this$subX2;
       this.x.tickValues([]);
-      (_this$subX2 = this.subX) == null ? void 0 : _this$subX2.tickValues([]);
+      (_this$subX2 = this.subX) == null || _this$subX2.tickValues([]);
     }
     if (config.zoom_rescale && !flow) {
       xDomainForZoom = scale.x.orgDomain();
@@ -15021,8 +15047,8 @@ var Axis_Axis = /*#__PURE__*/function () {
     // Update sub domain
     if (wth.Y) {
       var _scale$subY, _scale$subY2;
-      (_scale$subY = scale.subY) == null ? void 0 : _scale$subY.domain($$.getYDomain(targetsToShow, "y"));
-      (_scale$subY2 = scale.subY2) == null ? void 0 : _scale$subY2.domain($$.getYDomain(targetsToShow, "y2"));
+      (_scale$subY = scale.subY) == null || _scale$subY.domain($$.getYDomain(targetsToShow, "y"));
+      (_scale$subY2 = scale.subY2) == null || _scale$subY2.domain($$.getYDomain(targetsToShow, "y2"));
     }
   }
 
@@ -15124,7 +15150,7 @@ var Axis_Axis = /*#__PURE__*/function () {
       eventRectUpdate.call($$.getDraggableSelection());
       $el.eventRect = eventRectUpdate;
       if ($$.state.inputType === "touch" && !$el.svg.on("touchstart.eventRect") && !$$.hasArcType()) {
-        $$.bindTouchOnEventRect(isMultipleX);
+        $$.bindTouchOnEventRect();
       }
 
       // when initilazed with empty data and data loaded later, need to update eventRect
@@ -15143,12 +15169,12 @@ var Axis_Axis = /*#__PURE__*/function () {
       // update data's index value to be alinged with the x Axis
       $$.updateDataIndexByX(xAxisTickValues);
       $$.updateXs(xAxisTickValues);
-      $$.updatePointClass == null ? void 0 : $$.updatePointClass(!0);
+      $$.updatePointClass == null || $$.updatePointClass(!0);
       state.eventReceiver.data = xAxisTickValues;
     }
     $$.updateEventRectData();
   },
-  bindTouchOnEventRect: function bindTouchOnEventRect(isMultipleX) {
+  bindTouchOnEventRect: function bindTouchOnEventRect() {
     var _this2 = this,
       $$ = this,
       config = $$.config,
@@ -15158,12 +15184,12 @@ var Axis_Axis = /*#__PURE__*/function () {
       svg = _$$$$el.svg,
       selectRect = function (context) {
         _newArrowCheck(this, _this2);
-        if (isMultipleX) {
+        if ($$.isMultipleX()) {
           $$.selectRectForMultipleXs(context);
         } else {
           var index = $$.getDataIndexFromEvent(state.event);
           $$.callOverOutForTouch(index);
-          index === -1 ? $$.unselectRect() : $$.selectRectForSingle(context, eventRect, index);
+          index === -1 ? $$.unselectRect() : $$.selectRectForSingle(context, index);
         }
       }.bind(this),
       unselectRect = function () {
@@ -15368,9 +15394,72 @@ var Axis_Axis = /*#__PURE__*/function () {
       };
     }.bind(this));
   },
-  selectRectForMultipleXs: function selectRectForMultipleXs(context) {
+  /**
+   * Seletct rect for single x value
+   * @param {d3Selection} context Event rect element
+   * @param {number} index x Axis index
+   * @private
+   */
+  selectRectForSingle: function selectRectForSingle(context, index) {
     var _this6 = this,
       $$ = this,
+      config = $$.config,
+      _$$$$el2 = $$.$el,
+      main = _$$$$el2.main,
+      circle = _$$$$el2.circle,
+      isSelectionEnabled = config.data_selection_enabled,
+      isSelectionGrouped = config.data_selection_grouped,
+      isSelectable = config.data_selection_isselectable,
+      isTooltipGrouped = config.tooltip_grouped,
+      selectedData = $$.getAllValuesOnIndex(index);
+    if (isTooltipGrouped) {
+      $$.showTooltip(selectedData, context);
+      $$.showGridFocus == null || $$.showGridFocus(selectedData);
+      if (!isSelectionEnabled || isSelectionGrouped) {
+        return;
+      }
+    }
+
+    // remove possible previous focused state
+    circle || main.selectAll("." + $COMMON.EXPANDED + ":not(." + $SHAPE.shape + "-" + index + ")").classed($COMMON.EXPANDED, !1);
+    var shapeAtIndex = main.selectAll("." + $SHAPE.shape + "-" + index).classed($COMMON.EXPANDED, !0).style("cursor", isSelectable ? "pointer" : null).filter(function (d) {
+      return $$.isWithinShape(this, d);
+    });
+    if (shapeAtIndex.empty() && !isTooltipGrouped) {
+      $$.hideGridFocus == null || $$.hideGridFocus();
+      $$.hideTooltip();
+      isSelectionGrouped || $$.setExpand(index);
+    }
+    shapeAtIndex.call(function (selected) {
+      var _this7 = this;
+      _newArrowCheck(this, _this6);
+      var d = selected.data();
+      if (isSelectionEnabled && (isSelectionGrouped || isSelectable != null && isSelectable.bind($$.api)(d))) {
+        context.style.cursor = "pointer";
+      }
+      if (!isTooltipGrouped) {
+        $$.showTooltip(d, context);
+        $$.showGridFocus == null || $$.showGridFocus(d);
+        $$.unexpandCircles == null || $$.unexpandCircles();
+        selected.each(function (d) {
+          _newArrowCheck(this, _this7);
+          return $$.setExpand(index, d.id);
+        }.bind(this));
+      }
+    }.bind(this));
+  },
+  /**
+   * Select rect for multiple x values
+   * @param {d3Selection} context Event rect element
+   * @param {boolean} [triggerEvent=true] Whether trigger event or not
+   * @private
+   */
+  selectRectForMultipleXs: function selectRectForMultipleXs(context, triggerEvent) {
+    var _this8 = this;
+    if (triggerEvent === void 0) {
+      triggerEvent = !0;
+    }
+    var $$ = this,
       config = $$.config,
       state = $$.state,
       targetsToShow = $$.filterTargetsToShow($$.data.targets);
@@ -15380,7 +15469,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     }
     var mouse = getPointer(state.event, context),
       closest = $$.findClosestFromTargets(targetsToShow, mouse);
-    if (state.mouseover && (!closest || closest.id !== state.mouseover.id)) {
+    if (triggerEvent && state.mouseover && (!closest || closest.id !== state.mouseover.id)) {
       config.data_onout.call($$.api, state.mouseover);
       state.mouseover = undefined;
     }
@@ -15390,7 +15479,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     }
     var sameXData = $$.isBubbleType(closest) || $$.isScatterType(closest) || !config.tooltip_grouped ? [closest] : $$.filterByX(targetsToShow, closest.x),
       selectedData = sameXData.map(function (d) {
-        _newArrowCheck(this, _this6);
+        _newArrowCheck(this, _this8);
         return $$.addName(d);
       }.bind(this)); // show tooltip when cursor is close to some point
     $$.showTooltip(selectedData, context);
@@ -15405,7 +15494,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     // Show cursor as pointer if point is close to mouse position
     if ($$.isBarType(closest.id) || dist < $$.getPointSensitivity(closest)) {
       $$.$el.svg.select("." + $EVENT.eventRect).style("cursor", "pointer");
-      if (!state.mouseover) {
+      if (triggerEvent && !state.mouseover) {
         config.data_onover.call($$.api, closest);
         state.mouseover = closest;
       }
@@ -15418,9 +15507,9 @@ var Axis_Axis = /*#__PURE__*/function () {
   unselectRect: function unselectRect() {
     var $$ = this,
       config = $$.config,
-      _$$$$el2 = $$.$el,
-      circle = _$$$$el2.circle,
-      tooltip = _$$$$el2.tooltip;
+      _$$$$el3 = $$.$el,
+      circle = _$$$$el3.circle,
+      tooltip = _$$$$el3.tooltip;
     $$.$el.svg.select("." + $EVENT.eventRect).style("cursor", null);
     $$.hideGridFocus();
     if (tooltip) {
@@ -15438,7 +15527,7 @@ var Axis_Axis = /*#__PURE__*/function () {
    * @private
    */
   generateEventRectsForSingleX: function generateEventRectsForSingleX(eventRectEnter) {
-    var _this7 = this,
+    var _this9 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -15452,12 +15541,12 @@ var Axis_Axis = /*#__PURE__*/function () {
       });
     if (state.inputType === "mouse") {
       var getData = function (event) {
-        _newArrowCheck(this, _this7);
+        _newArrowCheck(this, _this9);
         var index = event ? $$.getDataIndexFromEvent(event) : eventReceiver.currentIdx;
         return index > -1 ? eventReceiver.data[index] : null;
       }.bind(this);
       rect.on("mouseover", function (event) {
-        _newArrowCheck(this, _this7);
+        _newArrowCheck(this, _this9);
         state.event = event;
         $$.updateEventRect();
       }.bind(this)).on("mousemove", function (event) {
@@ -15491,13 +15580,13 @@ var Axis_Axis = /*#__PURE__*/function () {
           $$.setOverOut(!1, eventReceiver.currentIdx);
           eventReceiver.currentIdx = index;
         }
-        index === -1 ? $$.unselectRect() : $$.selectRectForSingle(this, rect, index);
+        index === -1 ? $$.unselectRect() : $$.selectRectForSingle(this, index);
 
         // As of individual data point(or <path>) element can't bind mouseover/out event
         // to determine current interacting element, so use 'mousemove' event instead.
         $$.setOverOut(index !== -1, index);
       }).on("mouseout", function (event) {
-        _newArrowCheck(this, _this7);
+        _newArrowCheck(this, _this9);
         state.event = event;
 
         // chart is destroyed
@@ -15525,7 +15614,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     var index = d.index;
     main.selectAll("." + $SHAPE.shape + "-" + index).each(function (d2) {
       if (config.data_selection_grouped || $$.isWithinShape(this, d2)) {
-        $$.toggleShape == null ? void 0 : $$.toggleShape(this, d2, index);
+        $$.toggleShape == null || $$.toggleShape(this, d2, index);
         config.data_onclick.bind($$.api)(d2, this);
       }
     });
@@ -15537,7 +15626,7 @@ var Axis_Axis = /*#__PURE__*/function () {
    * @private
    */
   generateEventRectsForMultipleXs: function generateEventRectsForMultipleXs(eventRectEnter) {
-    var _this8 = this,
+    var _this10 = this,
       $$ = this,
       state = $$.state;
     eventRectEnter.on("click", function (event) {
@@ -15549,7 +15638,7 @@ var Axis_Axis = /*#__PURE__*/function () {
         state.event = event;
         $$.selectRectForMultipleXs(this);
       }).on("mouseout", function (event) {
-        _newArrowCheck(this, _this8);
+        _newArrowCheck(this, _this10);
         state.event = event;
 
         // chart is destroyed
@@ -15578,7 +15667,7 @@ var Axis_Axis = /*#__PURE__*/function () {
     if ($$.isBarType(closest.id) || $$.dist(closest, mouse) < config.point_sensitivity) {
       $$.$el.main.selectAll("." + $SHAPE.shapes + $$.getTargetSelectorSuffix(closest.id)).selectAll("." + $SHAPE.shape + "-" + closest.index).each(function () {
         if (config.data_selection_grouped || $$.isWithinShape(this, closest)) {
-          $$.toggleShape == null ? void 0 : $$.toggleShape(this, closest, closest.index);
+          $$.toggleShape == null || $$.toggleShape(this, closest, closest.index);
           config.data_onclick.bind($$.api)(closest, this);
         }
       });
@@ -16274,7 +16363,7 @@ function smoothLines(el, type) {
       }.bind(this));
     });
     smoothLines(focusEl, "grid");
-    $$.showCircleFocus == null ? void 0 : $$.showCircleFocus(data);
+    $$.showCircleFocus == null || $$.showCircleFocus(data);
   },
   hideGridFocus: function hideGridFocus() {
     var $$ = this,
@@ -16284,7 +16373,7 @@ function smoothLines(el, type) {
       main = $$.$el.main;
     if (inputType === "mouse" || !resizing) {
       main.selectAll("line." + $FOCUS.xgridFocus + ", line." + $FOCUS.ygridFocus).style("visibility", "hidden");
-      $$.hideCircleFocus == null ? void 0 : $$.hideCircleFocus();
+      $$.hideCircleFocus == null || $$.hideCircleFocus();
     }
   },
   updateGridFocus: function updateGridFocus() {
@@ -18388,8 +18477,8 @@ function smoothLines(el, type) {
 });
 ;// CONCATENATED MODULE: ./src/config/Options/axis/axis.ts
 
-function axis_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function axis_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? axis_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : axis_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function axis_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function axis_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? axis_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : axis_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -18532,6 +18621,9 @@ var options = [data_axis, axis_axis, common_grid];
 var external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate_root_d3_ = __webpack_require__(12);
 ;// CONCATENATED MODULE: ./src/ChartInternal/shape/arc.ts
 
+
+function arc_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function arc_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? arc_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : arc_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -18631,17 +18723,43 @@ function getRadiusFn(expandRate) {
  */
 function getAttrTweenFn(fn) {
   return function (d) {
-    var interpolate = (0,external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate_root_d3_.interpolate)(this._current, d);
+    var _this2 = this,
+      getAngleKeyValue = function (_ref) {
+        var _ref$startAngle = _ref.startAngle,
+          startAngle = _ref$startAngle === void 0 ? 0 : _ref$startAngle,
+          _ref$endAngle = _ref.endAngle,
+          endAngle = _ref$endAngle === void 0 ? 0 : _ref$endAngle,
+          _ref$padAngle = _ref.padAngle,
+          padAngle = _ref$padAngle === void 0 ? 0 : _ref$padAngle;
+        _newArrowCheck(this, _this2);
+        return {
+          startAngle: startAngle,
+          endAngle: endAngle,
+          padAngle: padAngle
+        };
+      }.bind(this),
+      interpolate = (0,external_commonjs_d3_interpolate_commonjs2_d3_interpolate_amd_d3_interpolate_root_d3_.interpolate)(getAngleKeyValue(this._current), getAngleKeyValue(d));
+    // d3.interpolate interpolates id value, if id is given as color string(ex. gold, silver, etc)
+    // to avoid unexpected behavior, interpolate only angle values
+    // https://github.com/naver/billboard.js/issues/3321
+
     this._current = d;
     return function (t) {
-      var interpolated = interpolate(t);
-      return fn(interpolated);
+      var interpolated = interpolate(t),
+        data = d.data,
+        index = d.index,
+        value = d.value;
+      return fn(arc_objectSpread(arc_objectSpread({}, interpolated), {}, {
+        data: data,
+        index: index,
+        value: value
+      }));
     };
   };
 }
 /* harmony default export */ var arc = ({
   initPie: function initPie() {
-    var _this2 = this,
+    var _this3 = this,
       $$ = this,
       config = $$.config,
       dataType = config.data_type,
@@ -18649,10 +18767,10 @@ function getAttrTweenFn(fn) {
       startingAngle = config[dataType + "_startingAngle"] || 0,
       padAngle = (padding ? padding * .01 : config[dataType + "_padAngle"]) || 0;
     $$.pie = (0,external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_.pie)().startAngle(startingAngle).endAngle(startingAngle + 2 * Math.PI).padAngle(padAngle).value(function (d) {
-      var _this3 = this;
-      _newArrowCheck(this, _this2);
+      var _this4 = this;
+      _newArrowCheck(this, _this3);
       return d.values.reduce(function (a, b) {
-        _newArrowCheck(this, _this3);
+        _newArrowCheck(this, _this4);
         return a + b.value;
       }.bind(this), 0);
     }.bind(this)).sort($$.getSortCompareFn.bind($$)(!0));
@@ -18736,7 +18854,7 @@ function getAttrTweenFn(fn) {
     return startAngle;
   },
   updateAngle: function updateAngle(dValue) {
-    var _this4 = this,
+    var _this5 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -18757,7 +18875,7 @@ function getAttrTweenFn(fn) {
     }
     pie($$.filterTargetsToShow()).forEach(function (t, i) {
       var _d$data;
-      _newArrowCheck(this, _this4);
+      _newArrowCheck(this, _this5);
       if (!found && t.data.id === ((_d$data = d.data) == null ? void 0 : _d$data.id)) {
         found = !0;
         d = t;
@@ -18808,7 +18926,7 @@ function getAttrTweenFn(fn) {
    * @private
    */
   getSvgArcExpanded: function getSvgArcExpanded(rate) {
-    var _this5 = this;
+    var _this6 = this;
     if (rate === void 0) {
       rate = 1;
     }
@@ -18819,7 +18937,7 @@ function getAttrTweenFn(fn) {
       corner = _getRadiusFn$call2.corner,
       arc = (0,external_commonjs_d3_shape_commonjs2_d3_shape_amd_d3_shape_root_d3_.arc)().innerRadius(inner).outerRadius(outer);
     return function (d) {
-      _newArrowCheck(this, _this5);
+      _newArrowCheck(this, _this6);
       var updated = $$.updateAngle(d),
         outerR = outer(updated);
       var cornerR = 0;
@@ -18839,7 +18957,7 @@ function getAttrTweenFn(fn) {
    * @private
    */
   transformForArcLabel: function transformForArcLabel(d) {
-    var _this6 = this,
+    var _this7 = this,
       $$ = this,
       config = $$.config,
       radiusExpanded = $$.state.radiusExpanded,
@@ -18860,14 +18978,14 @@ function getAttrTweenFn(fn) {
         }
         var c = this.svgArc.centroid(updated),
           _c$map = c.map(function (v) {
-            _newArrowCheck(this, _this6);
+            _newArrowCheck(this, _this7);
             return isNaN(v) ? 0 : v;
           }.bind(this)),
           x = _c$map[0],
           y = _c$map[1],
           h = Math.sqrt(x * x + y * y);
         var ratio = (_filter$map = ["donut", "pie", "polar"].filter($$.hasType.bind($$)).map(function (v) {
-          _newArrowCheck(this, _this6);
+          _newArrowCheck(this, _this7);
           return config[v + "_label_ratio"];
         }.bind(this))) == null ? void 0 : _filter$map[0];
         if (ratio) {
@@ -18909,14 +19027,14 @@ function getAttrTweenFn(fn) {
     }
   },
   expandArc: function expandArc(targetIds) {
-    var _this7 = this,
+    var _this8 = this,
       $$ = this,
       transiting = $$.state.transiting,
       $el = $$.$el;
     // MEMO: avoid to cancel transition
     if (transiting) {
       var interval = setInterval(function () {
-        _newArrowCheck(this, _this7);
+        _newArrowCheck(this, _this8);
         if (!transiting) {
           clearInterval(interval);
           $el.legend.selectAll("." + $FOCUS.legendItemFocused).size() > 0 && $$.expandArc(targetIds);
@@ -18935,7 +19053,7 @@ function getAttrTweenFn(fn) {
     });
   },
   unexpandArc: function unexpandArc(targetIds) {
-    var _this8 = this,
+    var _this9 = this,
       $$ = this,
       transiting = $$.state.transiting,
       svg = $$.$el.svg;
@@ -18944,7 +19062,7 @@ function getAttrTweenFn(fn) {
     }
     var newTargetIds = $$.mapToTargetIds(targetIds);
     svg.selectAll($$.selectorTargets(newTargetIds, "." + $ARC.chartArc)).selectAll("path").transition().duration(function (d) {
-      _newArrowCheck(this, _this8);
+      _newArrowCheck(this, _this9);
       return $$.getExpandConfig(d.data.id, "duration");
     }.bind(this)).attrTween("d", getAttrTweenFn($$.svgArc.bind($$)));
     svg.selectAll("" + $ARC.arc).style("opacity", null);
@@ -18978,30 +19096,30 @@ function getAttrTweenFn(fn) {
     return $$.isDonutType(id) && config.donut_expand || $$.isGaugeType(id) && config.gauge_expand || $$.isPieType(id) && config.pie_expand;
   },
   shouldShowArcLabel: function shouldShowArcLabel() {
-    var _this9 = this,
+    var _this10 = this,
       $$ = this,
       config = $$.config;
     return ["donut", "gauge", "pie", "polar"].some(function (v) {
-      _newArrowCheck(this, _this9);
+      _newArrowCheck(this, _this10);
       return $$.hasType(v) && config[v + "_label_show"];
     }.bind(this));
   },
   getArcLabelFormat: function getArcLabelFormat() {
-    var _this10 = this,
+    var _this11 = this,
       $$ = this,
       config = $$.config,
       format = function (v) {
-        _newArrowCheck(this, _this10);
+        _newArrowCheck(this, _this11);
         return v;
       }.bind(this);
     ["donut", "gauge", "pie", "polar"].filter($$.hasType.bind($$)).forEach(function (v) {
-      _newArrowCheck(this, _this10);
+      _newArrowCheck(this, _this11);
       format = config[v + "_label_format"];
     }.bind(this));
     return isFunction(format) ? format.bind($$.api) : format;
   },
   updateTargetsForArc: function updateTargetsForArc(targets) {
-    var _this11 = this,
+    var _this12 = this,
       $$ = this,
       $el = $$.$el,
       hasGauge = $$.hasType("gauge"),
@@ -19010,7 +19128,7 @@ function getAttrTweenFn(fn) {
       classFocus = $$.classFocus.bind($$),
       chartArcs = $el.main.select("." + $ARC.chartArcs),
       mainPieUpdate = chartArcs.selectAll("." + $ARC.chartArc).data($$.pie(targets)).attr("class", function (d) {
-        _newArrowCheck(this, _this11);
+        _newArrowCheck(this, _this12);
         return classChartArc(d) + classFocus(d.data);
       }.bind(this)),
       mainPieEnter = mainPieUpdate.enter().append("g").attr("class", classChartArc).call(this.setCssRule(!1, "." + $ARC.chartArcs + " text", ["pointer-events:none", "text-anchor:middle"]));
@@ -19077,7 +19195,7 @@ function getAttrTweenFn(fn) {
     return !1;
   },
   redrawArc: function redrawArc(duration, durationForExit, withTransform) {
-    var _this12 = this,
+    var _this13 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -19087,10 +19205,10 @@ function getAttrTweenFn(fn) {
       mainArc = main.selectAll("." + $ARC.arcs).selectAll("." + $ARC.arc).data($$.arcData.bind($$));
     mainArc.exit().transition().duration(durationForExit).style("opacity", "0").remove();
     mainArc = mainArc.enter().append("path").attr("class", $$.getClass("arc", !0)).style("fill", function (d) {
-      _newArrowCheck(this, _this12);
+      _newArrowCheck(this, _this13);
       return $$.color(d.data);
     }.bind(this)).style("cursor", function (d) {
-      _newArrowCheck(this, _this12);
+      _newArrowCheck(this, _this13);
       return isSelectable != null && isSelectable.bind != null && isSelectable.bind($$.api)(d) ? "pointer" : null;
     }.bind(this)).style("opacity", "0").each(function (d) {
       if ($$.isGaugeType(d.data)) {
@@ -19104,19 +19222,19 @@ function getAttrTweenFn(fn) {
       $$.hasMultiArcGauge() && $$.redrawMultiArcGauge();
     }
     mainArc.attr("transform", function (d) {
-      _newArrowCheck(this, _this12);
+      _newArrowCheck(this, _this13);
       return !$$.isGaugeType(d.data) && withTransform ? "scale(0)" : "";
     }.bind(this)).style("opacity", function (d) {
       return d === this._current ? "0" : null;
     }).each(function () {
-      _newArrowCheck(this, _this12);
+      _newArrowCheck(this, _this13);
       state.transiting = !0;
     }.bind(this)).transition().duration(duration).attrTween("d", function (d) {
-      var _this13 = this,
+      var _this14 = this,
         updated = $$.updateAngle(d);
       if (!updated) {
         return function () {
-          _newArrowCheck(this, _this13);
+          _newArrowCheck(this, _this14);
           return "M 0 0";
         }.bind(this);
       }
@@ -19135,7 +19253,7 @@ function getAttrTweenFn(fn) {
         return $$.getArc(interpolated, !0);
       };
     }).attr("transform", withTransform ? "scale(1)" : "").style("fill", function (d) {
-      _newArrowCheck(this, _this12);
+      _newArrowCheck(this, _this13);
       var color;
       if ($$.levelColor) {
         color = $$.levelColor(d.data.values[0].value);
@@ -19151,7 +19269,7 @@ function getAttrTweenFn(fn) {
     .style("opacity", null).call(endall, function () {
       if ($$.levelColor) {
         var path = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(this),
-          d = path.datum();
+          d = path.datum(this._current);
         $$.updateLegendItemColor(d.data.id, path.style("fill"));
       }
       state.transiting = !1;
@@ -19170,7 +19288,7 @@ function getAttrTweenFn(fn) {
    * @private
    */
   redrawNeedle: function redrawNeedle() {
-    var _this14 = this,
+    var _this15 = this,
       $$ = this,
       $el = $$.$el,
       config = $$.config,
@@ -19190,7 +19308,7 @@ function getAttrTweenFn(fn) {
       bottomRy = config.arc_needle_bottom_ry,
       needleAngle = $$.getNeedleAngle(),
       updateNeedleValue = function () {
-        _newArrowCheck(this, _this14);
+        _newArrowCheck(this, _this15);
         var title = $$.getArcTitleWithNeedleValue();
         title && $$.setArcTitle(title);
       }.bind(this); // needle options
@@ -19206,14 +19324,14 @@ function getAttrTweenFn(fn) {
        * @private
        */
       $el.needle.updateHelper = function (v, updateConfig) {
-        var _this15 = this;
+        var _this16 = this;
         if (updateConfig === void 0) {
           updateConfig = !1;
         }
-        _newArrowCheck(this, _this14);
+        _newArrowCheck(this, _this15);
         if ($el.needle.style("display") !== "none") {
           $$.$T($el.needle).style("transform", "rotate(" + $$.getNeedleAngle(v) + "deg)").call(endall, function () {
-            _newArrowCheck(this, _this15);
+            _newArrowCheck(this, _this16);
             updateConfig && (config.arc_needle_value = v);
             updateNeedleValue();
           }.bind(this));
@@ -19259,7 +19377,7 @@ function getAttrTweenFn(fn) {
     return (startingAngle + radian) * (180 / Math.PI);
   },
   redrawBackgroundArcs: function redrawBackgroundArcs() {
-    var _this16 = this,
+    var _this17 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -19273,11 +19391,11 @@ function getAttrTweenFn(fn) {
       var index = 0;
       backgroundArc = backgroundArc.selectAll("path." + $ARC.chartArcsBackground).data($$.data.targets);
       backgroundArc.enter().append("path").attr("class", function (d, i) {
-        _newArrowCheck(this, _this16);
+        _newArrowCheck(this, _this17);
         return $ARC.chartArcsBackground + " " + $ARC.chartArcsBackground + "-" + i;
-      }.bind(this)).merge(backgroundArc).style("fill", config.gauge_background || null).attr("d", function (_ref2) {
-        var id = _ref2.id;
-        _newArrowCheck(this, _this16);
+      }.bind(this)).merge(backgroundArc).style("fill", config.gauge_background || null).attr("d", function (_ref3) {
+        var id = _ref3.id;
+        _newArrowCheck(this, _this17);
         if (showEmptyTextLabel || state.hiddenTargetIds.indexOf(id) >= 0) {
           return "M 0 0";
         }
@@ -19294,7 +19412,7 @@ function getAttrTweenFn(fn) {
       backgroundArc.exit().remove();
     } else {
       backgroundArc.attr("d", showEmptyTextLabel ? "M 0 0" : function () {
-        _newArrowCheck(this, _this16);
+        _newArrowCheck(this, _this17);
         var d = {
           data: [{
             value: config.gauge_max
@@ -19307,7 +19425,7 @@ function getAttrTweenFn(fn) {
     }
   },
   bindArcEvent: function bindArcEvent(arc) {
-    var _this17 = this,
+    var _this18 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -19335,7 +19453,7 @@ function getAttrTweenFn(fn) {
       var arcData;
       if (updated) {
         arcData = $$.convertToArcData(updated);
-        $$.toggleShape == null ? void 0 : $$.toggleShape(this, arcData, i);
+        $$.toggleShape == null || $$.toggleShape(this, arcData, i);
         config.data_onclick.bind($$.api)(arcData, this);
       }
     });
@@ -19355,7 +19473,7 @@ function getAttrTweenFn(fn) {
         selectArc(this, arcData, id);
         $$.setOverOut(!0, arcData);
       }).on("mouseout", function (event, d) {
-        _newArrowCheck(this, _this17);
+        _newArrowCheck(this, _this18);
         if (state.transiting) {
           // skip while transiting
           return;
@@ -19376,7 +19494,7 @@ function getAttrTweenFn(fn) {
     // touch events
     if (isTouch && $$.hasArcType() && !$$.radars) {
       var getEventArc = function (event) {
-        _newArrowCheck(this, _this17);
+        _newArrowCheck(this, _this18);
         var touch = event.changedTouches[0],
           eventArc = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(browser_doc.elementFromPoint(touch.clientX, touch.clientY));
         return eventArc;
@@ -19399,7 +19517,7 @@ function getAttrTweenFn(fn) {
     }
   },
   redrawArcText: function redrawArcText(duration) {
-    var _this18 = this,
+    var _this19 = this,
       $$ = this,
       config = $$.config,
       state = $$.state,
@@ -19412,13 +19530,13 @@ function getAttrTweenFn(fn) {
     // for gauge type, update text when has no title & multi data
     if (!(hasGauge && $$.data.targets.length === 1 && config.gauge_title)) {
       text = main.selectAll("." + $ARC.chartArc).select("text").style("opacity", "0").attr("class", function (d) {
-        _newArrowCheck(this, _this18);
+        _newArrowCheck(this, _this19);
         return $$.isGaugeType(d.data) ? $GAUGE.gaugeValue : null;
       }.bind(this)).call($$.textForArcLabel.bind($$)).attr("transform", $$.transformForArcLabel.bind($$)).style("font-size", function (d) {
-        _newArrowCheck(this, _this18);
+        _newArrowCheck(this, _this19);
         return $$.isGaugeType(d.data) && $$.data.targets.length === 1 && !hasMultiArcGauge ? Math.round(state.radius / 5) + "px" : null;
       }.bind(this)).transition().duration(duration).style("opacity", function (d) {
-        _newArrowCheck(this, _this18);
+        _newArrowCheck(this, _this19);
         return $$.isTargetToShow(d.data.id) && $$.isArcType(d.data) ? null : "0";
       }.bind(this));
       hasMultiArcGauge && text.attr("dy", "-.1em");
@@ -19436,6 +19554,26 @@ function getAttrTweenFn(fn) {
         isFullCircle || arcs.select("." + $GAUGE.chartArcsGaugeMax).attr("dx", state.innerRadius + (state.radius - state.innerRadius) / 2 + "px").attr("dy", "1.2em").text($$.textForGaugeMinMax(config.gauge_max, !0));
       }
     }
+  },
+  /**
+   * Get Arc element by id or index
+   * @param {string|number} value id or index of Arc
+   * @returns {d3Selection} Arc path element
+   * @private
+   */
+  getArcElementByIdOrIndex: function getArcElementByIdOrIndex(value) {
+    var _this20 = this,
+      $$ = this,
+      arcs = $$.$el.arcs,
+      filterFn = isNumber(value) ? function (d) {
+        _newArrowCheck(this, _this20);
+        return d.index === value;
+      }.bind(this) : function (d) {
+        _newArrowCheck(this, _this20);
+        return d.data.id === value;
+      }.bind(this),
+      _arcs;
+    return (_arcs = arcs) == null ? void 0 : _arcs.selectAll("." + $COMMON.target + " path").filter(filterFn);
   }
 });
 ;// CONCATENATED MODULE: ./src/ChartInternal/shape/area.ts
@@ -19874,8 +20012,8 @@ function getAttrTweenFn(fn) {
 ;// CONCATENATED MODULE: ./src/ChartInternal/shape/candlestick.ts
 
 
-function candlestick_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function candlestick_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? candlestick_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : candlestick_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function candlestick_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function candlestick_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? candlestick_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : candlestick_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -20334,10 +20472,7 @@ function candlestick_objectSpread(target) { for (var i = 1, source; i < argument
     $root.line = line.enter().append("path").attr("class", function (d) {
       _newArrowCheck(this, _this2);
       return $$.getClass("line", !0)(d) + " " + (extraLineClasses(d) || "");
-    }.bind(this)).style("stroke", $$.color).merge(line).style("opacity", $$.initialOpacity.bind($$)).style("shape-rendering", function (d) {
-      _newArrowCheck(this, _this2);
-      return $$.isStepType(d) ? "crispEdges" : "";
-    }.bind(this)).attr("transform", null);
+    }.bind(this)).style("stroke", $$.color).merge(line).style("opacity", $$.initialOpacity.bind($$)).attr("transform", null);
   },
   /**
    * Redraw function
@@ -21493,21 +21628,12 @@ var cacheKey = KEY.radarPoints;
       transiting = _state.transiting;
     if (config.interaction_enabled) {
       var isMouse = inputType === "mouse",
-        getIndex = function (event) {
-          _newArrowCheck(this, _this9);
-          var target = event.target;
-
-          // in case of multilined axis text
-          if (/tspan/i.test(target.tagName)) {
-            target = target.parentNode;
-          }
-          var d = (0,external_commonjs_d3_selection_commonjs2_d3_selection_amd_d3_selection_root_d3_.select)(target).datum();
-          return d && Object.keys(d).length === 1 ? d.index : undefined;
-        }.bind(this),
         hide = function (event) {
           _newArrowCheck(this, _this9);
           state.event = event;
-          var index = getIndex(event),
+
+          // const index = getIndex(event);
+          var index = $$.getDataIndexFromEvent(event),
             noIndex = isUndefined(index);
           if (isMouse || noIndex) {
             $$.hideTooltip();
@@ -21526,8 +21652,8 @@ var cacheKey = KEY.radarPoints;
           return;
         }
         state.event = event;
-        var index = getIndex(event);
-        $$.selectRectForSingle(svg.node(), null, index);
+        var index = $$.getDataIndexFromEvent(event);
+        $$.selectRectForSingle(svg.node(), index);
         isMouse ? $$.setOverOut(!0, index) : $$.callOverOutForTouch(index);
       }.bind(this)).on("mouseout", isMouse ? hide : null);
       if (!isMouse) {
@@ -23477,8 +23603,8 @@ function setSelection(isSelection, ids, indices, resetOther) {
           $$.updateTargetsForSubchart($$.data.targets);
           $target = (_subchart$main = subchart.main) == null ? void 0 : _subchart$main.selectAll("." + $COMMON.target);
         }
-        (_$target = $target) == null ? void 0 : _$target.style("opacity", null);
-        (_subchart$main2 = subchart.main) == null ? void 0 : _subchart$main2.style("display", null);
+        (_$target = $target) == null || _$target.style("opacity", null);
+        (_subchart$main2 = subchart.main) == null || _subchart$main2.style("display", null);
         this.resize();
       }
     },
@@ -23752,7 +23878,7 @@ extend(zoom, {
     if ($$.scale.zoom) {
       config.subchart_show ? $$.brush.getSelection().call($$.brush.move, null) : $$.zoom.updateTransformScale(external_commonjs_d3_zoom_commonjs2_d3_zoom_amd_d3_zoom_root_d3_.zoomIdentity);
       $$.updateZoom(!0);
-      zoomResetBtn == null ? void 0 : zoomResetBtn.style("display", "none");
+      zoomResetBtn == null || zoomResetBtn.style("display", "none");
 
       // reset transform
       if ((0,external_commonjs_d3_zoom_commonjs2_d3_zoom_amd_d3_zoom_root_d3_.zoomTransform)(eventRect.node()) !== external_commonjs_d3_zoom_commonjs2_d3_zoom_amd_d3_zoom_root_d3_.zoomIdentity) {
@@ -23885,8 +24011,8 @@ extend(zoom, {
 ;// CONCATENATED MODULE: ./src/ChartInternal/internals/selection.ts
 
 
-function selection_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function selection_objectSpread(target) { for (var i = 1, source; i < arguments.length; i++) { source = null != arguments[i] ? arguments[i] : {}; i % 2 ? selection_ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : selection_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function selection_ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function selection_objectSpread(e) { for (var r = 1, t; r < arguments.length; r++) { t = null != arguments[r] ? arguments[r] : {}; r % 2 ? selection_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : selection_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Copyright (c) 2017 ~ present NAVER Corp.
  * billboard.js project is licensed under the MIT license
@@ -24130,7 +24256,7 @@ function selection_objectSpread(target) { for (var i = 1, source; i < arguments.
         return isNaN(v);
       }.bind(this)).length === 0) {
         var _subchart$main;
-        (_subchart$main = subchart.main) == null ? void 0 : _subchart$main.select("." + classes.brush).call(this);
+        (_subchart$main = subchart.main) == null || _subchart$main.select("." + classes.brush).call(this);
       }
       return this;
     };
@@ -24473,7 +24599,7 @@ function selection_objectSpread(target) { for (var i = 1, source; i < arguments.
       var isRotated = config.axis_rotated;
 
       // in case of resize, update range of orgXScale
-      (_org$xScale = org.xScale) == null ? void 0 : _org$xScale.range(scale.x.range());
+      (_org$xScale = org.xScale) == null || _org$xScale.range(scale.x.range());
 
       // rescale from the original scale
       var newScale = transform[isRotated ? "rescaleY" : "rescaleX"](org.xScale || scale.x),
@@ -25101,7 +25227,7 @@ var _defaults = {};
 
 /**
  * @namespace bb
- * @version 3.9.1
+ * @version 3.9.4
  */
 var bb = {
   /**
@@ -25111,7 +25237,7 @@ var bb = {
    *    bb.version;  // "1.0.0"
    * @memberof bb
    */
-  version: "3.9.1",
+  version: "3.9.4",
   /**
    * Generate chart
    * - **NOTE:** Bear in mind for the possiblity of ***throwing an error***, during the generation when:

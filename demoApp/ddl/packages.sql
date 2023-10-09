@@ -675,6 +675,8 @@ create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
                'gaugeFullCircle' VALUE 0,
                /* optional - Set title in the center of the gauge */
                'gaugeTitle' VALUE NULL,
+               /* optional - Set if axis labels are shown at the bottom of the gauge */
+               'gaugeAxisLabels' VALUE NULL,
                /* optional - Set length of transitions [number] */
                'transitionDuration' VALUE NULL,
                /* optional - Set Charts should show absolute values e.g. pie, gauge and donut [sqlbool (1,0)] */

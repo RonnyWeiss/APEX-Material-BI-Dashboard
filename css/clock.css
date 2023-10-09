@@ -4,25 +4,25 @@
 
 .bida-clock-second-hand {
     stroke-width: 2px;
-    stroke: #303030;
+    stroke: var(--ut-body-text-color, #303030);
 }
 
 .bida-clock-minute-hand {
     stroke-width: 4px;
-    stroke: #303030;
+    stroke: var(--ut-body-text-color, #303030);
     stroke-linecap: round;
 }
 
 .bida-clock-hour-hand {
     stroke-width: 6px;
-    stroke: #303030;
+    stroke: var(--ut-body-text-color, #303030);
     stroke-linecap: round;
 }
 
 .bida-clock-hands-center {
     stroke-width: 3px;
-    stroke: #303030;
-    fill: #303030;
+    stroke: var(--ut-body-text-color, #303030);
+    fill: var(--ut-body-text-color, #303030);
 }
 
 .bida-clock-second-tick {
@@ -43,19 +43,19 @@
 
 .bida-clock-hour-label {
     font-size: inherit;
-    fill: #303030;
+    fill: var(--ut-body-text-color, #303030);
     font-weight: 600;
 }
 
 .bida-clock-second-label {
     font-size: inherit;
-    fill: #707070;
+    fill: var(--ut-body-text-color, #303030);
 }
 
 .bida-clock-label,
 .bida-clock-label2 {
     font-size: inherit;
-    fill: #303030;
+    fill: var(--ut-body-text-color, #303030);
     font-weight: 600;
 }
 

@@ -55,3 +55,7 @@
 .bb-color-pattern {
     background-image: url("#2ac4b3;#feaf29;#ff617b;#73a2ef;#b180d0;#3064cf;#d0a45f;#8aaec7;#ef65a2;#8aaec7;");
 }
+
+.bb text, .bb .bb-button, .bb-chart-arcs .bb-chart-arcs-gauge-min, .bb-chart-arcs .bb-chart-arcs-gauge-max {
+    fill: var(--ut-body-text-color, #303030);
+}

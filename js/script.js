@@ -4,7 +4,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
     const util = {
         "featureDetails": {
             name: "Material-BI-Dashboard",
-            scriptVersion: "23.07.18",
+            scriptVersion: "23.10.09",
             utilVersion: "22.11.28",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -625,7 +625,8 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                         "width": null,
                         "arcMinWidth": null,
                         "fullCircle": false,
-                        "title": null
+                        "title": null,
+                        "axisLabels": true
                     },
                     "grid": {
                         "x": true,
@@ -2569,6 +2570,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                           gaugeWidth = setObjectParameter( pConfigData.gaugeWidth, pDefaultConfig.d3JSchart.gauge.width ),
                           gaugeArcMinWidth = setObjectParameter( pConfigData.gaugeArcMinWidth, pDefaultConfig.d3JSchart.gauge.arcMinWidth ),
                           gaugeFullCircle = setObjectParameter( pConfigData.gaugeFullCircle, pDefaultConfig.d3JSchart.gauge.fullCircle, true ),
+                          gaugeAxisLabels = setObjectParameter( pConfigData.gaugeAxisLabels, pDefaultConfig.d3JSchart.gauge.axisLabels, true ),
                           gaugeTitle = setObjectParameter( pConfigData.gaugeTitle, pDefaultConfig.d3JSchart.gauge.title || "" ).toString();
 
                     /* Grid */
@@ -2870,7 +2872,7 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                             };
                         } else if ( isGauge ) {
                             dataLabels = {
-                                colors: ( gaugeType === "single" && seriesCnt > 1 ) ? "white" : "inherit"
+                                colors: ( gaugeType === "single" && seriesCnt > 1 ) ? "white" : null
                             };
                         }
                         const showDataPoints = setObjectParameter( pConfigData.showDataPoints, pDefaultConfig.d3JSchart.showDataPoints, true ),
@@ -2956,7 +2958,10 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
                                 gauge: {
                                     label: {
                                         format: absoluteFormatting,
-                                        threshold: charThreshold
+                                        threshold: charThreshold,
+                                        extents: function( d ) {
+                                            return gaugeAxisLabels ? d : null;
+                                        }
                                     },
                                     fullCircle: gaugeFullCircle,
                                     min: gaugeMin,
