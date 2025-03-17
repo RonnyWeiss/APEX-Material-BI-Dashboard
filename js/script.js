@@ -310,9 +310,6 @@ const apexBIDashBoard = function ( apex, $, DOMPurify, Masonry, pell ) {
      ***********************************************************************/
     function formatDate( pDate ) {
         const date = new Date ( pDate );
-        if ( apex.date && typeof apex.date.format === "function" ) {
-            return apex.date.format( date );
-        }
         const lang = ( apex.locale && apex.locale.getLanguage ) ? apex.locale.getLanguage() : undefined;
         return date.toLocaleDateString( lang );
     }
