@@ -111,7 +111,7 @@
         }
     },
     date: {
-        format: function( pDate ) {
+        format: function( pDate, pFormat ) {
             return pDate.toLocaleDateString();
         }
     }

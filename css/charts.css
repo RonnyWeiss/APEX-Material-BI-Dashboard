@@ -7,7 +7,7 @@
 }
 
 .bb-tooltip {
-    background-color: rgba(240, 240, 240, 1);
+    background-color:  var(--a-button-background-color, rgba(240, 240, 240, 1));
     border: none;
     box-shadow: none;
     padding: 4px;
@@ -15,13 +15,13 @@
 
 .bb-tooltip th {
     background-color: transparent;
-    color: #111;
-    border-bottom: solid 1px #aaa;
+    color: var(--a-button-text-color, #111);
+    border-bottom: solid 1px var(--a-button-text-color, #111);
 }
 
 .bb-tooltip td {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #111;
+    background-color: transparent;
+    color: var(--a-button-text-color, #111);
 }
 
 .bb-line {
