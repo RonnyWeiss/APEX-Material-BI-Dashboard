@@ -4,7 +4,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
     const util = {
         featureDetails: {
             name: "Material-BI-Dashboard",
-            scriptVersion: "25.03.17",
+            scriptVersion: "25.03.19",
             utilVersion: "25.03.17",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -517,12 +517,13 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 container.addClass(pRegionID);
                 util.loader.start(loaderSel);
 
-                /* this default json is used if something is missing in cofig */
+                /* this default json is used if something is missing in config */
                 const stdConfigJSON = {
                     footprint: true,
                     isSortable: false,
                     colSpan: 12,
                     sizeCorrection: 10,
+                    itemClasses: "",
                     height: 400,
                     refresh: 0,
                     backColor: "transparent",
@@ -1198,6 +1199,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     col.attr("item-id", pAjaxItems.itemID);
                     col.addClass(pRegionIDRefresh + "--" + pAjaxItems.itemID);
                 }
+
+                col.addClass(pAjaxItems.itemClasses || pDefaultConfig.itemClasses);
 
                 pParent.append(col);
 

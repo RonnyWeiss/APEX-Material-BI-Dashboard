@@ -84,21 +84,23 @@ create or replace PACKAGE BODY PKG_DASHBOARD_MGMT AS
                     SELECT
                         JSON_OBJECT (
                             /* required - ID of each item that is needed for async load and resort */
-                            'itemID' VALUE TDI.ITEM_IDENT, 
+                            'itemID' VALUE TDI.ITEM_IDENT,
                             /* required -  type of the item e.g. chart or calendar */
                             'itemType' VALUE TDI.TYPE_ID,
                             /* optional - title of the dashboard item */
                             'title' VALUE TDI.ITEM_TITLE,
                             /* optional - set background color of dashboard item */
-                            'backColor' VALUE NULL, 
+                            'backColor' VALUE NULL,
                             /* optional - set color of dashboard item */
                             'color' VALUE NULL,
                             /* optional - set box-shadow of dashboard item */
                             'boxShadow' VALUE null,
                             /* optional - set a background color for the item title */
                             'titleBackColor' VALUE NULL,
+                            /* optional - set additional classes for the item */
+                            'itemClasses' VALUE NULL,
                             /* optional - set a icon for the item title */
-                            'titleIcon' VALUE NULL, 
+                            'titleIcon' VALUE NULL,
                             /* optional - set a color for the item title */
                             'titleColor' VALUE NULL,
                             /* optional - set width of the item between 1 and 12 */
@@ -184,7 +186,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_MGMT AS
 
         RETURN B_BINARY_JSON;
     END;
-    
+
     -------------------------------------------------------------------------------------------------------------------------------------------------
     -- Section 2: Edit Dashboard (Create, Edit or Delete Dashboards and Items
     -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -274,7 +276,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_MGMT AS
             ITEM_IDENT = P_IN_ITEM_IDENT;
 
     END;
-    
+
     PROCEDURE STORE_NEW_ITEM_ORDER (
         P_IN_DASHBOARD_IDENT   NUMBER,
         P_IN_ITEMS             VARCHAR
@@ -303,7 +305,7 @@ create or replace PACKAGE BODY PKG_DASHBOARD_MGMT AS
 END;
 /
 
-CREATE OR REPLACE PACKAGE PKG_DASHBOARD_ITEM_DATA AS   
+CREATE OR REPLACE PACKAGE PKG_DASHBOARD_ITEM_DATA AS
     -------------------------------------------------------------------------------------------------------------------------------------------------
     -- Section 1: Get Data/Config of Dashboard Items
     -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -317,7 +319,7 @@ CREATE OR REPLACE PACKAGE PKG_DASHBOARD_ITEM_DATA AS
         P_IN_ATTRIBUTE_04    VARCHAR2 := NULL,
         P_IN_ATTRIBUTE_05    VARCHAR2 := NULL
     ) RETURN BLOB;
-    
+
     -- used in get_dashboard to get data for each item
     FUNCTION GET_ITEM_DATA (
         P_IN_IN_ITEM_IDENT   NUMBER,
@@ -333,7 +335,7 @@ CREATE OR REPLACE PACKAGE PKG_DASHBOARD_ITEM_DATA AS
 END;
 /
 
-create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS   
+create or replace PACKAGE BODY PKG_DASHBOARD_ITEM_DATA AS
     -------------------------------------------------------------------------------------------------------------------------------------------------
     -- Section 1: internal functions that created item data and config for item types
     -------------------------------------------------------------------------------------------------------------------------------------------------
