@@ -4,6 +4,7 @@ var data = {
          "itemID":"calendar",
          "itemType":"calendar",
          "title":"Event Calendar",
+         "itemClasses": "my-super-nice-looking-css-styles",
          "titleIcon":"fa-calendar-o",
          "colSpan":4,
          "height":400,
