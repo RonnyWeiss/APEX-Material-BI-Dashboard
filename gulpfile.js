@@ -2,13 +2,13 @@
 npm install -g gulp-cli
 npm install gulp --save-dev
 npm install gulp-concat --save-dev
-npm install gulp-uglify --save-dev
 npm install gulp-uglifycss --save-dev
+npm install gulp-terser --save-dev
 */
 
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+var terser = require('gulp-terser');
 var uglifycss = require('gulp-uglifycss');
 
 async function concatmainjs() {
@@ -18,7 +18,7 @@ async function concatmainjs() {
     './js/lib/purify.js',
     './js/script.js'])
     .pipe(concat('bida.pkgd.min.js'))
-    .pipe(uglify().on('error', function (e) { console.log(e); }))
+    .pipe(terser().on('error', function (e) { console.log(e); }))
     .pipe(gulp.dest('./build/'));
 }
 
@@ -27,7 +27,7 @@ async function concatd3js() {
     './js/lib/d3.js',
     './js/lib/maptopojson.js'])
     .pipe(concat('bida-ddd.pkgd.min.js'))
-    .pipe(uglify().on('error', function (e) { console.log(e); }))
+    .pipe(terser().on('error', function (e) { console.log(e); }))
     .pipe(gulp.dest('./build/'));
 }
 
@@ -35,7 +35,7 @@ async function concatbbjs() {
   return gulp.src([
     './js/lib/nbillboard.js'])
     .pipe(concat('bida-chart.pkgd.min.js'))
-    .pipe(uglify().on('error', function (e) { console.log(e); }))
+    .pipe(terser().on('error', function (e) { console.log(e); }))
     .pipe(gulp.dest('./build/'));
 }
 
@@ -44,7 +44,7 @@ async function concatcaljs() {
     './js/lib/fullCalendar.js',
     './js/lib/fullCalendarLocales.js'])
     .pipe(concat('bida-calendar.pkgd.min.js'))
-    .pipe(uglify().on('error', function (e) { console.log(e); }))
+    .pipe(terser().on('error', function (e) { console.log(e); }))
     .pipe(gulp.dest('./build/'));
 }
 
