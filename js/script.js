@@ -4,7 +4,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
     const util = {
         featureDetails: {
             name: "Material-BI-Dashboard",
-            scriptVersion: "25.03.19",
+            scriptVersion: "25.03.19b",
             utilVersion: "25.03.17",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",
@@ -2954,21 +2954,27 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         let ttContent;
                         if (ownTooltip) {
                             ttContent = function (d) {
-                                const isStacked = d.length === 1 ? false : true;
-
-                                const div = $("<div></div>");
-                                div.addClass("bb-tooltip");
-                                div.addClass("bida-chart-tooltip-custome");
+                                const div = $("<div></div>")
+                                    .addClass("bb-tooltip bida-chart-tooltip-custome");
                                 $.each(d, function (i, pData) {
                                     const key = specialStr + unescape(pData.id),
-                                        seriesObj = seriesData[key],
-                                        index = isStacked ? pData.index : 0;
+                                        seriesObj = seriesData[key];
+                                    // Skip if data is missing
+                                    if (!seriesObj || !seriesObj.length) { return; }
 
-                                    if (seriesObj && seriesObj[index] && util.isDefinedAndNotNull(seriesObj[index].tooltip) && util.isDefinedAndNotNull(pData.value)) {
-                                        const subDiv = $("<div>"),
-                                            ttS = escapeOrSanitizeHTML(seriesObj[index].tooltip, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
-                                        subDiv.append(ttS);
-                                        div.append(subDiv);
+                                    // Use a safe index inside the available data
+                                    const safeIndex = Math.min(pData.index, seriesObj.length - 1);
+
+                                    if (
+                                        seriesObj[safeIndex] &&
+                                        util.isDefinedAndNotNull(seriesObj[safeIndex].tooltip) &&
+                                        util.isDefinedAndNotNull(pData.value)
+                                    ) {
+                                        let ttS = seriesObj[safeIndex].tooltip;
+                                        if (pRequireHTMLEscape !== false) {
+                                            ttS = util.escapeHTML(ttS);
+                                        }
+                                        div.append($("<div>").append(ttS));
                                     }
                                 });
                                 return div[0].outerHTML;
