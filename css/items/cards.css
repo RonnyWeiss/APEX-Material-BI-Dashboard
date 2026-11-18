@@ -58,10 +58,9 @@
     line-height: 55px;
     text-align: center;
     font-size: 29px;
-    background: #999999;
+    background: var(--bida-item-background-color);
     display: block;
     margin-right: 5px;
-    box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.26);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

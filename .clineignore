@@ -1,0 +1,21 @@
+# Block dependencies
+node_modules/
+**/node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore build and output folders
+build/
+
+# Caches and Git internals
+.git/
+.cache/
+.eslintcache
+
+# Huge media or log files
+*.log
+*.mp4
+*.png
+*.jpg
+*.svg

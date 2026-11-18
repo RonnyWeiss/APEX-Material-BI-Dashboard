@@ -70,7 +70,6 @@
 }
 
 .bida-item-list-item-group .list-group-content {
-    box-shadow: 0px 0px 3px 0.32px rgba(0, 0, 0, .26);
     margin-bottom: 10px;
     margin-top: 5px;
 }
@@ -93,10 +92,9 @@
     line-height: 40px;
     text-align: center;
     font-size: 23px;
-    background: #999999;
+    background: var(--bida-item-background-color);
     display: block;
     margin-right: 10px;
-    box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.26);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

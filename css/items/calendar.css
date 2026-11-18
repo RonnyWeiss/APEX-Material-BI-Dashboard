@@ -115,6 +115,19 @@
     margin-top: 0px;
 }
 
-.fc .fc-list-sticky .fc-list-day > * {
+.fc .fc-list-sticky .fc-list-day>* {
     background: transparent;
+}
+
+.fc-theme-standard td {
+    border-right: none;
+    border-bottom: none;
+}
+
+.fc-theme-standard th {
+    border-right: none;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border-left: none;
 }

@@ -1,0 +1,72 @@
+/* BIDA Bridge CSS for Universal Theme Variables */
+/* This file defines CSS variables that BIDA items will use to inherit APEX theme colors */
+
+:root {
+  /* Region level variables (default to component values) */
+  --bida-region-background-color: var(--ut-region-background-color, var(--ut-component-background-color, #ffffff));
+  --bida-region-border-color: var(--ut-region-border-color, var(--ut-component-border-color, #eee));
+  --bida-region-border-radius: var(--ut-region-border-radius, var(--ut-component-border-radius, 5px));
+  --bida-region-border-width: var(--ut-region-border-width, var(--ut-component-border-width, 2px));
+  --bida-region-box-shadow: var(--ut-region-box-shadow, var(--ut-component-box-shadow, none));
+  --bida-region-text-color: var(--ut-region-text-color, var(--ut-component-text-default-color, #000000));
+  
+  /* Item level variables */
+  --bida-item-background-color: var(--ut-component-background-color, #ffffff);
+  --bida-item-border-color: var(--ut-component-border-color, #cccccc);
+  --bida-item-border-radius: var(--ut-component-border-radius, 0px);
+  --bida-item-border-width: var(--ut-component-border-width, 1px);
+  --bida-item-box-shadow: var(--ut-component-box-shadow, none);
+  --bida-item-text-color: var(--ut-component-text-default-color, #000000);
+  
+  /* Card specific variables */
+  --bida-card-background-color: var(--ut-card-background-color, var(--ut-component-background-color, #ffffff));
+  --bida-card-border-color: var(--ut-card-border-color, var(--ut-component-border-color, #cccccc));
+  --bida-card-border-radius: var(--ut-card-border-radius, var(--ut-component-border-radius, 0px));
+  --bida-card-box-shadow: var(--ut-card-box-shadow, var(--ut-component-box-shadow, none));
+}
+
+/* Apply the bridge variables to BIDA items */
+.bida-item-card {
+  background-color: var(--bida-card-background-color);
+  border-color: var(--bida-region-border-color);
+  border-radius: var(--bida-region-border-radius);
+  border-width: var(--bida-region-border-width);
+  box-shadow: var(--bida-region-box-shadow);
+  color: var(--bida-region-text-color);
+}
+
+.bida-item-badge {
+  background-color: var(--bida-item-background-color);
+  border-color: var(--bida-item-border-color);
+  border-radius: var(--bida-item-border-radius);
+  border-width: var(--bida-item-border-width);
+  box-shadow: var(--bida-item-box-shadow);
+  color: var(--bida-item-text-color);
+}
+
+.bida-item-list {
+  background-color: var(--bida-item-background-color);
+  border-color: var(--bida-item-border-color);
+  border-radius: var(--bida-item-border-radius);
+  border-width: var(--bida-item-border-width);
+  box-shadow: var(--bida-item-box-shadow);
+  color: var(--bida-item-text-color);
+}
+
+.bida-container-item {
+  background-color: var(--bida-region-background-color);
+  border-color: var(--bida-region-border-color);
+  border-radius: var(--bida-region-border-radius);
+  border-width: var(--bida-region-border-width);
+  box-shadow: var(--bida-region-box-shadow);
+  color: var(--bida-region-text-color);
+}
+
+/* Make sure the variables are available for JavaScript components */
+.bida-item-div {
+  --bida-bg-color: var(--bida-region-background-color);
+  --bida-border-color: var(--bida-region-border-color);
+  --bida-border-radius: var(--bida-region-border-radius);
+  --bida-box-shadow: var(--bida-region-box-shadow);
+  --bida-text-color: var(--bida-region-text-color);
+}

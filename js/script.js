@@ -4,7 +4,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
     const util = {
         featureDetails: {
             name: "Material-BI-Dashboard",
-            scriptVersion: "25.03.19b",
+            scriptVersion: "26.09.23",
             utilVersion: "25.03.17",
             url: "https://github.com/RonnyWeiss",
             url2: "https://linktr.ee/ronny.weiss",

@@ -1,4 +1,4 @@
-var asyncData = {
+const asyncData = {
    "title":"Area-spline chart loaded sync, zoom type drag and custome Tooltips",
    "itemType":"chart",
    "colSpan":4,

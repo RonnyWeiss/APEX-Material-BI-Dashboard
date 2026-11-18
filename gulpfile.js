@@ -49,7 +49,12 @@ async function concatcaljs() {
 }
 
 async function concatcss() {
-  return gulp.src('./css/*.css')
+  return gulp.src([
+    './css/lib/*.css',
+    './css/items/*.css',
+    './css/*.css',
+    
+  ])
     .pipe(concat({ path: 'bida.pkgd.min.css' }))
     .pipe(uglifycss({ "uglyComments": true }))
     .pipe(gulp.dest('./build/'))
