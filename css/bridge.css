@@ -9,7 +9,7 @@
   --bida-region-border-width: var(--ut-region-border-width, var(--ut-component-border-width, 2px));
   --bida-region-box-shadow: var(--ut-region-box-shadow, var(--ut-component-box-shadow, none));
   --bida-region-text-color: var(--ut-region-text-color, var(--ut-component-text-default-color, #000000));
-  
+
   /* Item level variables */
   --bida-item-background-color: var(--ut-component-background-color, #ffffff);
   --bida-item-border-color: var(--ut-component-border-color, #cccccc);
@@ -17,12 +17,18 @@
   --bida-item-border-width: var(--ut-component-border-width, 1px);
   --bida-item-box-shadow: var(--ut-component-box-shadow, none);
   --bida-item-text-color: var(--ut-component-text-default-color, #000000);
-  
+
   /* Card specific variables */
   --bida-card-background-color: var(--ut-card-background-color, var(--ut-component-background-color, #ffffff));
   --bida-card-border-color: var(--ut-card-border-color, var(--ut-component-border-color, #cccccc));
   --bida-card-border-radius: var(--ut-card-border-radius, var(--ut-component-border-radius, 0px));
   --bida-card-box-shadow: var(--ut-card-box-shadow, var(--ut-component-box-shadow, none));
+  /* text size */
+  --ut-text-subheading-xs-font-size: 1rem;
+  --ut-text-subheading-xs-font-weight: 700;
+  --ut-text-subheading-xs-line-height: 1.25rem;
+  /* button */
+  --a-button-hover-background-color: #eee;
 }
 
 /* Apply the bridge variables to BIDA items */
@@ -69,4 +75,10 @@
   --bida-border-radius: var(--bida-region-border-radius);
   --bida-box-shadow: var(--bida-region-box-shadow);
   --bida-text-color: var(--bida-region-text-color);
+}
+
+.u-text-subheading-xs {
+  font-size: var(--ut-text-subheading-xs-font-size);
+  font-weight: var(--ut-text-subheading-xs-font-weight);
+  line-height: var(--ut-text-subheading-xs-line-height);
 }

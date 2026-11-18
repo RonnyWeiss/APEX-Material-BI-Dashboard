@@ -1,4 +1,4 @@
-# AGENTS.md — Project Knowledge for AI Coding Agents
+﻿# AGENTS.md — Project Knowledge for AI Coding Agents
 
 > Read this file before working in this repo. It summarizes the architecture, build flow, key files, and conventions so an agent can reason about the codebase without re-deriving everything from scratch.
 
@@ -170,10 +170,32 @@ The install SQL also embeds PL/SQL helpers, e.g. `IS_IN_STR_LIST` (checks a stri
   - New dashboard feature/item type → add draw logic in `js/script.js` (the `case "<type>":` dispatch block), add CSS in `css/`, add a feature keyword in the `pFeatures` string + `apexplugin.json` keywords, ensure it's enabled via the `Activated Features` attribute, and wire any new asset into the correct gulp task.
   - Config options → update both the client JS default config AND the matching `create_plugin_attribute` in the install SQL (and the `configJSON`/`*ConfigJSON` defaults).
   - **Keep the APEX install SQL in sync with the JS** — the SQL generates the exact `apexBIDashBoard(...).initialize(...)` call and its arguments, so parameter ordering must match `js/script.js`.
-- `js/lib/` files are **vendored/third-party** — don't hand-edit unless fixing a vendored bug; prefer overriding behavior in `js/script.js`.
+- js/lib/ and css/lib/ files are **vendor/third-party libraries** (downloaded, not hand-written). **Never edit these files directly.** If a library needs updating, download the new version and replace the file; if API changes require it, adapt your code in js/script.js or css/items/*.css to match the new version — do NOT patch the vendor file.
 - `indexRaw.html` (dev) vs `index.html` (minified demo) must stay consistent in their shared inline `init()`/`ajaxCall()` and config objects (`mainConf`, `sanitizerConf`, `tableConf`, `clockConf`, `chartConf`, `mapConf`).
 - The APEX install SQL uses `wwv_flow_api.id(...)` for stable IDs — don't renumber these when editing.
 - `.clineignore` excludes `*.sql`, images, `node_modules`, `build/`, `.git/`, `*.log`, video. **Search tools won't find SQL/image files — read them by explicit path** (e.g. `git ls-files`, or read `region_type_plugin_apex_bi_dashboard_d3.sql` directly).
+
+
+## Shell preference (Windows)
+
+On Windows, **use Git Bash (`%PROGRAMFILES%\Git\bin\sh.exe`)** instead of PowerShell for all shell commands. This avoids the escaping complexity that PowerShell introduces (single-quote-in-double-quote nesting, `$` expansion, Unicode characters in strings, `&&` chaining). Standard POSIX/bash syntax is preferred:
+
+```bash
+# Node one-liners (no quoting nightmare)
+node -e 'var fs=require("fs"); var lines=fs.readFileSync("js/script.js","utf8").split("\n"); console.log(lines[42]);'
+
+# File reads and writes
+cat data/data.js | head -30
+grep -n "headerToolbar" js/script.js
+
+# Chaining with pipes
+find . -name "*.js" -not -path "./node_modules/*" | xargs grep -l "innerHTML"
+```
+
+Key rules:
+- Always use `sh -c '...'` or pass scripts to `node` via files when the command gets long.
+- Use forward slashes in paths (`C:/Test/...`) even on Windows — Git Bash handles them natively.
+- For file I/O that requires embedded quotes, write a temporary `.js` file and run it with `node`, rather than trying to nest single/double quotes on the command line.
 
 ## Quick commands
 
@@ -194,9 +216,4 @@ git ls-files
 # Inspect plugin attributes
 #   Select-String -Path region_type_plugin_apex_bi_dashboard_d3.sql -Pattern "p_prompt=>|p_attribute_sequence=>"
 ```
-
-## Useful links
-- Demo app: https://apex.oracle.com/pls/apex/f?p=103428
-- Tutorial: https://www.youtube.com/watch?v=amzzRHLT5KY
-- apex.world / repo: https://github.com/RonnyWeiss/APEX-Material-BI-Dashboard
 

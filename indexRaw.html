@@ -10,6 +10,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/lib/billboard.css" rel="stylesheet">
     <link href="css/lib/fullCalendar.css" rel="stylesheet">
+    <link href="css/lib/fullCalendarPalette.css" rel="stylesheet">
+    <link href="css/lib/fullCalendarTheme.css" rel="stylesheet">
     <link href="css/lib/pell.css" rel="stylesheet">
     <link href="css/items/badges.css" rel="stylesheet">
     <link href="css/items/calendar.css" rel="stylesheet">
@@ -25,6 +27,7 @@
     <link href="css/bridge.css" rel="stylesheet">
     <link href="css/masonry.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://static.oracle.com/cdn/apex/26.2.1/themes/theme_42/26.2/css/Core.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
@@ -32,6 +35,7 @@
     <script src="js/lib/d3.js"></script>
     <script src="js/lib/fullCalendar.js"></script>
     <script src="js/lib/fullCalendarLocales.js"></script>
+    <script src="js/lib/fullCalendarClassicTheme.js"></script>
     <script src="js/lib/maptopojson.js"></script>
     <script src="js/lib/masonry.pkgd.js"></script>
     <script src="js/lib/nbillboard.js"></script>
@@ -43,6 +47,11 @@
     <script src="js/script.js"></script>
 </head>
 <script>
+    const jsMessages = {
+        "APEX.DATEPICKER.TODAY":"Today",
+        "APEX.DATEPICKER.NEXT_MONTH":"Next Month",
+        "APEX.DATEPICKER.PREVIOUS_MONTH":"Previous Month"
+    };
     const mainConf = {
         "isSortable": false,
         "colSpan": 12,

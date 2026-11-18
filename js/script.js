@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+﻿// eslint-disable-next-line no-unused-vars
 const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
     "use strict";
     const util = {
@@ -82,7 +82,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         $("#dynToolTip").css("visibility", "visible");
                     }
-
                     $("#dynToolTip").html(htmlContent);
                     $("#dynToolTip")
                         .find("*")
@@ -208,7 +207,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 const div = $("<div>");
                 if ($(id).height() >= 150) {
                     const subDiv = $("<div></div>");
-
                     const iconSpan = $("<span></span>")
                         .addClass("fa")
                         .addClass(icon || "fa-info-circle-o")
@@ -217,9 +215,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .css("width", "32px")
                         .css("margin-bottom", "16px")
                         .css("color", color || "#D0D0D0");
-
                     subDiv.append(iconSpan);
-
                     const textSpan = $("<span></span>")
                         .text(text)
                         .css("display", "block")
@@ -228,7 +224,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .css("overflow", "hidden")
                         .css("white-space", "nowrap")
                         .css("font-size", "12px");
-
                     div.css("margin", "12px").css("text-align", "center").css("padding", "10px 0").addClass("dominfomessagediv").append(subDiv).append(textSpan);
                 } else {
                     const iconSpan = $("<span></span>")
@@ -238,7 +233,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .css("line-height", "26px")
                         .css("margin-right", "5px")
                         .css("color", color || "#D0D0D0");
-
                     const textSpan = $("<span></span>")
                         .text(text)
                         .css("color", "#707070")
@@ -247,7 +241,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .css("white-space", "nowrap")
                         .css("font-size", "12px")
                         .css("line-height", "20px");
-
                     div.css("margin", "10px").css("text-align", "center").addClass("dominfomessagediv").append(iconSpan).append(textSpan);
                 }
                 $(id).append(div);
@@ -290,7 +283,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
             return pValue >= min && pValue <= max;
         }
     };
-
     /***********************************************************************
      **
      ** Used to format a date nice
@@ -304,7 +296,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
         const lang = (apex.locale && apex.locale.getLanguage) ? apex.locale.getLanguage() : undefined;
         return date.toLocaleDateString(lang);
     }
-
     /***********************************************************************
      **
      ** Used to set parameter from data or from config
@@ -329,7 +320,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
             }
         }
     }
-
     /***********************************************************************
      **
      ** Used to define svg shadows if needed
@@ -337,20 +327,15 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
      ***********************************************************************/
     function defineSVGShadows(pSVG, pID, pY, pX, pSize) {
         const defs = pSVG.append("defs");
-
         const filter = defs.append("filter").attr("id", pID);
-
         filter.append("feGaussianBlur").attr("in", "SourceAlpha").attr("stdDeviation", pSize).attr("result", "blur");
         filter.append("feOffset").attr("in", "blur").attr("dx", pX).attr("dy", pY).attr("result", "offsetBlur");
         filter.append("feFlood").attr("in", "offsetBlur").attr("flood-color", "#000").attr("flood-opacity", "0.26").attr("result", "offsetColor");
         filter.append("feComposite").attr("in", "offsetColor").attr("in2", "offsetBlur").attr("operator", "in").attr("result", "offsetBlur");
-
         const feMerge = filter.append("feMerge");
-
         feMerge.append("feMergeNode").attr("in", "offsetBlur");
         feMerge.append("feMergeNode").attr("in", "SourceGraphic");
     }
-
     /***********************************************************************
      **
      ** Used to add the footer to the region
@@ -365,7 +350,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
         footer.css("font-size", "9px");
         footer.css("color", "rgb(0,0,0,0.3)");
         footer.css("line-height", "9px");
-
         const logo = $("<i></i>");
         logo.addClass("fa");
         logo.addClass("fa-heart");
@@ -373,14 +357,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
         logo.css("color", "inherit");
         logo.css("opacity", "0.3");
         logo.css("line-height", "10px");
-
         const link = $("<a></a>");
         link.attr("href", "https://linktr.ee/ronny.weiss");
         link.attr("target", "_blank");
         link.css("color", "inherit");
-
         link.append(logo);
-
         const logo1 = $("<i></i>");
         logo1.addClass("fa");
         logo1.addClass("fa-apex");
@@ -388,22 +369,17 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
         logo1.css("color", "inherit");
         logo1.css("opacity", "0.3");
         logo1.css("line-height", "10px");
-
         const link1 = $("<a></a>");
         link1.attr("href", "https://apex.oracle.com");
         link1.attr("target", "_blank");
         link1.css("color", "inherit");
-
         link1.append(logo1);
-
         footer.append("Build with ");
         footer.append(link);
         footer.append(" for ");
         footer.append(link1);
-
         $(pRegion).append(footer);
     }
-
     /***********************************************************************
      **
      ** function to escape of sanitize html
@@ -414,12 +390,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
         if (pRequireHTMLEscape !== false) {
             return util.escapeHTML(pHTML);
         }
-
         /* if safe item return full html*/
         if (pIsSafeItem === true) {
             return pHTML;
         }
-
         /* if sanitizer is activated sanitize html */
         if ($.inArray("sanitizer", pOptions.features) > -1 && pIsSafeItem !== true) {
             return DOMPurify.sanitize(pHTML, pOptions.purifyOptions);
@@ -427,7 +401,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
             return pHTML;
         }
     }
-
     return {
         initialize: function (
             pRegionID,
@@ -473,18 +446,15 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 },
                 featureDetails: util.featureDetails
             });
-
             const containerIDSel = "#" + pRegionID,
                 container = $(containerIDSel),
                 loaderSel = "#" + pRegionIDRefresh,
                 regionSizerID = pRegionID + "-sizer";
-
             let masonry,
                 mapJSON = {},
                 timers = {},
                 keepScroll = 0,
                 asyncAjaxReference = 0;
-
             const masonryAPI = {
                 initMasonry: function () {
                     if (masonry) {
@@ -501,7 +471,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             transitionDuration: 0,
                             gutter: 0
                         };
-
                     masonry = new Masonry(masonryIdentifier, masonryJSON);
                 },
                 /* update layoput and keep scroll position */
@@ -512,11 +481,9 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     }
                 }
             };
-
             if (pRegionID && container.length > 0) {
                 container.addClass(pRegionID);
                 util.loader.start(loaderSel);
-
                 /* this default json is used if something is missing in config */
                 const stdConfigJSON = {
                     footprint: true,
@@ -545,7 +512,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         icon: null
                     }
                 };
-
                 /* default table options */
                 const stdTableConfigJSON = {
                     header: {
@@ -573,7 +539,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         borderBottom: "1px solid rgba(240, 240, 240, 1)"
                     }
                 };
-
                 /* default d3JS map options */
                 const stdMapConfigJSON = {
                     tour: {
@@ -601,7 +566,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         shadows: true
                     }
                 };
-
                 /* default d3JS billboard charts options */
                 const stdChartConfigJSON = {
                     axisLabelPosition: "inner3",
@@ -685,7 +649,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         rescale: false
                     }
                 };
-
                 /* default purify js - sanitizer options */
                 const stdSanatizerConfigJSON = {
                     ALLOWED_ATTR: [
@@ -766,7 +729,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         "ul"
                     ]
                 };
-
                 /* default clock options */
                 const stdClockConfigJSON = {
                     shadows: false,
@@ -795,7 +757,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         fillColor: "#eeeeee"
                     }
                 };
-
                 const stdCalendarConfigJSON = {
                     eventLimitPerDay: 2,
                     viewType: "dayGridMonth",
@@ -804,14 +765,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     timeGridStartTime: "06:00:00",
                     stickyHeaderDates: "auto"
                 };
-
                 let featureArr;
-
                 /* build array of features */
                 if (util.isDefinedAndNotNull(pFeatures)) {
                     featureArr = pFeatures.split(":");
                 }
-
                 /* draw grid container and get data to init dashboard */
                 let configJSON = {},
                     chartConfigJSON = {},
@@ -820,16 +778,13 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     mapOptions = {},
                     clockOptions = {},
                     calendarOptions = {};
-
                 /* merge main config */
                 configJSON = util.jsonSaveExtend(stdConfigJSON, pDefaultConfigJSON);
                 /* add features array to configJSON */
                 configJSON.features = [];
-
                 if (featureArr && featureArr.length > 0) {
                     configJSON.features = featureArr;
                 }
-
                 /* merge config for chart if feature is activated */
                 if ($.inArray("charts", configJSON.features) > -1) {
                     chartConfigJSON = util.jsonSaveExtend(stdChartConfigJSON, pChartConfigJSON);
@@ -837,7 +792,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.d3JSchart = null;
                 }
-
                 /* merge config for table if feature is activated */
                 if ($.inArray("table", configJSON.features) > -1) {
                     tableConfigJSON = util.jsonSaveExtend(stdTableConfigJSON, pTableConfigJSON);
@@ -845,7 +799,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.table = null;
                 }
-
                 /* merge config for sanitizer if feature is activated */
                 if ($.inArray("sanitizer", configJSON.features) > -1) {
                     purifyOptions = util.jsonSaveExtend(stdSanatizerConfigJSON, pPurifyOptions);
@@ -853,7 +806,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.purifyOptions = null;
                 }
-
                 /* merge config for d3JS map if feature is activated */
                 if ($.inArray("map", configJSON.features) > -1) {
                     mapOptions = util.jsonSaveExtend(stdMapConfigJSON, pMapOptions);
@@ -861,7 +813,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.mapOptions = null;
                 }
-
                 /* merge config for clock if feature is activated */
                 if ($.inArray("clock", configJSON.features) > -1) {
                     clockOptions = util.jsonSaveExtend(stdClockConfigJSON, pClockOptions);
@@ -869,7 +820,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.clockOptions = null;
                 }
-
                 /* merge config for clock if feature is activated */
                 if ($.inArray("calendar", configJSON.features) > -1) {
                     calendarOptions = util.jsonSaveExtend(stdCalendarConfigJSON, pCalendarOptions);
@@ -877,27 +827,21 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     configJSON.calendarOptions = null;
                 }
-
                 configJSON.noDataMessage = pNoDataMsg;
                 configJSON.errorMessage = pErrMsg;
-
                 configJSON.items2Submit = pItems2Submit;
                 configJSON.items2SubmitImg = pItems2SubmitImg;
-
                 apex.debug.info({
                     fct: `${util.featureDetails.name} - initialize`,
                     finalConfigJSON: configJSON,
                     featureDetails: util.featureDetails
                 });
-
                 /* keep scrollPosition */
                 $(document).on("scroll touchmove", function () {
                     keepScroll = $(document).scrollTop();
                 });
-
                 /* get data and draw */
                 getData(pLoadingMethod, configJSON);
-
                 /* try to bind APEX refreh event if "APEX" exists */
                 try {
                     if (pRegionIDRefresh) {
@@ -924,7 +868,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         featureDetails: util.featureDetails
                     });
                 }
-
                 /* Used to set a refresh via json configuration */
                 if (configJSON.refresh > 0) {
                     let bidaRefresh = setInterval(function () {
@@ -947,7 +890,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     featureDetails: util.featureDetails
                 });
             }
-
             /***********************************************************************
              **
              ** function to get data from APEX
@@ -959,7 +901,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     asyncAjaxReference += 1;
                 }
                 const submitItems = pDefaultConfig.items2Submit;
-
                 function onSyncError(pData) {
                     $(containerIDSel).empty();
                     $(containerIDSel).addClass("bida-container-nodat");
@@ -973,7 +914,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         });
                     }
                 }
-
                 /* call APEX server */
                 apex.server.plugin(
                     pAjaxID,
@@ -998,7 +938,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     }
                 );
             }
-
             /***********************************************************************
              **
              ** Used to draw chart columns
@@ -1010,13 +949,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     ajaxResponse: pAjaxResponse,
                     featureDetails: util.featureDetails
                 });
-
                 /* empty container for new stuff */
                 container.empty();
-
                 const sizer = $("<div></div>").addClass("bida-container-sizer").addClass(regionSizerID).attr("id", regionSizerID);
                 container.append(sizer);
-
                 const resizeObserver = new ResizeObserver(
                     util.debounce(function () {
                         if (!document.hidden && sizer.is(":visible")) {
@@ -1024,13 +960,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         }
                     })
                 );
-
                 container.on("resize", function () {
                     masonryAPI.resizeMasonry();
                 });
-
                 resizeObserver.observe(sizer[0]);
-
                 /* reset all timers */
                 if (timers.outerItemIntervals && timers.outerItemIntervals.length > 0) {
                     $.each(timers.outerItemIntervals, function (i, d) {
@@ -1038,45 +971,36 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     });
                 }
                 timers.outerItemIntervals = [];
-
                 if (timers.innerItemsIntervals) {
                     $.each(timers.innerItemsIntervals, function (key, val) {
                         clearInterval(val);
                     });
                 }
                 timers.innerItemsIntervals = {};
-
                 if (timers.d3Timer && timers.d3Timer.length > 0) {
                     $.each(timers.d3Timer, function (i, d) {
                         d.stop();
                     });
                 }
                 timers.d3Timer = [];
-
                 /* check data and define grid cols */
                 if (pAjaxResponse.items && pAjaxResponse.items.length > 0) {
                     container.removeClass("bida-container-nodat");
-
                     /* for each grid item */
                     $.each(pAjaxResponse.items, function (idx, ajaxItems) {
                         let itemWidth = pDefaultConfig.colSpan;
                         if (ajaxItems.colSpan) {
                             itemWidth = ajaxItems.colSpan;
                         }
-
                         /* draw each chart in a col */
                         drawItemRegion(idx, itemWidth, container, ajaxItems, pDefaultConfig);
                     });
-
                     if (pDefaultConfig.footprint) {
                         addCFooter(container);
                     }
-
                     masonryAPI.initMasonry();
-
                     /* add sortable option if set */
                     let clone;
-
                     const sortableJSON = {
                         delay: 50,
                         zIndex: 10,
@@ -1127,13 +1051,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             container.trigger("sortorder", arr.join(":"));
                         }
                     };
-
                     let sortable;
                     /* used to set sortable on load or by trigger */
                     if (pDefaultConfig.isSortable) {
                         sortable = container.sortable(sortableJSON);
                     }
-
                     /* enable or disable sort on runtime */
                     $(loaderSel).on("sortableOn", function () {
                         apex.debug.info({
@@ -1159,7 +1081,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     container.addClass("bida-container-nodat");
                     util.noDataMessage.show(container, pDefaultConfig.noDataMessage);
                 }
-
                 util.loader.stop(loaderSel);
                 container.trigger("rendered");
                 apex.debug.info({
@@ -1168,7 +1089,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     featureDetails: util.featureDetails
                 });
             }
-
             /***********************************************************************
              **
              ** Used to draw one item column
@@ -1181,7 +1101,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     itemRegionIDSel = "#" + itemRegionID,
                     // calc item height (currently min height)
                     itemHeight = (pAjaxItems.height || pDefaultConfig.height) - (pAjaxItems.sizeCorrection || pDefaultConfig.sizeCorrection);
-
                 // define new column for rows
                 const col = $("<div></div>");
                 col.attr("id", itemRegionID);
@@ -1193,20 +1112,15 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 col.css("background", pAjaxItems.backColor || pDefaultConfig.backColor);
                 col.css("color", pAjaxItems.color || pDefaultConfig.color);
                 col.css("box-shadow", pAjaxItems.boxShadow || pDefaultConfig.boxShadow);
-
                 // add item id to item div
                 if (util.isDefinedAndNotNull(pAjaxItems.itemID)) {
                     col.attr("item-id", pAjaxItems.itemID);
                     col.addClass(pRegionIDRefresh + "--" + pAjaxItems.itemID);
                 }
-
                 col.addClass(pAjaxItems.itemClasses || pDefaultConfig.itemClasses);
-
                 pParent.append(col);
-
                 /* pre pare col content and draw items itself */
                 prepareItemContent(pitemIdx, itemHeight, itemRegionIDSel, thisAjaxItems, pDefaultConfig);
-
                 const isAsync = setObjectParameter(pAjaxItems.isAsync, false, true);
                 /* Used to set a refresh of the item */
                 if (pLoadingMethod === "A" && isAsync) {
@@ -1215,7 +1129,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         pAjaxItems.itemData = null;
                         prepareItemContent(pitemIdx, itemHeight, itemRegionIDSel, pAjaxItems, pDefaultConfig, true);
                     });
-
                     if (pAjaxItems.refresh > 0) {
                         const itemTimer = setInterval(function () {
                             if ($(itemRegionIDSel).length === 0) {
@@ -1226,12 +1139,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 prepareItemContent(pitemIdx, itemHeight, itemRegionIDSel, pAjaxItems, pDefaultConfig, true);
                             }
                         }, pAjaxItems.refresh * 1000);
-
                         timers.outerItemIntervals.push(itemTimer);
                     }
                 }
             }
-
             /***********************************************************************
              **
              ** Used to handle loading method, draw title and handle region height
@@ -1240,16 +1151,13 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
             function prepareItemContent(pitemIdx, pItemHeight, pItemSel, pAjaxItems, pDefaultConfig, pIsRefresh) {
                 const div = $(pItemSel),
                     loaderWaitTime = 100;
-
                 let itemHeight = pItemHeight;
-
                 function addLoader() {
                     /* workaround to fix wrong loader position*/
                     setTimeout(function () {
                         util.loader.start(pItemSel);
                     }, loaderWaitTime);
                 }
-
                 function stopLoader() {
                     util.loader.stop(pItemSel);
                     /* workaround if ajax is faster then wait of loader to fix wrong loader position */
@@ -1257,38 +1165,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         util.loader.stop(pItemSel);
                     }, loaderWaitTime);
                 }
-
                 const isAsync = setObjectParameter(pAjaxItems.isAsync, false, true);
                 /* if item data is empty and async mode is on then load data async for the item */
                 if (pIsRefresh || (pLoadingMethod === "A" && isAsync)) {
                     if (util.isDefinedAndNotNull(pAjaxItems.itemID)) {
                         const submitItems = pDefaultConfig.items2Submit;
-
                         /* what todo when asnyc data load is successful */
                         const onAsyncSuccess = function (pAsyncAjaxItems) {
                             /* merge sync json data with async json data if something is missing */
                             const newAsyncAjaxItems = util.jsonSaveExtend(pAjaxItems, pAsyncAjaxItems);
                             /* clear the item maybe this clear should be replaced with update */
                             div.empty();
-
                             /* add item id to item div */
                             if (util.isDefinedAndNotNull(newAsyncAjaxItems.itemID)) {
                                 div.attr("item-id", newAsyncAjaxItems.itemID);
                             }
-
                             /* set region height if height has changed */
                             itemHeight = (newAsyncAjaxItems.height || pDefaultConfig.height) - (pAjaxItems.sizeCorrection || pDefaultConfig.sizeCorrection);
-
                             /* draw region content */
                             div.css("min-height", itemHeight);
                             drawItemRegionContent(pitemIdx, pItemSel, itemHeight, newAsyncAjaxItems, pDefaultConfig);
-
                             stopLoader();
-
                             /* update masonry if layout changed */
                             masonryAPI.resizeMasonry();
                         };
-
                         /* what todo when async data load has error */
                         const onAsyncError = function (pData) {
                             div.empty();
@@ -1302,15 +1202,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     featureDetails: util.featureDetails
                                 });
                             }
-
                             stopLoader();
-
                             /* update masonry if layout changed */
                             masonryAPI.resizeMasonry();
                         };
-
                         addLoader();
-
                         apex.server.plugin(
                             pAjaxID,
                             {
@@ -1327,7 +1223,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         pData: pData,
                                         featureDetails: util.featureDetails
                                     });
-
                                     if (parseInt(pRequest.getResponseHeader("ajax-reference"), 10) === asyncAjaxReference) {
                                         onAsyncSuccess(pData);
                                     } else {
@@ -1357,12 +1252,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 } else {
                     /* draw content for sync items */
                     drawItemRegionContent(pitemIdx, pItemSel, itemHeight, pAjaxItems, pDefaultConfig);
-
                     /* update masonry if layout changed */
                     masonryAPI.resizeMasonry();
                 }
             }
-
             /***********************************************************************
              **
              ** Used to subtexts
@@ -1378,31 +1271,23 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const subtextClass = "bida-item-subtext-" + pPosition,
                     subtextExists = $(pParent).find("." + subtextClass);
-
                 let subtext = $("<div></div>");
-
                 if (subtextExists[0]) {
                     subtext = subtextExists;
                 }
-
                 subtext.addClass(subtextClass);
-
                 const subtextText = $("<span></span>");
                 subtextText.addClass("bida-item-subtext-text");
                 subtextText.addClass("bida-item-subtext-text-" + pPosition);
                 subtextText.addClass("truncate-text");
-
                 const subtextContent = escapeOrSanitizeHTML(pText, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                 subtextText.html(subtextContent);
                 subtext.html(subtextText);
                 subtext.attr("title", subtextText.text());
-
                 $(pParent).append(subtext);
             }
-
             /***********************************************************************
              **
              ** Used to draw col region title
@@ -1421,28 +1306,22 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const titleClass = "bida-item-title",
                     titleExists = $(pParent).find("." + titleClass);
                 let title = $("<div></div>");
-
                 if (titleExists[0]) {
                     title = titleExists;
                 }
-
                 title.addClass(titleClass);
                 title.css("background", pBackColor || pDefaultConfig.title.backColor);
                 title.css("color", pColor || pDefaultConfig.title.color);
-
                 const titleText = $("<span></span>");
                 titleText.addClass("bida-item-title-text");
                 titleText.addClass("truncate-text");
-
                 const titleContent = escapeOrSanitizeHTML(pText, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                 titleText.html(titleContent);
                 titleText.attr("title", titleText.text());
                 title.html(titleText);
-
                 /* add title icon */
                 const icon = pIcon || pDefaultConfig.title.icon,
                     iconColor = pIconColor || pDefaultConfig.title.iconColor;
@@ -1456,14 +1335,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         titleIcon.css("background-image", "url(" + icon + ")");
                     }
-
                     titleIcon.addClass("bida-item-title-icon");
                     titleText.prepend(titleIcon);
                 }
-
                 $(pParent).prepend(title);
             }
-
             /***********************************************************************
              **
              ** used to get rest height of item without e.g. title
@@ -1471,28 +1347,23 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
              ***********************************************************************/
             function getRestHeight(pItemSel, pItemHeight) {
                 let ret = pItemHeight;
-
                 $(pItemSel)
                     .children(".bida-item-title")
                     .each(function () {
                         ret = Math.floor(ret - $(this).height()) - 1;
                     });
-
                 $(pItemSel)
                     .children(".bida-item-subtext-1")
                     .each(function () {
                         ret = Math.floor(ret - $(this).height()) - 1;
                     });
-
                 $(pItemSel)
                     .children(".bida-item-subtext-2")
                     .each(function () {
                         ret = Math.floor(ret - $(this).height()) - 1;
                     });
-
                 return ret;
             }
-
             /***********************************************************************
              **
              ** Used to draw one item column content
@@ -1501,25 +1372,20 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
             function drawItemRegionContent(pitemIdx, pItemSel, pItemHeight, pAjaxItems, pDefaultConfig) {
                 const div = $(pItemSel),
                     faSrcString = "fa-";
-
                 let itemConfig;
-
                 if (pAjaxItems.itemConfig) {
                     itemConfig = pAjaxItems.itemConfig;
                 } else {
                     itemConfig = {};
                 }
-
                 /* add options link if avail */
                 if (util.isDefinedAndNotNull(pAjaxItems.optionsLink)) {
                     const optionsLink = $("<a></a>");
                     optionsLink.addClass("bida-item-options-link");
                     optionsLink.attr("href", pAjaxItems.optionsLink);
                     optionsLink.css("background-color", pAjaxItems.optionsLinkBackColor || pDefaultConfig.optionsLink.backColor);
-
                     const optionsIcon = pAjaxItems.optionsLinkIcon || pDefaultConfig.optionsLink.icon,
                         optionsLinkIcon = $("<i></i>");
-
                     /* check if it should be an icon or a background image */
                     if (util.isDefinedAndNotNull(optionsIcon) && optionsIcon.substr(0, faSrcString.length) === faSrcString) {
                         optionsLinkIcon.addClass("fa");
@@ -1528,21 +1394,17 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         optionsLinkIcon.css("background-image", "url(" + optionsIcon + ")");
                     }
-
                     optionsLinkIcon.addClass("bida-item-options-link-icon");
                     optionsLink.append(optionsLinkIcon);
                     div.append(optionsLink);
                 }
-
                 if (util.isDefinedAndNotNull(pAjaxItems.optionsLinkTop)) {
                     const optionsLinkTop = $("<a></a>");
                     optionsLinkTop.addClass("bida-item-options-link-top");
                     optionsLinkTop.attr("href", pAjaxItems.optionsLinkTop);
                     optionsLinkTop.css("background-color", pAjaxItems.optionsLinkTopBackColor || pDefaultConfig.optionsLinkTop.backColor);
-
                     const optionsIcon = pAjaxItems.optionsLinkTopIcon || pDefaultConfig.optionsLinkTop.icon,
                         optionsLinkTopIcon = $("<i></i>");
-
                     /* check if it should be an icon or a background image */
                     if (util.isDefinedAndNotNull(optionsIcon) && optionsIcon.substr(0, faSrcString.length) === faSrcString) {
                         optionsLinkTopIcon.addClass("fa");
@@ -1551,32 +1413,26 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         optionsLinkTopIcon.css("background-image", "url(" + optionsIcon + ")");
                     }
-
                     optionsLinkTopIcon.addClass("bida-item-options-link-icon");
                     optionsLinkTop.append(optionsLinkTopIcon);
                     div.append(optionsLinkTop);
                 }
-
                 const marked = setObjectParameter(pAjaxItems.isMarked, false, true);
                 div.removeClass("bida-container-item-marked");
                 if (marked) {
                     div.addClass("bida-container-item-marked");
                 }
-
                 /* check item typ and call subfunctions that draw item types */
                 if (util.isDefinedAndNotNull(pAjaxItems.itemType)) {
                     let oversize = false;
                     if (util.isDefinedAndNotNull(pAjaxItems.oversize)) {
                         oversize = setObjectParameter(pAjaxItems.oversize, false, true);
                     }
-
                     let isSafeItem = false;
                     if (util.isDefinedAndNotNull(pAjaxItems.noSanitize)) {
                         isSafeItem = setObjectParameter(pAjaxItems.noSanitize, false, true);
                     }
-
                     let itemHeight = pItemHeight;
-
                     /* set title */
                     if (util.isDefinedAndNotNull(pAjaxItems.title)) {
                         drawItemTitle(
@@ -1590,18 +1446,14 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             isSafeItem
                         );
                     }
-
                     /* add item subtexts */
                     if (util.isDefinedAndNotNull(pAjaxItems.subText1)) {
                         drawSubText(1, pItemSel, pAjaxItems.subText1, pDefaultConfig, isSafeItem);
                     }
-
                     if (util.isDefinedAndNotNull(pAjaxItems.subText2)) {
                         drawSubText(2, pItemSel, pAjaxItems.subText2, pDefaultConfig, isSafeItem);
                     }
-
                     itemHeight = getRestHeight(pItemSel, pItemHeight);
-
                     /* when itemData is not set then no data found */
                     if (util.isDefinedAndNotNull(pAjaxItems.itemData) || pAjaxItems.itemType === "calendar" || pAjaxItems.itemType === "note" || pAjaxItems.itemType === "clock") {
                         apex.debug.info({
@@ -1609,7 +1461,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             msg: "Render Item " + pAjaxItems.itemType + "(" + pAjaxItems.title + ")",
                             featureDetails: util.featureDetails
                         });
-
                         /* check for item type and call handlers for this type */
                         switch (pAjaxItems.itemType) {
                             case "chart":
@@ -1739,7 +1590,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         util.noDataMessage.show(pItemSel, pDefaultConfig.noDataMessage);
                     }
-
                     /* move item subtext to the end */
                     if (util.isDefinedAndNotNull(pAjaxItems.subText2)) {
                         const subText2 = $(pItemSel).find(".bida-item-subtext-2");
@@ -1755,7 +1605,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     });
                 }
             }
-
             /***********************************************************************
              **
              ** function to render html and maybe a autoplaying slideshow
@@ -1772,14 +1621,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const htmlDiv = $("<div></div>");
                 htmlDiv.addClass("bida-item-html");
-
                 /* function render the html also with sanitizer, escaping and unleash rte support */
                 function renderHTML(pContent) {
                     const content = escapeOrSanitizeHTML(pContent, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
-
                     apex.debug.info({
                         fct: `${util.featureDetails.name} - drawHTML`,
                         submodule: "renderHTML",
@@ -1787,7 +1633,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         contentAfterEscapeOrSanitize: content,
                         featureDetails: util.featureDetails
                     });
-
                     htmlDiv.html(content);
                     /* option to show images that where put into html with unleash rte plugin */
                     if ($.inArray("inlineimagesdownload", pDefaultConfig.features) > -1) {
@@ -1804,7 +1649,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     pk: pk,
                                     featureDetails: util.featureDetails
                                 });
-
                                 const submitItems = pDefaultConfig.items2SubmitImg,
                                     imgSRC = apex.server.pluginUrl(pAjaxID, {
                                         x01: "imageDownload",
@@ -1817,7 +1661,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             }
                         });
                     }
-
                     /* force sub elements not to break out of the region*/
                     htmlDiv
                         .find("*")
@@ -1831,22 +1674,18 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .css("white-space", "normal");
                     htmlDiv.find("img").css("object-fit", "contain").css("object-position", "50% 0%");
                 }
-
                 /* if pItemData is an array ofobjects then make a slideshow */
                 if (pItemData && typeof pItemData === "object" && pItemData.length > 1) {
                     let htmlIDX = 0;
                     let timeOut;
-
                     const prepareHTMLRender = function () {
                         if (htmlIDX > pItemData.length - 1) {
                             htmlIDX = 0;
                         } else if (htmlIDX < 0) {
                             htmlIDX = pItemData.length - 1;
                         }
-
                         if (pItemData[htmlIDX]) {
                             renderHTML(pItemData[htmlIDX].html);
-
                             /* make it auto play when duration is set */
                             const cur = pItemData[htmlIDX];
                             const dur = cur.duration;
@@ -1860,20 +1699,16 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         });
                                     }, dur * 1000);
                                 };
-
                                 $(pItemSel).hover(function () {
                                     clearTimeout(timeOut);
                                 });
-
                                 $(pItemSel).mouseleave(function () {
                                     setTimeOut();
                                 });
-
                                 setTimeOut();
                             }
                         }
                     };
-
                     /* go to next img */
                     const goDown = function () {
                         htmlIDX += 1;
@@ -1883,7 +1718,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             $(htmlDiv).fadeIn("fast");
                         });
                     };
-
                     /* go to previous img */
                     const goUp = function () {
                         htmlIDX -= 1;
@@ -1893,38 +1727,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             $(htmlDiv).fadeIn("fast");
                         });
                     };
-
                     /* add control buttons for slide */
                     const leftControl = $("<div></div>");
                     leftControl.addClass("bida-item-html-slide-lc");
                     leftControl.on("click", function () {
                         goUp();
                     });
-
                     const leftControlIcon = $("<span></span>");
                     leftControlIcon.addClass("fa fa-chevron-left fa-lg");
                     leftControlIcon.addClass("bida-item-html-slide-lc-s");
                     leftControl.append(leftControlIcon);
-
                     $(pItemSel).append(leftControl);
-
                     const rightControl = $("<div></div>");
                     rightControl.addClass("bida-item-html-slide-rc");
                     rightControl.on("click", function () {
                         goDown();
                     });
-
                     const rightControlIcon = $("<span></span>");
                     rightControlIcon.addClass("fa fa-chevron-right fa-lg");
                     rightControlIcon.addClass("bida-item-html-slide-rc-s");
                     rightControl.append(rightControlIcon);
-
                     $(pItemSel).append(rightControl);
-
                     prepareHTMLRender();
                 } else if (pItemData && typeof pItemData === "object" && pItemData.length === 1) {
                     /* if only one object then render no slide */
-
                     if (util.isDefinedAndNotNull(pItemData[0].html) && pItemData[0].html !== "") {
                         renderHTML(pItemData[0].html);
                     } else {
@@ -1938,15 +1764,12 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         util.noDataMessage.show(htmlDiv, pDefaultConfig.noDataMessage);
                     }
                 }
-
                 $(pItemSel).append(htmlDiv);
-
                 if (pOversize !== true) {
                     htmlDiv.css("height", pItemHeight);
                     overFlowStyling(htmlDiv);
                 }
             }
-
             /***********************************************************************
              **
              ** function to make overflow styling
@@ -1962,22 +1785,18 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         el.removeClass("bida-item-div-overflow-hidden");
                     }
                 });
-
                 const innerHeight = el.innerHeight(),
                     scrollHeight = el[0].scrollHeight;
-
                 apex.debug.info({
                     fct: `${util.featureDetails.name} - overFlowStyling`,
                     innerHeight: innerHeight,
                     scrollHeight: scrollHeight,
                     featureDetails: util.featureDetails
                 });
-
                 if (innerHeight >= scrollHeight && scrollHeight !== 0) {
                     el.addClass("bida-item-div-overflow-hidden");
                 }
             }
-
             /***********************************************************************
              **
              ** function to render table
@@ -1994,13 +1813,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const tableDiv = $("<div></div>");
                 tableDiv.addClass("bida-item-table-div");
-
                 const table = $("<table></table>");
                 table.addClass("bida-item-table");
-
                 if (util.isDefinedAndNotNull(pItemData.header) && pItemData.header.length > 0) {
                     $.each(pItemData.header, function (idx, headerData) {
                         if (util.isDefinedAndNotNull(headerData.text)) {
@@ -2010,20 +1826,16 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             header.css("text-align", headerData.textAlign || pDefaultConfig.table.header.textAlign);
                             header.css("color", headerData.color || pDefaultConfig.table.header.color);
                             header.css("border", headerData.border || pDefaultConfig.table.header.border);
-
                             const content = escapeOrSanitizeHTML(headerData.text, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                             header.html(content);
-
                             table.append(header);
                         }
                     });
                 }
-
                 if (util.isDefinedAndNotNull(pItemData.data) && pItemData.data.length > 0) {
                     $.each(pItemData.data, function (idx, rowData) {
                         const row = $("<tr></tr>");
                         row.addClass("bida-item-table-row");
-
                         if (idx % 2 === 0) {
                             row.addClass("bida-item-table-row-even");
                             row.css("background", pDefaultConfig.table.evenRow.background);
@@ -2037,36 +1849,29 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             row.css("color", pDefaultConfig.table.oddRow.color);
                             row.css("border-bottom", pDefaultConfig.table.oddRow.borderBottom);
                         }
-
                         $.each(rowData, function (cIdx, cellData) {
                             if (util.isDefinedAndNotNull(cellData.text)) {
                                 const cell = $("<td></td>");
                                 cell.addClass("bida-item-table-cell");
-
                                 cell.css("background", cellData.background || pDefaultConfig.table.cells.background);
                                 cell.css("text-align", cellData.textAlign || pDefaultConfig.table.cells.textAlign);
                                 cell.css("color", cellData.color || pDefaultConfig.table.cells.color);
                                 cell.css("border", cellData.border || pDefaultConfig.table.cells.border);
-
                                 const content = escapeOrSanitizeHTML(cellData.text, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                                 cell.html(content);
                                 row.append(cell);
                             }
                         });
-
                         table.append(row);
                     });
                 }
-
                 tableDiv.append(table);
                 $(pItemSel).append(tableDiv);
-
                 if (pOversize !== true) {
                     tableDiv.css("height", pItemHeight);
                     overFlowStyling(tableDiv);
                 }
             }
-
             /***********************************************************************
              **
              ** function to render list
@@ -2083,39 +1888,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const list = $("<div></div>");
                 list.addClass("bida-item-list-div");
-
                 const ul = $("<ul></ul>");
                 ul.addClass("bida-item-list");
-
                 function drawGroupItems(pAddTo, pGroupData) {
                     $.each(pGroupData, function (i, listItem) {
                         const li = $("<li></li>");
                         li.addClass("bida-item-list-item");
-
                         const listItemBody = $("<div></div>");
                         listItemBody.addClass("list-item-content");
-
                         /* add bottom border to all but the last */
                         if (i < pGroupData.length - 1) {
                             listItemBody.css("border-bottom", "1px solid #eeeeee");
                         }
-
                         /* add icon to listItem header */
                         if (util.isDefinedAndNotNull(listItem.icon) || util.isDefinedAndNotNull(listItem.iconText)) {
                             const iconDiv = $("<div></div>");
                             iconDiv.addClass("listItem-content-icon-div");
-
                             const icon = $("<span></span>");
                             /* check if it should be an icon or a background image */
                             const faSrcString = "fa-";
                             if (listItem.icon && listItem.icon.substr(0, faSrcString.length) === faSrcString) {
                                 icon.addClass("fa " + listItem.icon);
-
                                 const listItemStdStyle = "hsl(" + ((i * 23) % 350) + ", 79%, 45%)";
-
                                 icon.css("background", listItem.iconBackColor || listItemStdStyle);
                             } else {
                                 if (util.isDefinedAndNotNull(listItem.iconText)) {
@@ -2130,68 +1926,51 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 }
                                 icon.css("background-color", listItem.iconBackColor);
                             }
-
                             icon.addClass("list-item-content-icon");
-
                             icon.css("color", listItem.iconColor || "white");
-
                             iconDiv.append(icon);
-
                             listItemBody.append(iconDiv);
                         }
-
                         /* add text to list item */
                         const listItemBodyText = $("<div></div>");
                         listItemBodyText.addClass("list-item-content-text");
                         if (util.isDefinedAndNotNull(listItem.icon)) {
                             listItemBodyText.css("width", "calc(100% - 55px)");
                         }
-
                         /* add title to body */
                         if (util.isDefinedAndNotNull(listItem.title)) {
                             const listTitle = $("<span></span>");
                             listTitle.addClass("list-item-title");
                             listTitle.addClass("truncate-text");
-
                             const listTitleContent = escapeOrSanitizeHTML(listItem.title, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                             listTitle.html(listTitleContent);
-
                             listItemBodyText.append(listTitle);
                         }
-
                         /* add text to body */
                         if (util.isDefinedAndNotNull(listItem.text)) {
                             const listText = $("<span></span>");
                             listText.addClass("list-item-text");
-
                             const listTextContent = escapeOrSanitizeHTML(listItem.text, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                             listText.html(listTextContent);
-
                             listItemBodyText.append(listText);
                         }
-
                         listItemBody.append(listItemBodyText);
-
                         li.append(listItemBody);
-
                         /* make list item linkable if link is available */
                         if (util.isDefinedAndNotNull(listItem.link)) {
                             const a = $("<a></a>");
                             a.addClass("bida-a");
                             a.attr("href", listItem.link);
                             a.append(li);
-
                             if (util.isDefinedAndNotNull(listItem.linkTarget)) {
                                 a.attr("target", listItem.linkTarget);
                             }
-
                             pAddTo.append(a);
                         } else {
                             pAddTo.append(li);
                         }
                     });
                 }
-
                 const noGroupsArr = [];
                 $.each(pItemData, function (i, listItem) {
                     if (!util.isDefinedAndNotNull(listItem.group)) {
@@ -2199,20 +1978,16 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     }
                 });
                 const groupsArr = util.groupObjectArray(pItemData, "group");
-
                 apex.debug.info({
                     fct: `${util.featureDetails.name} - drawList`,
                     noGroupsArr: noGroupsArr,
                     groupsArr: groupsArr,
                     featureDetails: util.featureDetails
                 });
-
                 drawGroupItems(ul, noGroupsArr);
-
                 $.each(groupsArr, function (groupName, groupData) {
                     const groupLi = $("<li></li>");
                     groupLi.addClass("bida-item-list-item-group");
-
                     let groupBackColor = "#f1f1f1";
                     if (groupData[0].groupBackColor) {
                         groupBackColor = groupData[0].groupBackColor;
@@ -2221,38 +1996,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     if (groupData[0].groupColor) {
                         groupColor = groupData[0].groupColor;
                     }
-
                     const groupBody = $("<div></div>");
                     groupBody.addClass("list-group-content");
                     groupBody.css("border-left", "3px solid " + groupBackColor);
-
                     const groupSpan = $("<span></span>");
                     groupSpan.addClass("list-group-content-title");
                     const groupTitle = escapeOrSanitizeHTML(groupName, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     groupSpan.css("background", groupBackColor);
                     groupSpan.css("color", groupColor);
-
                     groupSpan.html(groupTitle);
                     groupBody.append(groupSpan);
                     groupLi.append(groupBody);
-
                     const groupBodySubUl = $("<ul></ul>");
                     groupBodySubUl.addClass("bida-item-list-grouped");
-
                     drawGroupItems(groupBodySubUl, groupData);
                     groupBody.append(groupBodySubUl);
                     ul.append(groupLi);
                 });
-
                 list.append(ul);
                 $(pItemSel).append(list);
-
                 if (pOversize !== true) {
                     list.css("height", pItemHeight);
                     overFlowStyling(list);
                 }
             }
-
             /***********************************************************************
              **
              ** function to render kpi badges
@@ -2269,10 +2036,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const faSrcString = "fa-",
                     stdFontColor = "hsl(" + ((pIndex * 23) % 350) + ", 79%, 45%)";
-
                 let spanIcon,
                     spanTitle,
                     spanValue,
@@ -2283,10 +2048,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     factorTitle = 0.15,
                     factorTitleValueDiff = factorValue - factorTitle,
                     factorIcon = 0.28;
-
                 const badgeDiv = $("<div></div>");
                 badgeDiv.addClass("bida-item-badge");
-
                 if (util.isDefinedAndNotNull(pItemData.title)) {
                     cnt += 1;
                 }
@@ -2296,20 +2059,16 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                 if (util.isDefinedAndNotNull(pItemData.value)) {
                     cnt += 1;
                 }
-
                 if (cnt > 0) {
                     lnHeightFactor = lnHeightFactor / cnt;
                     factorTitleValueDiff = factorTitleValueDiff / cnt;
                 }
-
                 // create title
                 if (util.isDefinedAndNotNull(pItemData.title)) {
                     const divTitle = $("<div></div>");
                     divTitle.addClass("bida-item-badge-text");
-
                     spanTitle = $("<span></span>");
                     spanTitle.css("color", pItemData.titleColor || stdFontColor);
-
                     const title = escapeOrSanitizeHTML(pItemData.title, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     spanTitle.html(title);
                     divTitle.append(spanTitle);
@@ -2318,14 +2077,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     factorIcon += factorTitle / 2;
                     factorValue += factorTitle / 3;
                 }
-
                 // create icon
                 if (util.isDefinedAndNotNull(pItemData.icon)) {
                     const divIcon = $("<div></div>");
                     divIcon.addClass("bida-item-badge-icon");
-
                     spanIcon = $("<span></span>");
-
                     // check if it should be an icon or a background image
                     if (util.isDefinedAndNotNull(pItemData.icon) && pItemData.icon.substr(0, faSrcString.length) === faSrcString) {
                         spanIcon.addClass("fa " + pItemData.icon);
@@ -2341,39 +2097,32 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             spanIcon.addClass("bida-item-badge-icon-image");
                         }
                     }
-
                     divIcon.append(spanIcon);
                     badgeDiv.append(divIcon);
                 } else {
                     factorTitle += factorIcon / 3;
                     factorValue += factorIcon / 3;
                 }
-
                 // create text value
                 if (util.isDefinedAndNotNull(pItemData.value)) {
                     const divValue = $("<div></div>");
                     divValue.addClass("bida-item-badge-text-value");
-
                     spanValue = $("<span></span>");
                     spanValue.css("color", pItemData.valueColor || stdFontColor);
-
                     const value = escapeOrSanitizeHTML(pItemData.value, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     spanValue.html(value);
-
                     divValue.append(spanValue);
                     badgeDiv.append(divValue);
                 } else {
                     factorTitle += factorValue / 3;
                     factorIcon += factorValue / 2;
                 }
-
                 if (util.isDefinedAndNotNull(pItemData.link)) {
                     badgeDiv.css("cursor", "pointer");
                     badgeDiv.on("click", function () {
                         util.link(pItemData.link, pItemData.linkTarget);
                     });
                 }
-
                 function resize() {
                     const height = pItemHeight,
                         size = Math.min(height, badgeDiv.width());
@@ -2394,15 +2143,12 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         spanValue.css("line-height", height * lnHeightFactor + "px");
                     }
                 }
-
                 $(pItemSel).append(badgeDiv);
                 resize();
-
                 container.on("resize", function () {
                     resize();
                 });
             }
-
             /***********************************************************************
              **
              ** function to render kpi card
@@ -2420,26 +2166,20 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 /* define card */
                 const card = $("<div></div>");
                 card.addClass("bida-item-card");
-
                 const cardBody = $("<div></div>");
                 cardBody.addClass("card-content");
-
                 /* add icon to card header */
                 if (util.isDefinedAndNotNull(pItemData.icon) || util.isDefinedAndNotNull(pItemData.iconText)) {
                     const iconDiv = $("<div></div>");
                     iconDiv.addClass("card-content-icon-div");
-
                     const icon = $("<span></span>");
-
                     /* check if it should be an icon or a background image */
                     const faSrcString = "fa-";
                     if (util.isDefinedAndNotNull(pItemData.icon) && pItemData.icon.substr(0, faSrcString.length) === faSrcString) {
                         icon.addClass("fa " + pItemData.icon);
-
                         const cardStdStyle = "hsl(" + ((pIndex * 23) % 350) + ", 79%, 45%)";
                         icon.css("background", pItemData.iconBackColor || cardStdStyle);
                     } else {
@@ -2455,101 +2195,75 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         }
                         icon.css("background-color", pItemData.iconBackColor);
                     }
-
                     icon.addClass("card-content-icon");
                     icon.css("color", pItemData.iconColor || "white");
-
                     iconDiv.append(icon);
-
                     cardBody.append(iconDiv);
                 }
-
                 /* add value to body */
                 const cardTitleDiv = $("<div></div>");
                 cardTitleDiv.addClass("card-title-div");
                 if (util.isDefinedAndNotNull(pItemData.icon)) {
                     cardTitleDiv.css("width", "calc(100% - 55px)");
                 }
-
                 let cardTitle;
-
                 if (util.isDefinedAndNotNull(pItemData.value)) {
                     cardTitle = $("<p></p>");
                     cardTitle.addClass("card-title");
                     cardTitle.addClass("truncate-text");
-
                     const cardTitleContent = escapeOrSanitizeHTML(pItemData.value, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     cardTitle.html(cardTitleContent);
-
                     cardTitleDiv.append(cardTitle);
                 }
-
                 if (util.isDefinedAndNotNull(pItemData.valueSmall)) {
                     if (util.isDefinedAndNotNull(pItemData.value)) {
                         cardTitle.css("line-height", "30px");
                     }
-
                     const cardSubTitle = $("<p></p>");
                     cardSubTitle.addClass("card-sub-title");
-
                     const cardSubTitleContent = escapeOrSanitizeHTML(pItemData.valueSmall, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     cardSubTitle.html(cardSubTitleContent);
-
                     cardTitleDiv.append(cardSubTitle);
                 }
-
                 cardBody.append(cardTitleDiv);
-
                 /* append body to card */
                 card.append(cardBody);
-
                 if (util.isDefinedAndNotNull(pItemData.footer)) {
                     /* define footer */
                     const cardFooter = $("<div></div>");
                     cardFooter.addClass("bida-card-footer");
-
                     /* define footer text */
                     const cardFooterStats = $("<div></div>");
                     cardFooterStats.addClass("stats");
-
                     const cardFooterStatsContent = escapeOrSanitizeHTML(pItemData.footer, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                     cardFooterStats.html(cardFooterStatsContent);
-
                     /* add footer text to footer */
                     cardFooter.append(cardFooterStats);
-
                     /* add footer to card */
                     card.append(cardFooter);
                 }
-
                 /* add link to item if set */
                 if (util.isDefinedAndNotNull(pItemData.link)) {
                     const a = $("<a></a>");
                     a.addClass("bida-a");
                     a.attr("href", pItemData.link);
-
                     if (util.isDefinedAndNotNull(pItemData.linkTarget)) {
                         a.attr("target", pItemData.linkTarget);
                     }
-
                     a.append(card);
-
                     $(pItemSel).append(a);
-
                     if (pOversize !== true) {
                         a.css("height", pItemHeight);
                         overFlowStyling(a);
                     }
                 } else {
                     $(pItemSel).append(card);
-
                     if (pOversize !== true) {
                         card.css("height", pItemHeight);
                         overFlowStyling(card);
                     }
                 }
             }
-
             /***********************************************************************
              **
              ** function to render chart
@@ -2566,18 +2280,14 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 // eslint-disable-next-line no-undef
                 const d3JS = d3;
-
                 const aTypeCharts = ["pie", "donut", "gauge"],
                     specialStr = "\u200b",
                     seriesData = util.groupObjectArray(pValuesData, "seriesID");
-
                 let isGauge = false,
                     isPie = false,
                     isDonut = false;
-
                 // sort pValuesData by Time
                 function sortArrByTime(pArr, pFormat) {
                     function customeSort(pFirstValue, pSecondValue) {
@@ -2586,7 +2296,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             sD = parseTime(pSecondValue.x);
                         return new Date(fD).getTime() - new Date(sD).getTime();
                     }
-
                     try {
                         return pArr.sort(customeSort);
                     } catch (e) {
@@ -2598,39 +2307,32 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         });
                     }
                 }
-
                 /* search link from data and set window.location.href */
                 function executeLink(pData) {
                     const key = specialStr + unescape(pData.id);
                     let index = pData.index;
-
                     if (seriesData[key]) {
                         const seriesObj = seriesData[key];
                         if (seriesObj.length === 1) {
                             index = 0;
                         }
-
                         if (seriesData[key][index] && seriesData[key][index].link) {
                             util.link(seriesData[key][index].link, seriesData[key][index].linkTarget);
                         }
                     }
                 }
-
                 try {
                     const chartTitle = setObjectParameter(pConfigData.chartTitle, pDefaultConfig.d3JSchart.chartTitle || "").toString(),
                         background = setObjectParameter(pConfigData.background, pDefaultConfig.d3JSchart.background);
                     let backJSON = null,
                         ownTooltip = false;
-
                     if (util.isDefinedAndNotNull(background)) {
                         backJSON = {
                             color: background
                         };
                     }
-
                     /* line */
                     const lineStep = setObjectParameter(pConfigData.lineStep, pDefaultConfig.d3JSchart.line.step);
-
                     /* gauge */
                     const gaugeMin = setObjectParameter(pConfigData.gaugeMin, pDefaultConfig.d3JSchart.gauge.min),
                         gaugeMax = setObjectParameter(pConfigData.gaugeMax, pDefaultConfig.d3JSchart.gauge.max),
@@ -2640,44 +2342,33 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         gaugeFullCircle = setObjectParameter(pConfigData.gaugeFullCircle, pDefaultConfig.d3JSchart.gauge.fullCircle, true),
                         gaugeAxisLabels = setObjectParameter(pConfigData.gaugeAxisLabels, pDefaultConfig.d3JSchart.gauge.axisLabels, true),
                         gaugeTitle = setObjectParameter(pConfigData.gaugeTitle, pDefaultConfig.d3JSchart.gauge.title || "").toString();
-
                     /* Grid */
                     const gridX = setObjectParameter(pConfigData.gridX, pDefaultConfig.d3JSchart.grid.x, true),
                         gridY = setObjectParameter(pConfigData.gridY, pDefaultConfig.d3JSchart.grid.y, true);
-
                     /* heights */
                     const heightXAxis = setObjectParameter(pConfigData.xAxisHeight, pDefaultConfig.d3JSchart.x.axisHeight);
-
                     /* Legend */
                     const legendShow = setObjectParameter(pConfigData.legendShow, pDefaultConfig.d3JSchart.legend.show, true),
                         legendPosition = setObjectParameter(pConfigData.legendPosition, pDefaultConfig.d3JSchart.legend.position);
-
                     /* padding */
                     const chartPadding = util.jsonSaveExtend(null, pDefaultConfig.d3JSchart.padding);
-
                     if (util.isDefinedAndNotNull(pConfigData.paddingBottom)) {
                         chartPadding.bottom = pConfigData.paddingBottom;
                     }
-
                     if (util.isDefinedAndNotNull(pConfigData.paddingLeft)) {
                         chartPadding.left = pConfigData.paddingLeft;
                     }
-
                     if (util.isDefinedAndNotNull(pConfigData.paddingRight)) {
                         chartPadding.right = pConfigData.paddingRight;
                     }
-
                     if (util.isDefinedAndNotNull(pConfigData.paddingTop)) {
                         chartPadding.top = pConfigData.paddingTop;
                     }
-
                     /* Axis */
                     const rotateAxis = setObjectParameter(pConfigData.rotateAxis, pDefaultConfig.d3JSchart.rotateAxis, true),
                         axisLabelPosition = setObjectParameter(pConfigData.axisLabelPosition, pDefaultConfig.d3JSchart.axisLabelPosition);
-
                     let xAxisLabelPosition = null,
                         yAxisLabelPosition = null;
-
                     switch (axisLabelPosition) {
                         case "inner1":
                             xAxisLabelPosition = "inner-left";
@@ -2706,27 +2397,22 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         default:
                             break;
                     }
-
                     if (rotateAxis) {
                         const xAxisLabelPositionTmp = xAxisLabelPosition;
                         xAxisLabelPosition = yAxisLabelPosition;
                         yAxisLabelPosition = xAxisLabelPositionTmp;
                     }
-
                     /* tooltip */
                     const tooltipShow = setObjectParameter(pConfigData.tooltipShow, pDefaultConfig.d3JSchart.tooltip.show, true),
                         tooltipGrouped = setObjectParameter(pConfigData.tooltipGrouped, pDefaultConfig.d3JSchart.tooltip.grouped, true);
-
                     /* Transition duration */
                     const transitionDuration = setObjectParameter(pConfigData.transitionDuration || pDefaultConfig.d3JSchart.transitionDuration);
-
                     /* x Axis */
                     const xShow = setObjectParameter(pConfigData.xShow, pDefaultConfig.d3JSchart.x.show, true),
                         xLabel = setObjectParameter(pConfigData.xLabel, pDefaultConfig.d3JSchart.x.label || "").toString();
                     let xType = setObjectParameter(pConfigData.xType, pDefaultConfig.d3JSchart.x.type),
                         xAxisTimeFormat = null,
                         xName = null;
-
                     /* x ticks */
                     const xTickCutAfter = setObjectParameter(pConfigData.xTickCutAfter, pDefaultConfig.d3JSchart.x.tick.cutAfter),
                         xTickMaxNumber = setObjectParameter(pConfigData.xTickMaxNumber, pDefaultConfig.d3JSchart.x.tick.maxNumber),
@@ -2735,25 +2421,21 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         xTickFit = setObjectParameter(pConfigData.xTickFit, pDefaultConfig.d3JSchart.x.tick.fit, true),
                         xTickAutoRotate = setObjectParameter(pConfigData.xTickAutoRotate, pDefaultConfig.d3JSchart.x.tick.autoRotate, true);
                     let xTickTimeFormat = null;
-
                     if (xType === "category" || xType === "timeseries") {
                         xName = "x";
                     }
-
                     if (xType === "timeseries") {
                         xAxisTimeFormat = setObjectParameter(pConfigData.xTimeFormat, pDefaultConfig.d3JSchart.x.timeFormat);
                         xTickTimeFormat = setObjectParameter(pConfigData.xTickTimeFormat, pDefaultConfig.d3JSchart.x.tick.timeFormat);
                         // sort data because of tooltip index
                         sortArrByTime(pValuesData, xAxisTimeFormat);
                     }
-
                     /* cut string if category names are to long */
                     if (xType === "category") {
                         xTickTimeFormat = function (index, categoryName) {
                             return util.cutString(categoryName, xTickCutAfter);
                         };
                     }
-
                     /* y Axis */
                     const yLabel = setObjectParameter(pConfigData.yLabel, pDefaultConfig.d3JSchart.y.label || "").toString(),
                         yLog = setObjectParameter(pConfigData.yLog, pDefaultConfig.d3JSchart.y.log, true);
@@ -2765,7 +2447,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         yMax = pConfigData.yMax || pDefaultConfig.d3JSchart.y.max,
                         yCulling = pConfigData.yTickMaxNumber || pDefaultConfig.d3JSchart.y.tick.maxNumber,
                         yUnit = pConfigData.yUnit || pDefaultConfig.d3JSchart.y.unit;
-
                     /* y2 Axis */
                     const y2Label = setObjectParameter(pConfigData.y2Label, pDefaultConfig.d3JSchart.y2.label || "").toString(),
                         y2Log = setObjectParameter(pConfigData.y2Log, pDefaultConfig.d3JSchart.y2.log, true);
@@ -2778,14 +2459,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         y2Max = setObjectParameter(pConfigData.y2Max, pDefaultConfig.d3JSchart.y2.max),
                         y2Culling = setObjectParameter(pConfigData.y2TickMaxNumber, pDefaultConfig.d3JSchart.y2.tick.maxNumber),
                         y2Unit = setObjectParameter(pConfigData.y2Unit, pDefaultConfig.d3JSchart.y2.unit);
-
                     /* Zoom and Subchart */
                     const zoomType = setObjectParameter(pConfigData.zoomType, pDefaultConfig.d3JSchart.zoom.type);
                     let showSubChart = false,
                         zoomEnabled = setObjectParameter(pConfigData.zoomEnabled, pDefaultConfig.d3JSchart.zoom.enabled, true);
-
                     const charThreshold = setObjectParameter(pConfigData.threshold, pDefaultConfig.d3JSchart.threshold);
-
                     if (zoomEnabled) {
                         if (zoomType === "scroll") {
                             showSubChart = false;
@@ -2799,9 +2477,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     } else {
                         showSubChart = false;
                     }
-
                     const zoomRescale = setObjectParameter(pConfigData.zoomRescale, pDefaultConfig.d3JSchart.zoom.rescale, true);
-
                     /* Prepare Data for Render */
                     const dataArr = [],
                         categoriesArr = [],
@@ -2812,22 +2488,17 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         namesJSON = {},
                         groupJSON = {},
                         xCatObj = util.groupObjectArray(pValuesData, "x");
-
                     let seriesCnt = 0;
-
                     if (seriesData) {
                         /* Add Categories or time values to x Axis when correct type is set */
                         if (xType === "category" || xType === "timeseries") {
                             categoriesArr.push("x");
                             const xCatArr = Object.keys(xCatObj);
-
                             $.each(xCatArr, function (dIdx, dataValues) {
                                 categoriesArr.push(setObjectParameter(dataValues.replace(specialStr, ""), null));
                             });
                         }
-
                         dataArr.push(categoriesArr);
-
                         /* Transform data for billboard.js */
                         $.each(seriesData, function (idx, seriesData) {
                             let series;
@@ -2837,28 +2508,22 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 const dataKey = escape(series.seriesID);
                                 colorsJSON[dataKey] = series.color;
                                 typesJSON[dataKey] = series.type;
-
                                 /* check if atypechart*/
                                 if (aTypeCharts.indexOf(series.type) >= 0) {
                                     zoomEnabled = false;
                                 }
-
                                 if (series.type === "gauge") {
                                     isGauge = true;
                                 }
-
                                 if (series.type === "pie") {
                                     isPie = true;
                                 }
-
                                 if (series.type === "donut") {
                                     isDonut = true;
                                 }
-
                                 if (util.isDefinedAndNotNull(series.tooltip)) {
                                     ownTooltip = true;
                                 }
-
                                 axesJSON[dataKey] = series.yAxis || "y";
                                 if (util.isDefinedAndNotNull(series.groupID)) {
                                     const groupID = escape(series.groupID.toString());
@@ -2869,12 +2534,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         groupJSON[groupID].push(dataKey);
                                     }
                                 }
-
                                 if (series.yAxis === "y2") {
                                     y2Show = true;
                                 }
                                 namesJSON[dataKey] = setObjectParameter(series.label, dataKey);
-
                                 const arr = [];
                                 arr.push(dataKey);
                                 if (xType === "category" || xType === "timeseries") {
@@ -2912,7 +2575,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         }
                                     });
                                 }
-
                                 dataArr.push(arr);
                             } else {
                                 util.errorMessage.show(pItemSel, pDefaultConfig.errorMessage);
@@ -2923,15 +2585,12 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 });
                             }
                         });
-
                         /* Group JSON to Array */
                         $.each(groupJSON, function (dIdx, jsonObj) {
                             groupsArr.push(jsonObj);
                         });
-
                         /* Labels and Datapoints */
                         let dataLabels = setObjectParameter(pConfigData.showDataLabels, pDefaultConfig.d3JSchart.showDataLabels, true);
-
                         if (isPie || isDonut) {
                             dataLabels = {
                                 colors: "white"
@@ -2944,13 +2603,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         const showDataPoints = setObjectParameter(pConfigData.showDataPoints, pDefaultConfig.d3JSchart.showDataPoints, true),
                             showAbsoluteValues = setObjectParameter(pConfigData.showAbsoluteValues, pDefaultConfig.d3JSchart.showAbsoluteValues);
                         let absoluteFormatting;
-
                         if (showAbsoluteValues) {
                             absoluteFormatting = function (value) {
                                 return value + yUnit;
                             };
                         }
-
                         let ttContent;
                         if (ownTooltip) {
                             ttContent = function (d) {
@@ -2961,10 +2618,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         seriesObj = seriesData[key];
                                     // Skip if data is missing
                                     if (!seriesObj || !seriesObj.length) { return; }
-
                                     // Use a safe index inside the available data
                                     const safeIndex = Math.min(pData.index, seriesObj.length - 1);
-
                                     if (
                                         seriesObj[safeIndex] &&
                                         util.isDefinedAndNotNull(seriesObj[safeIndex].tooltip) &&
@@ -2980,15 +2635,12 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 return div[0].outerHTML;
                             };
                         }
-
                         try {
                             const chartContIDSel = pItemSel + "bbc",
                                 chartContID = chartContIDSel.replace("#", ""),
                                 chartCont = $("<div></div>");
                             chartCont.attr("id", chartContID);
-
                             $(pItemSel).append(chartCont);
-
                             const bbData = {
                                 bindto: chartContIDSel,
                                 background: backJSON,
@@ -3142,16 +2794,13 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 },
                                 padding: chartPadding
                             };
-
                             apex.debug.info({
                                 fct: `${util.featureDetails.name} - drawChart`,
                                 finalChartData: bbData,
                                 featureDetails: util.featureDetails
                             });
-
                             // eslint-disable-next-line no-undef
                             const chart = bb.generate(bbData);
-
                             /* reset zoom on right click */
                             if (zoomEnabled) {
                                 $(chartContIDSel).contextmenu(function (evt) {
@@ -3159,7 +2808,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     chart.unzoom();
                                 });
                             }
-
                             /* execute resize */
                             container.on("resize", function () {
                                 chart.resize({
@@ -3190,7 +2838,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     });
                 }
             }
-
             /***********************************************************************
              **
              ** function to render d3JS analog clock
@@ -3206,11 +2853,9 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pDefaultConfig: pDefaultConfig,
                     featureDetails: util.featureDetails
                 });
-
                 try {
                     // eslint-disable-next-line no-undef
                     const d3JS = d3;
-
                     const pCon = $(pItemSel),
                         clockID = $(pItemSel).attr("id") + "-clock",
                         shadowID = $(pItemSel).attr("id") + "-shadow",
@@ -3221,7 +2866,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         secondTickLength = -10,
                         secondLabel = setObjectParameter(pItemConfig.secondLabel, pDefaultConfig.clockOptions.second.label, true),
                         circleWidth = setObjectParameter(pItemConfig.circleWidth, pDefaultConfig.clockOptions.circle.width);
-
                     let time = new Date(),
                         filterUrl,
                         diff = 0,
@@ -3251,21 +2895,17 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         factor,
                         handData,
                         clockCircleRadius;
-
                     /* disable shadows if no circle */
                     if (circleWidth <= 0) {
                         shadows = false;
                     }
-
                     /* function to get width and height of svg */
                     const getSVGWidth = function () {
                         return pCon.width();
                     };
-
                     const getSVGHeight = function () {
                         return Math.floor(pItemHeight / 2) - 2;
                     };
-
                     /* get diff of local time and set time so set time of clock */
                     if (util.isDefinedAndNotNull(pItemData) && util.isDefinedAndNotNull(pItemData.startDate)) {
                         try {
@@ -3280,7 +2920,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             });
                         }
                     }
-
                     const formatLabelStr = function (pLabel) {
                         let str = "";
                         if (util.isDefinedAndNotNull(pLabel)) {
@@ -3291,7 +2930,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         }
                         return str;
                     };
-
                     /* render d3JS clock svg */
                     const renderClock = function () {
                         const factorChange = secondLabel ? 1.05 : 1.2;
@@ -3299,7 +2937,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         hourScale = d3JS.scaleLinear().range([0, 330]).domain([0, 11]);
                         minuteScale = d3JS.scaleLinear().range([0, 354]).domain([0, 59]);
                         secondScale = d3JS.scaleLinear().range([0, 354]).domain([0, 59]);
-
                         hourHandLength = factor * 0.35;
                         minuteHandLength = factor * 0.55;
                         secondHandLength = factor * 0.7;
@@ -3317,7 +2954,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         clockLabel2YOffset = factor * 0.3;
                         clockLabelYOffset = -(factor * 0.3) + clockLabelFontSize;
                         clockHandCoverSize = factor * 0.03 * setObjectParameter(pItemConfig.handsCoverSize, pDefaultConfig.clockOptions.hands.coverSize);
-
                         handData = [
                             {
                                 type: "hour",
@@ -3339,34 +2975,26 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 balance: secondHandBalance
                             }
                         ];
-
                         /* update the time */
                         const updateTime = function () {
                             time = new Date();
                             time.setMilliseconds(time.getMilliseconds() + diff);
-
                             handData[0].value = (time.getHours() % 12) + time.getMinutes() / 60;
                             handData[1].value = time.getMinutes();
                             handData[2].value = time.getSeconds();
                         };
-
                         updateTime();
-
                         if (!svg) {
                             svg = d3JS.select(pItemSel).append("svg").attr("id", clockID).attr("class", "bida-clock-svg");
                         }
-
                         svg.attr("width", getSVGWidth()).attr("height", getSVGHeight() * 2);
-
                         if (!clockElements) {
                             clockElements = svg.append("g").attr("transform", "translate(" + getSVGWidth() / 2 + "," + getSVGHeight() + ")");
-
                             /* define shadows */
                             if (shadows) {
                                 defineSVGShadows(svg, shadowID, 2, 2, 1);
                                 filterUrl = "url(#" + shadowID + ")";
                             }
-
                             clockElements
                                 .append("g")
                                 .append("circle")
@@ -3375,7 +3003,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .style("stroke", setObjectParameter(pItemConfig.circleColor, pDefaultConfig.clockOptions.circle.color))
                                 .style("stroke-width", circleWidth + "px")
                                 .style("fill", setObjectParameter(pItemConfig.circleFillColor, pDefaultConfig.clockOptions.circle.fillColor));
-
                             clockElements
                                 .selectAll(".bida-clock-second-tick")
                                 .data(d3JS.range(0, 60))
@@ -3384,7 +3011,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .attr("class", "bida-clock-second-tick")
                                 .attr("x1", 0)
                                 .attr("x2", 0);
-
                             clockElements
                                 .selectAll(".bida-clock-hour-tick")
                                 .data(d3JS.range(0, 12))
@@ -3393,7 +3019,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .attr("class", "bida-clock-hour-tick")
                                 .attr("x1", 0)
                                 .attr("x2", 0);
-
                             clockElements
                                 .selectAll(".bida-clock-hour-label")
                                 .data(d3JS.range(3, 13, 3))
@@ -3401,11 +3026,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .append("text")
                                 .attr("class", "bida-clock-hour-label")
                                 .attr("text-anchor", "middle");
-
                             clockElements.append("text").attr("x", 0).attr("class", "bida-clock-label").attr("text-anchor", "middle");
-
                             clockElements.append("text").attr("x", 0).attr("class", "bida-clock-label2").attr("text-anchor", "middle");
-
                             if (secondLabel) {
                                 clockElements
                                     .selectAll(".bida-clock-second-label")
@@ -3416,11 +3038,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     .attr("text-anchor", "middle");
                             }
                         }
-
                         clockElements.attr("transform", "translate(" + getSVGWidth() / 2 + "," + getSVGHeight() + ")");
-
                         clockElements.selectAll(".bida-clock-circle").attr("x", 0).attr("y", 0).attr("r", clockCircleRadius);
-
                         clockElements
                             .selectAll(".bida-clock-second-tick")
                             .attr("y1", secondTickStart)
@@ -3429,7 +3048,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 return "rotate(" + secondScale(d) + ")";
                             })
                             .style("stroke", setObjectParameter(pItemConfig.secondTickColor, pDefaultConfig.clockOptions.second.tickColor));
-
                         clockElements
                             .selectAll(".bida-clock-hour-tick")
                             .attr("y1", hourTickStart)
@@ -3438,7 +3056,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 return "rotate(" + hourScale(d) + ")";
                             })
                             .style("stroke", setObjectParameter(pItemConfig.hourTickColor, pDefaultConfig.clockOptions.hour.tickColor));
-
                         clockElements
                             .selectAll(".bida-clock-hour-label")
                             .attr("x", function (d) {
@@ -3452,7 +3069,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             })
                             .style("font-size", hourLabelSize + "px")
                             .style("fill", setObjectParameter(pItemConfig.hourLabelColor, pDefaultConfig.clockOptions.hour.labelColor));
-
                         if (util.isDefinedAndNotNull(secondLabel)) {
                             clockElements
                                 .selectAll(".bida-clock-second-label")
@@ -3468,7 +3084,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .style("font-size", secondLabelSize + "px")
                                 .style("fill", setObjectParameter(pItemConfig.secondLabelColor, pDefaultConfig.clockOptions.second.labelColor));
                         }
-
                         if (util.isDefinedAndNotNull(pItemData) && util.isDefinedAndNotNull(pItemData.label)) {
                             const label = formatLabelStr(pItemData.label);
                             clockElements
@@ -3478,7 +3093,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .style("font-size", clockLabelFontSize + "px")
                                 .style("fill", setObjectParameter(pItemConfig.labelColor, pDefaultConfig.clockOptions.label.labelColor));
                         }
-
                         if (util.isDefinedAndNotNull(pItemData) && util.isDefinedAndNotNull(pItemData.label2)) {
                             const label2 = formatLabelStr(pItemData.label2);
                             clockElements
@@ -3488,15 +3102,11 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .style("font-size", clockLabelFontSize + "px")
                                 .style("fill", setObjectParameter(pItemConfig.labelColor2, pDefaultConfig.clockOptions.label.labelColor2));
                         }
-
                         if (!hands) {
                             hands = clockElements.append("g").attr("id", clockHandsID);
-
                             clockElements.append("g").append("circle").attr("class", "bida-clock-hands-cover");
-
                             hands.selectAll("line").data(handData).enter().append("line");
                         }
-
                         clockElements
                             .selectAll(".bida-clock-hands-cover")
                             .attr("x", 0)
@@ -3504,7 +3114,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             .attr("r", clockHandCoverSize)
                             .style("fill", setObjectParameter(pItemConfig.handCoverFillColor, pDefaultConfig.clockOptions.hands.coverFillColor))
                             .style("stroke", setObjectParameter(pItemConfig.handCoverStrokeColor, pDefaultConfig.clockOptions.hands.coverStrokeColor));
-
                         hands
                             .selectAll("line")
                             .data(handData)
@@ -3523,7 +3132,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 return "rotate(" + d.scale(d.value) + ")";
                             })
                             .style("stroke", setObjectParameter(pItemConfig.handColor, pDefaultConfig.clockOptions.hands.color));
-
                         const moveHands = function () {
                             if (hands) {
                                 hands
@@ -3535,26 +3143,22 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         return "rotate(" + d.scale(d.value) + ")";
                                     });
                             }
-
                             if (clockElements) {
                                 if (util.isDefinedAndNotNull(pItemData) && util.isDefinedAndNotNull(pItemData.label)) {
                                     const label = formatLabelStr(pItemData.label);
                                     clockElements.selectAll(".bida-clock-label").text(label);
                                 }
-
                                 if (util.isDefinedAndNotNull(pItemData) && util.isDefinedAndNotNull(pItemData.label2)) {
                                     const label2 = formatLabelStr(pItemData.label2);
                                     clockElements.selectAll(".bida-clock-label2").text(label2);
                                 }
                             }
                         };
-
                         const stopTicking = function () {
                             if (timers.innerItemsIntervals && timers.innerItemsIntervals[clockIDSel]) {
                                 clearInterval(timers.innerItemsIntervals[clockIDSel]);
                             }
                         };
-
                         const startTicking = function () {
                             timers.innerItemsIntervals[clockIDSel] = setInterval(function () {
                                 if ($(clockIDSel).length === 0) {
@@ -3565,10 +3169,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 }
                             }, 1000);
                         };
-
                         stopTicking();
                         startTicking();
-
                         /* stop when tab is not active */
                         document.addEventListener("visibilitychange", function () {
                             if (document.hidden) {
@@ -3578,9 +3180,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             }
                         });
                     };
-
                     renderClock();
-
                     container.on("resize", function () {
                         renderClock();
                     });
@@ -3595,7 +3195,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     });
                 }
             }
-
             /***********************************************************************
              **
              ** function to draw a calendar
@@ -3613,38 +3212,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const pCon = $(pItemSel),
                     calendarID = pCon.attr("id") + "-calendar";
 
                 const calendarCon = $("<div></div>");
                 calendarCon.addClass("bida-calendar");
                 calendarCon.attr("id", calendarID);
-
                 pCon.append(calendarCon);
-
                 const eventLimit = setObjectParameter(pItemConfig.eventLimitPerDay, pDefaultConfig.calendarOptions.eventLimitPerDay),
                     displayTime = setObjectParameter(pItemConfig.displayTime, pDefaultConfig.calendarOptions.displayTime, true),
                     hours12 = setObjectParameter(pItemConfig.hours12, pDefaultConfig.calendarOptions.hours12, true),
                     timeGridStartTime = setObjectParameter(pItemConfig.timeGridStartTime, pDefaultConfig.calendarOptions.timeGridStartTime);
-
                 let viewType = setObjectParameter(pItemConfig.viewType, pDefaultConfig.calendarOptions.viewType),
                     locale = apex.locale && apex.locale.getLanguage ? apex.locale.getLanguage() : undefined,
                     stickyHeaderDates = setObjectParameter(pItemConfig.stickyHeaderDates, pDefaultConfig.calendarOptions.stickyHeaderDates);
-
                 if (stickyHeaderDates === "true") {
                     stickyHeaderDates = true;
                 }
-
                 if (stickyHeaderDates === "false") {
                     stickyHeaderDates = false;
                 }
-
                 /* workaround for 24:00 instead of 00:00*/
                 if (!hours12 && locale === "en") {
                     locale = "en-bz";
                 }
-
                 const defaultDateFormat = {
                     month: "2-digit",
                     year: "2-digit",
@@ -3654,18 +3245,51 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     hour12: hours12,
                     locale: locale
                 };
-
                 const possbileTypes = ["dayGridMonth", "dayGridWeek", "timeGridWeek", "listWeek", "listMonth", "listDay"];
-
                 if (possbileTypes.indexOf(viewType) < 0) {
                     viewType = "dayGridMonth";
                 }
-
                 // eslint-disable-next-line no-undef
                 const fullCalendar = FullCalendar;
-
+                // Hardcoded header toolbar config — custom classes for bida styling
+                const headerToolbarConf = {
+                    start: "ownPrev,ownNext",
+                    center: "title",
+                    end: "today"
+                };
+                // Hardcoded button definitions with Font Awesome icons and bida classes
+                // Build toolbar buttons via generateButton()
+                const buttonsConf = {
+                    today: {
+                        className: "t-Button t-Button--small bida-calendar-toolbar-button",
+                        text: apex.lang.getMessage("APEX.DATEPICKER.TODAY"),
+                        display: "text"
+                    },
+                    // custom button needed to apply fa icons
+                    ownPrev: {
+                        className: "t-Button t-Button--small bida-calendar-toolbar-button",
+                        iconClass: "fa fa-chevron-left",
+                        display: "icon",
+                        click: () => {
+                            calendar.prev();
+                        }
+                    },
+                    // custom button needed to apply fa icons
+                    ownNext: {
+                        className: "t-Button t-Button--small bida-calendar-toolbar-button",
+                        iconClass: "fa fa-chevron-right",
+                        display: "icon",
+                        click: () => {
+                            calendar.next();
+                        }
+                    }
+                };
                 const calendarEl = document.getElementById(calendarID);
                 const calendar = new fullCalendar.Calendar(calendarEl, {
+                    headerToolbar: headerToolbarConf,
+                    headerToolbarClass: "bida-calendar-toolbar",
+                    toolbarTitleClass: "u-text-subheading-xs",
+                    buttons: buttonsConf,
                     height: pItemHeight,
                     events: pItemData,
                     displayEventTime: displayTime,
@@ -3679,10 +3303,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 $(info.el).css("cursor", "pointer");
                             }
                         }
-
                         const html = $("<div></div>");
                         html.addClass("bida-calendar-event-tt");
-
                         const title = $("<b></b>");
                         title.addClass("bida-calendar-event-tt-title");
                         const htmlStr = escapeOrSanitizeHTML(info.event.title, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
@@ -3691,15 +3313,12 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             html.append(title);
                             html.append("<br>");
                         }
-
                         const subTitle = $("<div></div>");
                         subTitle.addClass("bida-calendar-event-tt-subtitle");
-
                         const subTitleIcon = $("<span></span>");
                         subTitleIcon.addClass("fa fa-clock-o");
                         subTitleIcon.addClass("bida-calendar-event-tt-icon");
                         subTitle.append(subTitleIcon);
-
                         const subTitleDateText = $("<span></span>");
                         subTitleDateText.addClass("bida-calendar-event-tt-date");
                         subTitleDateText.append(" ");
@@ -3709,9 +3328,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             subTitleDateText.append(fullCalendar.formatDate(info.event.end, defaultDateFormat));
                         }
                         subTitle.append(subTitleDateText);
-
                         html.append(subTitle);
-
                         if (util.isDefinedAndNotNull(info.event.extendedProps.details)) {
                             const str = escapeOrSanitizeHTML(info.event.extendedProps.details, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                             if (util.isDefinedAndNotNull(str)) {
@@ -3721,7 +3338,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 html.append(span);
                             }
                         }
-
                         util.tooltip.show(html);
                         util.tooltip.setPosition(info.jsEvent);
                     },
@@ -3766,23 +3382,18 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         hour12: defaultDateFormat.hour12
                     }
                 });
-
                 calendar.setOption("locale", locale);
                 calendar.changeView(viewType);
-
                 calendar.render();
-
                 if (pOversize !== true) {
                     calendarCon.css("height", pItemHeight);
                     calendarCon.addClass("bida-item-div-overflow");
                     overFlowStyling(calendarCon);
                 }
-
                 container.on("resize", function () {
                     calendar.render();
                 });
             }
-
             /***********************************************************************
              **
              ** function to draw a note editor
@@ -3801,35 +3412,27 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 const item$ = $(pItemSel),
                     noteID = item$.attr("id") + "-note";
-
                 const noteCon = $("<div></div>");
                 noteCon.addClass("bida-note");
                 noteCon.attr("id", noteID);
                 noteCon.css("height", pItemHeight);
-
                 item$.append(noteCon);
-
                 const savebtnID = noteID + "-save",
                     selectClass = "pell-button-c-select";
-
                 function disableSaveButton() {
                     $("#" + savebtnID)
                         .parent()
                         .addClass("pell-button-disabled");
                 }
-
                 const highlightArr = [],
                     colors = ["#000", "#f77272", "#f7f772", "#8af772", "#72aef7", "#c672f7"];
-
                 highlightArr.push(`<select class="${selectClass}" onchange="$('#${noteID}').trigger('colorchange', this.value );">`);
                 colors.forEach(function (element) {
                     highlightArr.push(`<option value="${element}" style="color:${element};">&#9632;</option>`);
                 });
                 highlightArr.push("</select>");
-
                 pell.init({
                     element: document.getElementById(noteID),
                     onChange: function () {
@@ -3854,7 +3457,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 const content = noteCon.find(".pell-content");
                                 util.loader.start(pItemSel);
                                 disableSaveButton();
-
                                 const clob = content.html();
                                 const chunkArr = util.splitString2Array(clob);
                                 const submitItems = pDefaultConfig.items2Submit;
@@ -3991,7 +3593,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         }
                     ]
                 });
-
                 noteCon.on("colorchange", function (event, data) {
                     // remove hilite when black is selected
                     if (data === "#000") {
@@ -4000,32 +3601,26 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         pell.exec("hiliteColor", data);
                     }
                 });
-
                 let str;
                 if (pItemData && typeof pItemData === "object") {
                     str = pItemData.text;
                 } else {
                     str = pItemData;
                 }
-
                 str = escapeOrSanitizeHTML(str, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
-
                 const content = noteCon.find(".pell-content");
                 const setHeight = function () {
                     const actionBarHeight = noteCon.find(".pell-actionbar").height();
                     content.css("height", noteCon.height() - actionBarHeight);
                 };
-
                 content.html(str);
                 setHeight();
                 disableSaveButton();
                 noteCon.find(".pell-button").removeAttr("title");
-
                 container.on("resize", function () {
                     setHeight();
                 });
             }
-
             /***********************************************************************
              **
              ** function to render d3JS calendar heatmap
@@ -4040,22 +3635,18 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pValuesData: pValuesData,
                     featureDetails: util.featureDetails
                 });
-
                 // apex.locale is only available on 21.2 so this is the en fallback
                 let startOfWeek = "sunday",
                     localeDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
                     localeMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
                 // check if the all needed apex.locale api's are available
                 if (typeof apex.locale.getSettings === "function" && apex.locale.getSettings().calendar && apex.locale.getSettings().calendar.startOfWeek) {
                     localeMonths = apex.locale.getAbbrevMonthNames();
                     localeDays = apex.locale.getAbbrevDayNames();
                     startOfWeek = apex.locale.getSettings().calendar.startOfWeek;
                 }
-
                 // eslint-disable-next-line no-undef
                 const d3JS = d3;
-
                 const dataMap = new Map(),
                     item$ = $(pItemSel),
                     calendarContainerID = item$.attr("id") + "-cheatmap",
@@ -4068,42 +3659,33 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     monthst1 = localeMonths.slice(curMonth + 1),
                     monthst2 = localeMonths.slice(0, curMonth + 1),
                     months = monthst1.concat(monthst2);
-
                 let startMonday = false,
                     week = d3JS.timeSunday;
-
                 if (startOfWeek === "monday") {
                     startMonday = true;
                     week = d3JS.timeMonday;
                 }
-
                 pValuesData.forEach((element) => {
                     if (element.date) {
                         dataMap.set(element.date.substr(0, 10), element);
                     }
                 });
-
                 const calendarContainer = $("<div>");
                 calendarContainer.attr("id", calendarContainerID);
                 calendarContainer.css("height", pItemHeight);
                 item$.append(calendarContainer);
-
                 const renderHeatMap = function () {
                     calendarContainer.empty();
-
                     const width = item$.width(),
                         cellSize = width / 53 - 40 / 53,
                         cellHeight = pItemHeight / 7 - 20 / 7,
                         axisCorrect = 40;
-
                     let marginCorrent = 4;
-
                     if (width <= 640) {
                         marginCorrent = 2;
                     } else if (width <= 450) {
                         marginCorrent = 1;
                     }
-
                     const svg = d3JS
                         .select(calendarContainerSel)
                         .selectAll("svg")
@@ -4116,7 +3698,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         .attr("class", "bida-calendar-heatmap-calendar")
                         .append("g")
                         .attr("transform", `translate(${(width - cellSize * 53) / 2 + 10}, 15)`);
-
                     svg.append("g")
                         .attr("fill", defaultCellColor)
                         .attr("stroke", "transparent")
@@ -4147,7 +3728,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 return entry.color || defaultCellColor;
                             }
                         });
-
                     const allDays = calendarContainer.find(".bida-calendar-heatmap-day");
                     $.each(allDays, function () {
                         const day = $(this)[0];
@@ -4159,25 +3739,19 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                         const div = $("<div>"),
                                             title = $("<div>"),
                                             tooltip = $("<div>");
-
                                         div.addClass("bida-calendar-heatmap-tt");
-
                                         const b = $("<b>");
                                         b.text(`${formatDate(entry.date)}: `);
-
                                         const span = $("<span>");
                                         span.text(entry.value);
-
                                         title.append(b);
                                         title.append(span);
                                         div.append(title);
-
                                         if (util.isDefinedAndNotNull(entry.tooltip)) {
                                             const ttStr = escapeOrSanitizeHTML(entry.tooltip, pDefaultConfig, pIsSafeItem, pRequireHTMLEscape);
                                             tooltip.html(ttStr);
                                             div.append(tooltip);
                                         }
-
                                         util.tooltip.show(div[0].outerHTML);
                                     }
                                 })
@@ -4195,7 +3769,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 });
                         }
                     });
-
                     svg.append("g")
                         .attr("fill", "none")
                         .attr("stroke", "#aaa")
@@ -4214,31 +3787,24 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             return `M${(w0 + 1) * cellSize
                                 }, ${d0 * cellHeight}H${w0 * cellSize}V${7 * cellHeight}H${w1 * cellSize}V${(d1 + 1) * cellHeight}H${(w1 + 1) * cellSize}V0H${(w0 + 1) * cellSize}Z`;
                         });
-
                     const xAxisScale = d3JS
                         .scaleBand()
                         .domain(months)
                         .range([0, width - axisCorrect]);
-
                     const xAxis = d3JS.axisTop(xAxisScale).tickSize(0);
                     svg.append("g").call(xAxis).selectAll("path").attr("stroke", "transparent");
-
                     const yAxisScale = d3JS
                         .scaleBand()
                         .domain(localeDays)
                         .range([0, pItemHeight - 20]);
-
                     const yAxis = d3JS.axisLeft(yAxisScale).tickSize(0);
                     svg.append("g").call(yAxis).selectAll("path").attr("stroke", "transparent");
                 };
-
                 renderHeatMap();
-
                 container.on("resize", function () {
                     renderHeatMap();
                 });
             }
-
             /***********************************************************************
              **
              ** function to render d3JS geoMap
@@ -4255,11 +3821,9 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                     pIsSafeItem: pIsSafeItem,
                     featureDetails: util.featureDetails
                 });
-
                 try {
                     // eslint-disable-next-line no-undef
                     const d3JS = d3;
-
                     const item$ = $(pItemSel),
                         isTour = setObjectParameter(pItemConfig.tourEnabled, pDefaultConfig.mapOptions.tour.enabled, true),
                         tourSpeed = setObjectParameter(pItemConfig.tourSpeed, pDefaultConfig.mapOptions.tour.speed) / 2000,
@@ -4284,7 +3848,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         oceanURL = "url(#" + oceanID + ")",
                         highlightURL = "url(#" + highlightID + ")",
                         shadingURL = "url(#" + shadingID + ")";
-
                     let ocean,
                         highlight,
                         shading,
@@ -4295,38 +3858,30 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                         circles,
                         projection,
                         tourShadowEffect = setObjectParameter(pItemConfig.tourShadowEffect, pDefaultConfig.mapOptions.tour.shadowEffect, true);
-
                     if (!isTour) {
                         tourShadowEffect = false;
                     }
-
                     /* function to get width and height of svg */
                     const getSVGWidth = function () {
                         return item$.width();
                     };
-
                     const getSVGHeight = function () {
                         return pItemHeight;
                     };
-
                     /* function to get center of map */
                     const getCenter = function () {
                         return [getSVGWidth() / 2, getSVGHeight() / 2];
                     };
-
                     /* define svg and set size of svg */
                     const svg = d3JS.select(pItemSel).append("svg").attr("class", "bida-map-svg").attr("width", getSVGWidth()).attr("height", getSVGHeight());
-
                     /* define shadows */
                     if (mapShadows || circleShadows) {
                         defineSVGShadows(svg, shadowID, 2, 2, 1);
                         shadowURL = "url(#" + shadowID + ")";
                     }
-
                     let tour,
                         startTime = d3JS.now(),
                         totalElapsedTime = 0;
-
                     /* set projection e.g. map type  */
                     if (isTour) {
                         projection = d3JS
@@ -4340,10 +3895,8 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             .scale((getSVGHeight() / 2.5) * initialZoom)
                             .translate(getCenter());
                     }
-
                     /* define path with current projection */
                     const path = d3JS.geoPath().projection(projection);
-
                     /* function to render d3JS map when map json is loaded */
                     const render = function (data) {
                         apex.debug.info({
@@ -4351,22 +3904,17 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             geoJSONData: data,
                             featureDetails: util.featureDetails
                         });
-
                         const g = svg.append("g");
-
                         if (tourShadowEffect) {
                             const oceanEff = svg.append("defs").append("radialGradient").attr("id", oceanID).attr("cx", "75%").attr("cy", "25%");
                             oceanEff.append("stop").attr("offset", "5%").attr("stop-color", "#fff");
                             oceanEff.append("stop").attr("offset", "100%").attr("stop-color", "rgb(240,240,240)");
-
                             const highlightEff = svg.append("defs").append("radialGradient").attr("id", highlightID).attr("cx", "75%").attr("cy", "25%");
                             highlightEff.append("stop").attr("offset", "5%").attr("stop-color", "rgb(250,250,250)").attr("stop-opacity", "0.3");
                             highlightEff.append("stop").attr("offset", "100%").attr("stop-color", "rgb(230,230,230)").attr("stop-opacity", "0.15");
-
                             const shadingEff = svg.append("defs").append("radialGradient").attr("id", shadingID).attr("cx", "55%").attr("cy", "45%");
                             shadingEff.append("stop").attr("offset", "30%").attr("stop-color", "#fff").attr("stop-opacity", "0");
                             shadingEff.append("stop").attr("offset", "100%").attr("stop-color", "rgb(220,220,220)").attr("stop-opacity", "0.3");
-
                             ocean = g
                                 .append("circle")
                                 .attr("cx", getSVGWidth() / 2)
@@ -4374,12 +3922,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .attr("r", projection.scale())
                                 .style("fill", oceanURL);
                         }
-
                         /* add map paths */
                         if (mapShadows) {
                             mapShadowURL = shadowURL;
                         }
-
                         paths = g
                             .append("path")
                             .attr("d", path(data))
@@ -4388,7 +3934,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             .style("stroke", mapStroke)
                             .style("stroke-width", mapStrokeWidth)
                             .style("fill", mapColor);
-
                         if (tourShadowEffect) {
                             highlight = g
                                 .append("circle")
@@ -4396,7 +3941,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .attr("cy", getSVGHeight() / 2)
                                 .attr("r", projection.scale())
                                 .style("fill", highlightURL);
-
                             shading = g
                                 .append("circle")
                                 .attr("cx", getSVGWidth() / 2)
@@ -4404,12 +3948,10 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 .attr("r", projection.scale())
                                 .style("fill", shadingURL);
                         }
-
                         /* add circles */
                         if (circleShadows) {
                             circlehadowURL = shadowURL;
                         }
-
                         circles = g
                             .selectAll(".bida-map-circle")
                             .data(pItemData)
@@ -4457,11 +3999,9 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             .attr("r", function (d) {
                                 return setObjectParameter(d.radius, circlesRadius);
                             });
-
                         /* update elements when projection changed */
                         function projectionChanged() {
                             paths.attr("d", path(data));
-
                             if (tourShadowEffect) {
                                 ocean
                                     .attr("cx", getSVGWidth() / 2)
@@ -4476,7 +4016,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     .attr("cy", getSVGHeight() / 2)
                                     .attr("r", projection.scale());
                             }
-
                             circles
                                 .attr("transform", function (d) {
                                     return "translate(" + projection([d.longitude, d.latitude]) + ")";
@@ -4491,18 +4030,15 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     return setObjectParameter(d.radius, circlesRadius);
                                 });
                         }
-
                         /* add animated tour when options is set but then disable zoom and pan */
                         if (isTour) {
                             let i = 0;
                             /* set direction of tour */
                             let direction = -1;
                             let elapsedTime;
-
                             if ((pItemConfig.tourDirection || pDefaultConfig.mapOptions.tour.direction) === "left") {
                                 direction = 1;
                             }
-
                             /* create tour animation */
                             const timerCallback = function () {
                                 i += 1;
@@ -4516,25 +4052,20 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 }
                                 if (i % 3 === 0) {
                                     elapsedTime = d3JS.now() - startTime;
-
                                     projection.rotate([(tourSpeed * elapsedTime + tourStart) * direction, -10, 0]);
                                     projectionChanged();
                                 }
                             };
-
                             tour = d3JS.timer(timerCallback);
                             timers.d3Timer.push(tour);
-
                             svg.on("mouseover", function () {
                                 totalElapsedTime = d3JS.now() - startTime;
                                 tour.stop();
                             });
-
                             svg.on("mouseout", function () {
                                 startTime = d3JS.now() - totalElapsedTime;
                                 tour.restart(timerCallback);
                             });
-
                             /* stop when tab is not active */
                             document.addEventListener("visibilitychange", function () {
                                 if (document.hidden) {
@@ -4552,9 +4083,7 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                     .on("zoom", function (event) {
                                         g.attr("transform", event.transform);
                                     });
-
                                 svg.call(zoom);
-
                                 /* init zoom on mouse rightclick */
                                 svg.on("contextmenu", function (event) {
                                     event.preventDefault();
@@ -4562,7 +4091,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                                 });
                             }
                         }
-
                         container.on("resize", function () {
                             svg.attr("width", getSVGWidth());
                             svg.attr("height", getSVGHeight());
@@ -4570,7 +4098,6 @@ const apexBIDashBoard = function (apex, $, DOMPurify, Masonry, pell) {
                             projectionChanged();
                         });
                     };
-
                     /* load map json and draw map */
                     if (isTour) {
                         if (!mapJSON.tour) {

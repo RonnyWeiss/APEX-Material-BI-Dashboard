@@ -16,6 +16,6 @@ You can find a tutorial at https://www.youtube.com/watch?v=amzzRHLT5KY&list=PL9d
 
 For working Demo just click on:
 
-https://apex.oracle.com/pls/apex/f?p=103428
+https://oracleapex.com/ords/f?p=103428
 
 **Important clarification: My work in the development team of Oracle APEX is in no way related to my open source projects or the plug-ins on apex.world! All plug-ins are built in my spare time and are not supported by Oracle!**

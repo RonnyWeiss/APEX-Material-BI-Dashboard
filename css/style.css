@@ -1,16 +1,16 @@
 .bida-item-title {
-    padding-left: 8px;
+    padding: 8px;
     width: 100%;
     border-bottom: 1px solid rgb(235, 235, 235);
     padding-right: 30px;
-    height: 34px;
     background-size: cover;
     background-position: center;
 }
 
 .bida-item-title-text {
-    line-height: 34px;
-    font-size: 17px;
+    font-size: var(--ut-text-subheading-xs-font-size);
+    font-weight: var(--ut-text-subheading-xs-font-weight);
+    line-height: var(--ut-text-subheading-xs-line-height);
 }
 
 .bida-item-title-icon {
